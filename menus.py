@@ -1,4 +1,3 @@
-import random
 
 dificultad = "Normal"  # Dificultad por defecto: Normal
 
