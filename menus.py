@@ -39,6 +39,10 @@ def principal():
             dificultad = "Normal"
         elif dificultad == '3':
             dificultad = "Difícil"
+        print(f"Dificultad establecida a: {dificultad}")
+    elif eleccion == '3':
+        print("Saliendo del juego. ¡Hasta luego!")
+        exit()
     
 
 
