@@ -3,7 +3,8 @@ import random
 dificultad = "Normal"  # Dificultad por defecto: Normal
 
 def principal():
-    """Menu principal del juego."""
+    """Menu principal del juego.
+    Sirve para iniciar el juego, seleccionar la dificultad o salir."""
     print("=== MENÚ PRINCIPAL ===")
     print("1. Iniciar juego")
     print("2. Seleccionar dificultad")
@@ -44,17 +45,3 @@ def principal():
         print("Saliendo del juego. ¡Hasta luego!")
         exit()
     
-
-
-
-#def generar_nombre_nave():
-#    """Genera un nombre aleatorio para la nave."""
-#    nombres = [
-#    "USS Enterprise", "Halcón Milenario", "Serenity", "Galáctica",
-#    "Nostromo", "Rocinante", "Andromeda", "Odyssey", "Event Horizon",
-#    "Intrepid", "Discovery", "Voyager", "Endeavour", "Constellation",
-#    "Prometheus", "Daedalus", "Hawking", "Aurora", "Nova", "Orion",
-#    "Pioneer", "Falcon", "Nebula", "Phoenix", "Aegis", "Valkyrie",
-#    "Leviathan", "Atlas", "Corsair", "Argonaut"
-#]
-#    return random.choice(nombres)
