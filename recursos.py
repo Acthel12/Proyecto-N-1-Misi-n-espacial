@@ -1,7 +1,9 @@
 oxigeno = 100
 combustible = 100
 integridad = 100
-dias = 0
+energia = 100
+dias_restantes = 0
+dias_transcurridos = 0
 moral = 100
 suministros = 100
 
@@ -12,12 +14,13 @@ def mostrar_recursos():
     print(f"Energía: {energia}%")
     print(f"Integridad de la nave: {integridad}%")
     print(f"Suministros: {suministros}%")
-    print(f"Días restantes: {dias}")
+    print(f"Días restantes: {dias_restantes}")
+    print(f"Días transcurridos: {dias_transcurridos}")
     print(f"Moral de la tripulación: {moral}%")
 
 def validar_recursos():
     """Verifica si algún recurso ha llegado a cero o si los días han llegado a su límite."""
-    global oxigeno, combustible, energia, integridad, dias, moral, suministros
+    global oxigeno, combustible, energia, integridad, dias_restantes, dias_transcurridos, moral, suministros
 
     # Comprobaciones críticas: si cualquiera de estos recursos llega a 0, la misión falla
     if oxigeno <= 0:
@@ -39,11 +42,16 @@ def validar_recursos():
         print("Moral de la tripulación completamente baja. Fin de la misión.")
         return False
 
+    # Si los días restantes llegan a 0 después de haber transcurrido al menos un día, la misión termina.
+    if dias_restantes <= 0 and dias_transcurridos > 0:
+        print("Se han agotado los días de la misión. Fin de la misión.")
+        return False
+
     return True
 
 def actualizar_recurso(recurso, cantidad):
     """Actualiza un recurso específico en una cantidad dada."""
-    global oxigeno, combustible, energia, integridad, dias, moral, suministros
+    global oxigeno, combustible, energia, integridad, dias_restantes, dias_transcurridos, moral, suministros
     
     if recurso == "oxigeno":
         oxigeno = max(0, min(100, oxigeno + cantidad))
@@ -54,7 +62,11 @@ def actualizar_recurso(recurso, cantidad):
     elif recurso == "integridad":
         integridad = max(0, min(100, integridad + cantidad))
     elif recurso == "dias":
-        dias = max(0, dias + cantidad)
+        # Avanzar días: aumentar dias_transcurridos y reducir dias_restantes.
+        # cantidad puede ser positiva (avanzar) o negativa (retroceder/corregir).
+        dias_transcurridos = max(0, dias_transcurridos + cantidad)
+        # Restar los días avanzados de los días restantes; si cantidad es negativa, se suman.
+        dias_restantes = max(0, dias_restantes - cantidad)
     elif recurso == "suministros":
         suministros = max(0, min(100, suministros + cantidad))
     elif recurso == "moral":
@@ -62,11 +74,12 @@ def actualizar_recurso(recurso, cantidad):
         
 def reiniciar_recursos():
     """Reinicia todos los recursos a sus valores iniciales."""
-    global oxigeno, combustible, energia, integridad, dias, moral, suministros
+    global oxigeno, combustible, energia, integridad, dias_restantes, dias_transcurridos, moral, suministros
     oxigeno = 100
     combustible = 100
     energia = 100
     integridad = 100
     suministros = 100
-    dias = 0
+    dias_restantes = 0
+    dias_transcurridos = 0
     moral = 100
