@@ -1,5 +1,4 @@
 import menus
-import recursos
 
 def main():
         menus.principal()

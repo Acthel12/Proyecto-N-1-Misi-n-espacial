@@ -1,14 +1,23 @@
 import recursos
-import eventos
 import engine
+import os
 
 dificultad = "Normal"  # Dificultad por defecto: Normal
 eventos_diarios = 5  # Número de eventos diarios por defecto
+
+def clear_screen():
+    """Limpia la pantalla de la consola."""
+    #Gracias Khalid por ayudarme con esto :)
+    if os.name == 'nt':  # Revisa si el sistema operativo es Windows
+        os.system('cls')
+    else:  # Asume que es un sistema tipo Unix (Linux, macOS)
+        os.system('clear')
 
 def principal():
     """Menu principal del juego.
     Sirve para iniciar el juego, seleccionar la dificultad o salir."""
     while True:
+        clear_screen()
         print("=== MENÚ PRINCIPAL ===")
         print("1. Iniciar juego")
         print("2. Seleccionar dificultad")
@@ -45,6 +54,7 @@ def principal():
             elif dificultad == '3':
                 dificultad = "Difícil"
             print(f"Dificultad establecida a: {dificultad}")
+            input("Presiona Enter para regresar al menú...")
         elif eleccion == '3':
             print("Saliendo del juego. ¡Hasta luego!")
             exit()
@@ -66,6 +76,7 @@ def in_game_menu():
     """Menú dentro del juego.
     Permite al jugador ver recursos, continuar o salir al menú principal."""
     while True:
+        clear_screen()
         print("=== MENÚ DEL JUEGO ===")
         print("1. Ver recursos")
         print("2. Continuar juego")
@@ -77,15 +88,20 @@ def in_game_menu():
             eleccion = input("Seleccione una opción: ")
         
         if eleccion == '1':
+            clear_screen()
+            print("=== RECURSOS ACTUALES ===")
             recursos.mostrar_recursos()
+            input("Presiona Enter para regresar al menú...")  # Pausa para que el jugador pueda ver los recursos
         elif eleccion == '2':
             print("Continuando el juego...")
             break  # Salir del menú para continuar el juego
         elif eleccion == '3':
             print("Regresando al menú principal...")
+            recursos.reiniciar_recursos()  # Reiniciar los recursos para una nueva partida
             principal()  # Regresar al menú principal
 
 def inicio_dia():
+    clear_screen()
     """Menu de inicio de día."""
     print("=== INICIO DEL DÍA ===")
     print("Dia numero:", recursos.dias_transcurridos)
@@ -93,6 +109,7 @@ def inicio_dia():
     input("Presiona Enter para continuar...")
 
 def fin_dia():
+    clear_screen()
     """Menu de fin de día."""
     print("=== FIN DEL DÍA ===")
     recursos.mostrar_recursos()

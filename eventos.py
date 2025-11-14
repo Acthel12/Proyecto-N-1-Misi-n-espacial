@@ -15,6 +15,7 @@ def evento_aleatorio():
         repartir_suministros()
     elif eventos == "4":
         tormenta_cosmica_repentina()
+    input("Presiona Enter para continuar...")
 
 #Los eventos por ahora solo afetan -5 o +5 a los recursos, pero se pueden modificar
 
