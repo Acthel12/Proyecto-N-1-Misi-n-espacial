@@ -6,7 +6,6 @@ dias_restantes = 0
 dias_transcurridos = 0
 moral = 100
 suministros = 100
-velocidad_nave = 1  
 distancia_a_destino = 0 
 
 def mostrar_recursos():
@@ -19,7 +18,6 @@ def mostrar_recursos():
     print(f"Días restantes: {dias_restantes}")
     print(f"Días transcurridos: {dias_transcurridos}")
     print(f"Moral de la tripulación: {moral}%")
-    print(f"Velocidad de la nave: {velocidad_nave}")
     print(f"Distancia al destino: {distancia_a_destino} años luz")
 
 def validar_recursos():
@@ -55,16 +53,32 @@ def validar_recursos():
 
 def actualizar_recurso(recurso, cantidad):
     """Actualiza un recurso específico en una cantidad dada."""
-    global oxigeno, combustible, energia, integridad, dias_restantes, dias_transcurridos, moral, suministros
+    global oxigeno, combustible, energia, integridad, dias_restantes, dias_transcurridos, moral, suministros, distancia_a_destino
     
     if recurso == "oxigeno":
         oxigeno = max(0, min(100, oxigeno + cantidad))
+        if oxigeno / int(oxigeno) != 1:
+            oxigeno = round(oxigeno, 2)
+        else:
+            oxigeno = int(oxigeno)            
     elif recurso == "combustible":
         combustible = max(0, min(100, combustible + cantidad))
+        if combustible / int(combustible) != 1:
+            combustible = round(combustible, 2)
+        else:
+            combustible = int(combustible)
     elif recurso == "energia":
         energia = max(0, min(100, energia + cantidad))
+        if energia / int(energia) != 1:
+            energia = round(energia, 2)
+        else:
+            energia = int(energia)
     elif recurso == "integridad":
         integridad = max(0, min(100, integridad + cantidad))
+        if integridad / int(integridad) != 1:
+            integridad = round(integridad, 2)
+        else:
+            integridad = int(integridad)
     elif recurso == "dias":
         # Avanzar días: aumentar dias_transcurridos y reducir dias_restantes.
         # cantidad puede ser positiva (avanzar) o negativa (retroceder/corregir).
@@ -73,12 +87,23 @@ def actualizar_recurso(recurso, cantidad):
         dias_restantes = max(0, dias_restantes - cantidad)
     elif recurso == "suministros":
         suministros = max(0, min(100, suministros + cantidad))
+        if suministros / int(suministros) != 1:
+            suministros = round(suministros, 2)
+        else:
+            suministros = int(suministros)
     elif recurso == "moral":
         moral = max(0, min(100, moral + cantidad))
+        if moral / int(moral) != 1:
+            moral = round(moral, 2)
+        else:
+            moral = int(moral)
+    elif recurso == "distancia":
+        distancia_a_destino = max(0, distancia_a_destino + cantidad)
+
         
 def reiniciar_recursos():
     """Reinicia todos los recursos a sus valores iniciales."""
-    global oxigeno, combustible, energia, integridad, dias_restantes, dias_transcurridos, moral, suministros
+    global oxigeno, combustible, energia, integridad, dias_restantes, dias_transcurridos, moral, suministros, distancia_a_destino
     oxigeno = 100
     combustible = 100
     energia = 100
@@ -87,14 +112,4 @@ def reiniciar_recursos():
     dias_restantes = 0
     dias_transcurridos = 0
     moral = 100
-    
-def cambiar_velocidad(nueva_velocidad):
-    """Cambia la velocidad de la nave."""
-    global velocidad_nave
-    while type(nueva_velocidad) != type(1):
-        print("Velocidad no válida. Debe ser un número entero entre 1 y 3.")
-        nueva_velocidad = int(input("Ingrese una nueva velocidad para la nave (1-3): "))
-    while nueva_velocidad <= 0 and nueva_velocidad > 3:
-        print("Velocidad no válida. Debe estar entre 1 y 3.")
-        nueva_velocidad = int(input("Ingrese una nueva velocidad para la nave (1-3): "))
-    velocidad_nave = nueva_velocidad
+    distancia_a_destino = 0

@@ -41,7 +41,7 @@ def tormenta_cosmica_():
             recursos.actualizar_recurso("combustible", -5)
         else:
             print("Has perdido algunos días al esquivar la tormenta.")
-            recursos.actualizar_recurso("dias", -2)
+            recursos.actualizar_recurso("dias", 2)
     else:
         suerte = random.randint(1, 100)
         if suerte >= 50:

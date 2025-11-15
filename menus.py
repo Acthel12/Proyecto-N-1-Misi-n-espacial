@@ -1,5 +1,4 @@
 import recursos
-import engine
 import os
 
 dificultad = "Normal"  # Dificultad por defecto: Normal
@@ -32,7 +31,8 @@ def principal():
             
         if eleccion == '1':
             print("Iniciando juego...")
-            engine.juego()
+            configurar_dificultad()
+            break
         elif eleccion == '2':
             #Selección de dificultad
             print("=== SELECCIONAR DIFICULTAD ===")
@@ -61,17 +61,14 @@ def principal():
 
 def configurar_dificultad():
     if dificultad == "Fácil":
-        print("Has seleccionado la dificultad Fácil.")
         recursos.actualizar_recurso("dias", -30)  # Más días en dificultad fácil
         recursos.actualizar_recurso("distancia", 1000)  # Menor distancia en dificultad fácil
         global eventos_diarios
         eventos_diarios = 3  # Menos eventos diarios en dificultad fácil
     elif dificultad == "Normal":
-        print("Has seleccionado la dificultad Normal.")
         recursos.actualizar_recurso("dias", -20)  # Días estándar
         recursos.actualizar_recurso("distancia", 2000)  # Distancia estándar
     elif dificultad == "Difícil":
-        print("Has seleccionado la dificultad Difícil.")
         recursos.actualizar_recurso("dias", -15)  # Menos días en dificultad difícil
         recursos.actualizar_recurso("distancia", 2500)  # Mayor distancia en dificultad difícil
     
