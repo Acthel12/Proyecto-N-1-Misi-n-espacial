@@ -16,6 +16,7 @@ def clear_screen():
 def principal():
     """Menu principal del juego.
     Sirve para iniciar el juego, seleccionar la dificultad o salir."""
+    recursos.reiniciar_recursos()
     while True:
         clear_screen()
         print("=== MENÚ PRINCIPAL ===")
@@ -98,7 +99,6 @@ def in_game_menu():
             return False
         elif eleccion == '3':
             print("Regresando al menú principal...")
-            recursos.reiniciar_recursos()  # Reiniciar los recursos para una nueva partida
             return True # Regresar al menú principal
 
 def inicio_dia():
@@ -143,7 +143,6 @@ def game_over():
     if eleccion == '1':
         print("Regresando al menú principal...")
         input("Presiona Enter para continuar...")
-        recursos.reiniciar_recursos()  # Reiniciar los recursos para una nueva partida
     elif eleccion == '2':
         print("Saliendo del juego. ¡Hasta luego!")
         exit()
@@ -164,7 +163,6 @@ def victoria():
     if eleccion == '1':
         print("Regresando al menú principal...")
         input("Presiona Enter para continuar...")
-        recursos.reiniciar_recursos()  # Reiniciar los recursos para una nueva partida
     elif eleccion == '2':
         print("Saliendo del juego. ¡Hasta luego!")
         exit() 
@@ -172,26 +170,23 @@ def victoria():
 def motores():
     clear_screen()
     """Menu de motores."""
-    while True:
+    while recursos.combustible > 0:
+        clear_screen()
         print("=== MENÚ DE MOTORES ===")
         print("Aquí puedes gestionar los motores de tu nave espacial.")
         print("Que cantidad de combustible deseas usar para avanzar?")
         print("la cantidad máxima es 50 %.")
         print("La cantidad minima es 0 %.")
+        print(f"Tienes {recursos.combustible}% de combustible disponible.")
         cantidad = input("Ingresa la cantidad de combustible a usar: ")
-        while (cantidad.replace('.','',1).isdigit() == False) and (float(cantidad) < 0.0 or float(cantidad) > 50.0) and (float(cantidad) > float(recursos.combustible)):
-            print("Cantidad no válida. Intente de nuevo.")
-            cantidad = input("Ingresa la cantidad de combustible a usar: ")
-            if cantidad.replace('.','',1).isdigit() == True:
-                cantidad = float(cantidad)
-                while cantidad < 0.0 or cantidad >= 50.0:
-                    print("Cantidad no válida. Intente de nuevo.")
-                    cantidad = float(input("Ingresa la cantidad de combustible a usar: "))
-                if cantidad.replace('.','',1).isdigit() == False and (float(cantidad) < 0.0 or float(cantidad) > 50.0):
-                    while float(cantidad) > float(recursos.combustible):
-                        print("Cantidad no válida. Intente de nuevo.")
-                        cantidad = input("Ingresa la cantidad de combustible a usar: ")
-                    
+        while (cantidad.replace('.','',1).isdigit() == False) or (float(cantidad) <= 0.0 or float(cantidad) > 50.0) or (float(cantidad) > float(recursos.combustible)):
+            if cantidad.replace('.','',1).isdigit() == False:
+                print("Opción no válida. Intente de nuevo.")
+            elif float(cantidad) <= 0.0 or float(cantidad) > 50.0:
+                print("La cantidad debe estar entre 0 y 50. Intente de nuevo.")
+            elif float(cantidad) > float(recursos.combustible):
+                print("No tienes suficiente combustible. Intente de nuevo.")
+            cantidad = input("Ingresa la cantidad de combustible a usar: ")                        
         cantidad = float(cantidad)      
         print(f"Usando {cantidad}% de combustible para avanzar...")
         print("Esta seguro?")

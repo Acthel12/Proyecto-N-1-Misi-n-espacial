@@ -26,8 +26,8 @@ def main():
                         if not recursos.validar_recursos():
                                 menus.game_over()
                                 break
-                        menus.fin_dia()
                         menus.motores()
+                        menus.fin_dia()
                         if recursos.distancia_a_destino == 0:
                                 menus.victoria()
                                 break
