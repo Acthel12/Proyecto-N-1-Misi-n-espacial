@@ -6,6 +6,8 @@ dias_restantes = 0
 dias_transcurridos = 0
 moral = 100
 suministros = 100
+velocidad_nave = 1  
+distancia_a_destino = 0 
 
 def mostrar_recursos():
     """Muestra los recursos actuales del jugador."""
@@ -17,6 +19,8 @@ def mostrar_recursos():
     print(f"Días restantes: {dias_restantes}")
     print(f"Días transcurridos: {dias_transcurridos}")
     print(f"Moral de la tripulación: {moral}%")
+    print(f"Velocidad de la nave: {velocidad_nave}")
+    print(f"Distancia al destino: {distancia_a_destino} años luz")
 
 def validar_recursos():
     """Verifica si algún recurso ha llegado a cero o si los días han llegado a su límite."""
@@ -83,3 +87,14 @@ def reiniciar_recursos():
     dias_restantes = 0
     dias_transcurridos = 0
     moral = 100
+    
+def cambiar_velocidad(nueva_velocidad):
+    """Cambia la velocidad de la nave."""
+    global velocidad_nave
+    while type(nueva_velocidad) != type(1):
+        print("Velocidad no válida. Debe ser un número entero entre 1 y 3.")
+        nueva_velocidad = int(input("Ingrese una nueva velocidad para la nave (1-3): "))
+    while nueva_velocidad <= 0 and nueva_velocidad > 3:
+        print("Velocidad no válida. Debe estar entre 1 y 3.")
+        nueva_velocidad = int(input("Ingrese una nueva velocidad para la nave (1-3): "))
+    velocidad_nave = nueva_velocidad
