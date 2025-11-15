@@ -4,7 +4,7 @@ integridad = 100
 energia = 100
 dias_restantes = 0
 dias_transcurridos = 0
-moral = 100
+moral = 10
 suministros = 100
 distancia_a_destino = 0 
 
@@ -57,25 +57,25 @@ def actualizar_recurso(recurso, cantidad):
     
     if recurso == "oxigeno":
         oxigeno = max(0, min(100, oxigeno + cantidad))
-        if oxigeno / int(oxigeno) != 1:
+        if oxigeno - int(oxigeno) != 0:
             oxigeno = round(oxigeno, 2)
         else:
             oxigeno = int(oxigeno)            
     elif recurso == "combustible":
         combustible = max(0, min(100, combustible + cantidad))
-        if combustible / int(combustible) != 1:
+        if combustible - int(combustible) != 0:
             combustible = round(combustible, 2)
         else:
             combustible = int(combustible)
     elif recurso == "energia":
         energia = max(0, min(100, energia + cantidad))
-        if energia / int(energia) != 1:
+        if energia - int(energia) != 0:
             energia = round(energia, 2)
         else:
             energia = int(energia)
     elif recurso == "integridad":
         integridad = max(0, min(100, integridad + cantidad))
-        if integridad / int(integridad) != 1:
+        if integridad - int(integridad) != 0:
             integridad = round(integridad, 2)
         else:
             integridad = int(integridad)
@@ -87,13 +87,13 @@ def actualizar_recurso(recurso, cantidad):
         dias_restantes = max(0, dias_restantes - cantidad)
     elif recurso == "suministros":
         suministros = max(0, min(100, suministros + cantidad))
-        if suministros / int(suministros) != 1:
+        if suministros - int(suministros) != 0:
             suministros = round(suministros, 2)
         else:
             suministros = int(suministros)
     elif recurso == "moral":
         moral = max(0, min(100, moral + cantidad))
-        if moral / int(moral) != 1:
+        if moral - int(moral) != 0:
             moral = round(moral, 2)
         else:
             moral = int(moral)
@@ -113,3 +113,8 @@ def reiniciar_recursos():
     dias_transcurridos = 0
     moral = 100
     distancia_a_destino = 0
+    
+def avanzar_distancia(cantidad):
+    """Avanza la distancia al destino en una cantidad dada."""
+    global distancia_a_destino
+    distancia_a_destino = max(0, distancia_a_destino - cantidad)

@@ -125,3 +125,55 @@ def fin_dia():
         recursos.actualizar_recurso("energia", -1)
         recursos.actualizar_recurso("oxigeno", -1)
     input("Presiona Enter para continuar...")
+
+def game_over():
+    clear_screen()
+    """Menu de game over."""
+    print("=== GAME OVER ===")
+    print("Lo siento, has perdido la misión.")
+    recursos.mostrar_recursos()
+    print("Ir al menu principal o salir del juego.")
+    print("1. Ir al menú principal")
+    print("2. Salir del juego")
+    eleccion = input("Seleccione una opción: ")
+    while eleccion != '1' and eleccion != '2':
+        print("Opción no válida. Intente de nuevo.")
+        eleccion = input("Seleccione una opción: ")
+    if eleccion == '1':
+        print("Regresando al menú principal...")
+        input("Presiona Enter para continuar...")
+    elif eleccion == '2':
+        print("Saliendo del juego. ¡Hasta luego!")
+        exit()
+
+def victoria():
+    clear_screen()
+    """Menu de victoria."""
+    print("=== ¡FELICIDADES, HAS GANADO! ===")
+    print("Has logrado llegar a tu destino con éxito.")
+    recursos.mostrar_recursos()
+    print("Ir al menu principal o salir del juego.")
+    print("1. Ir al menú principal")
+    print("2. Salir del juego")
+    eleccion = input("Seleccione una opción: ")
+    while eleccion != '1' and eleccion != '2':
+        print("Opción no válida. Intente de nuevo.")
+        eleccion = input("Seleccione una opción: ")
+    if eleccion == '1':
+        print("Regresando al menú principal...")
+        input("Presiona Enter para continuar...")
+    elif eleccion == '2':
+        print("Saliendo del juego. ¡Hasta luego!")
+        exit() 
+
+def motores():
+    clear_screen()
+    """Menu de motores."""
+    print("=== MENÚ DE MOTORES ===")
+    print("Aquí puedes gestionar los motores de tu nave espacial.")
+    print("Que cantidad de combustible deseas usar para avanzar?")
+    cantidad = float(input("Ingresa la cantidad de combustible a usar: "))
+    while not (cantidad.replace(".","")).isdigit() or int(cantidad) < 0 or float(cantidad) > 50 or cantidad - recursos.combustible == 0 :
+        print("Cantidad no válida, Recuerde que no puede ser mayor al 50% del combustible y tampoco vaciar el tanque. Intente de nuevo.")
+        cantidad = input("Ingresa la cantidad de combustible a usar: ")
+    input("Presiona Enter para regresar al menú del juego...")
