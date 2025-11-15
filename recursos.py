@@ -4,7 +4,7 @@ integridad = 100
 energia = 100
 dias_restantes = 0
 dias_transcurridos = 0
-moral = 10
+moral = 100
 suministros = 100
 distancia_a_destino = 0 
 
@@ -113,8 +113,4 @@ def reiniciar_recursos():
     dias_transcurridos = 0
     moral = 100
     distancia_a_destino = 0
-    
-def avanzar_distancia(cantidad):
-    """Avanza la distancia al destino en una cantidad dada."""
-    global distancia_a_destino
-    distancia_a_destino = max(0, distancia_a_destino - cantidad)
+

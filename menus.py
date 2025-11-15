@@ -1,5 +1,6 @@
 import recursos
 import os
+import math
 
 dificultad = "Normal"  # Dificultad por defecto: Normal
 eventos_diarios = 5  # Número de eventos diarios por defecto
@@ -94,11 +95,11 @@ def in_game_menu():
             input("Presiona Enter para regresar al menú...")  # Pausa para que el jugador pueda ver los recursos
         elif eleccion == '2':
             print("Continuando el juego...")
-            break  # Salir del menú para continuar el juego
+            return False
         elif eleccion == '3':
             print("Regresando al menú principal...")
             recursos.reiniciar_recursos()  # Reiniciar los recursos para una nueva partida
-            principal()  # Regresar al menú principal
+            return True # Regresar al menú principal
 
 def inicio_dia():
     clear_screen()
@@ -142,6 +143,7 @@ def game_over():
     if eleccion == '1':
         print("Regresando al menú principal...")
         input("Presiona Enter para continuar...")
+        recursos.reiniciar_recursos()  # Reiniciar los recursos para una nueva partida
     elif eleccion == '2':
         print("Saliendo del juego. ¡Hasta luego!")
         exit()
@@ -162,6 +164,7 @@ def victoria():
     if eleccion == '1':
         print("Regresando al menú principal...")
         input("Presiona Enter para continuar...")
+        recursos.reiniciar_recursos()  # Reiniciar los recursos para una nueva partida
     elif eleccion == '2':
         print("Saliendo del juego. ¡Hasta luego!")
         exit() 
@@ -169,11 +172,40 @@ def victoria():
 def motores():
     clear_screen()
     """Menu de motores."""
-    print("=== MENÚ DE MOTORES ===")
-    print("Aquí puedes gestionar los motores de tu nave espacial.")
-    print("Que cantidad de combustible deseas usar para avanzar?")
-    cantidad = float(input("Ingresa la cantidad de combustible a usar: "))
-    while not (cantidad.replace(".","")).isdigit() or int(cantidad) < 0 or float(cantidad) > 50 or cantidad - recursos.combustible == 0 :
-        print("Cantidad no válida, Recuerde que no puede ser mayor al 50% del combustible y tampoco vaciar el tanque. Intente de nuevo.")
+    while True:
+        print("=== MENÚ DE MOTORES ===")
+        print("Aquí puedes gestionar los motores de tu nave espacial.")
+        print("Que cantidad de combustible deseas usar para avanzar?")
+        print("la cantidad máxima es 50 %.")
+        print("La cantidad minima es 0 %.")
         cantidad = input("Ingresa la cantidad de combustible a usar: ")
-    input("Presiona Enter para regresar al menú del juego...")
+        while (cantidad.replace('.','',1).isdigit() == False) and (float(cantidad) < 0.0 or float(cantidad) > 50.0) and (float(cantidad) > float(recursos.combustible)):
+            print("Cantidad no válida. Intente de nuevo.")
+            cantidad = input("Ingresa la cantidad de combustible a usar: ")
+            if cantidad.replace('.','',1).isdigit() == True:
+                cantidad = float(cantidad)
+                while cantidad < 0.0 or cantidad >= 50.0:
+                    print("Cantidad no válida. Intente de nuevo.")
+                    cantidad = float(input("Ingresa la cantidad de combustible a usar: "))
+                if cantidad.replace('.','',1).isdigit() == False and (float(cantidad) < 0.0 or float(cantidad) > 50.0):
+                    while float(cantidad) > float(recursos.combustible):
+                        print("Cantidad no válida. Intente de nuevo.")
+                        cantidad = input("Ingresa la cantidad de combustible a usar: ")
+                    
+        cantidad = float(cantidad)      
+        print(f"Usando {cantidad}% de combustible para avanzar...")
+        print("Esta seguro?")
+        confirmacion = input("Ingrese 's' para confirmar o 'n' para cancelar: ")
+        while confirmacion != 's' and confirmacion != 'n':
+            print("Opción no válida. Intente de nuevo.")
+            confirmacion = input("Ingrese 's' para confirmar o 'n' para cancelar: ")
+        if confirmacion == 'n':
+            print("Operación cancelada. Regresando al menú de motores...")
+            input("Presiona Enter para continuar...")
+        elif confirmacion == 's':
+            recursos.actualizar_recurso("combustible", -(cantidad))
+            recursos.actualizar_recurso("distancia", -(math.sqrt(cantidad/100) * (1000 / math.sqrt(0.5))))  # Avanza según la raíz cuadrada del combustible usado
+            print("Mientras los motores funcionan, duermes un poco...")
+            print(f"Has avanzado {math.sqrt(cantidad/100) * (1000 / math.sqrt(0.5))} en tu viaje.")
+            input("Presiona Enter para regresar al menú del juego...")
+            break
