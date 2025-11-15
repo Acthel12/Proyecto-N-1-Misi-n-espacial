@@ -99,6 +99,10 @@ def actualizar_recurso(recurso, cantidad):
             moral = int(moral)
     elif recurso == "distancia":
         distancia_a_destino = max(0, distancia_a_destino + cantidad)
+        if distancia_a_destino - int(distancia_a_destino) != 0:
+            distancia_a_destino = round(distancia_a_destino, 2)
+        else:
+            distancia_a_destino = int(distancia_a_destino)
 
         
 def reiniciar_recursos():
