@@ -5,6 +5,17 @@ import math
 dificultad = "Normal"  # Dificultad por defecto: Normal
 eventos_diarios = 5  # Número de eventos diarios por defecto
 
+def ascii_art():
+    print("""
+███╗   ███╗██╗███████╗██╗ ██████╗ ███╗   ██╗    ███████╗███████╗██████╗  █████╗  ██████╗██╗ █████╗ ██╗     
+████╗ ████║██║██╔════╝██║██╔═══██╗████╗  ██║    ██╔════╝██╔════╝██╔══██╗██╔══██╗██╔════╝██║██╔══██╗██║     
+██╔████╔██║██║███████╗██║██║   ██║██╔██╗ ██║    █████╗  ███████╗██████╔╝███████║██║     ██║███████║██║     
+██║╚██╔╝██║██║╚════██║██║██║   ██║██║╚██╗██║    ██╔══╝  ╚════██║██╔═══╝ ██╔══██║██║     ██║██╔══██║██║     
+██║ ╚═╝ ██║██║███████║██║╚██████╔╝██║ ╚████║    ███████╗███████║██║     ██║  ██║╚██████╗██║██║  ██║███████╗
+╚═╝     ╚═╝╚═╝╚══════╝╚═╝ ╚═════╝ ╚═╝  ╚═══╝    ╚══════╝╚══════╝╚═╝     ╚═╝  ╚═╝ ╚═════╝╚═╝╚═╝  ╚═╝╚══════╝
+                                                                                                           """)
+
+
 def clear_screen():
     """Limpia la pantalla de la consola."""
     #Gracias Khalid por ayudarme con esto :)
@@ -19,6 +30,7 @@ def principal():
     recursos.reiniciar_recursos()
     while True:
         clear_screen()
+        ascii_art()
         print("=== MENÚ PRINCIPAL ===")
         print("1. Iniciar juego")
         print("2. Seleccionar dificultad")
