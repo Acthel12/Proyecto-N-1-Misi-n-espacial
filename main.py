@@ -14,7 +14,7 @@ def main():
                                 break
                         for i in range(menus.eventos_diarios):
                                 menus.clear_screen()
-                                print(f"=== EVENTO DIARIO ({i + 1} de {menus.eventos_diarios })===")
+                                print(f"=== EVENTO DIARIO ({i + 1} de {menus.eventos_diarios})===")
                                 eventos.evento_aleatorio()
                                 if not recursos.validar_recursos() :
                                     break
