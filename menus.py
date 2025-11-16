@@ -23,7 +23,7 @@ def ascii_art():
 ██║   ██║██║     ██║   ██║██╔████╔██║███████║   ██║   ██║   ██║██╔████╔██║
 ██║   ██║██║     ██║   ██║██║╚██╔╝██║██╔══██║   ██║   ██║   ██║██║╚██╔╝██║
 ╚██████╔╝███████╗██║   ██║██║ ╚═╝ ██║██║  ██║   ██║   ╚██████╔╝██║ ╚═╝ ██║
- ╚═════╝ ╚══════╝╚═╝   ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝   ╚═╝    ╚═════╝ ╚═╝     ╚═╝                                                                                                                                                                                                                                             
+ ╚═════╝ ╚══════╝╚═╝   ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝   ╚═╝    ╚═════╝ ╚═╝     ╚═╝3                                                                                                                                                                                                                                             
                                                                                                           """)
 
 
@@ -51,7 +51,7 @@ def principal():
         global dificultad    
 
         eleccion = (input("Seleccione una opción: "))
-        while eleccion != '1' and eleccion != '2' and eleccion != '3':
+        while eleccion != '1' and eleccion != '2' and eleccion != '3' and eleccion != '4':
             print("Opción no válida. Intente de nuevo.")
             eleccion = input("Seleccione una opción: ")
             
