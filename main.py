@@ -31,6 +31,9 @@ def main():
                         if recursos.distancia_a_destino == 0:
                                 menus.victoria()
                                 break
+                        if not recursos.validar_recursos():
+                                menus.game_over()
+                                break
                 
 
 if __name__ == "__main__":
