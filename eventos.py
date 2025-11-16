@@ -2,7 +2,7 @@ import random
 import recursos
 
 eventos_ocurridos = " "
-n = 10 # Número total de eventos disponibles Añadir más eventos y actualizar este número
+n = 12 # Número total de eventos disponibles Añadir más eventos y actualizar este número
 ## Traten de añadir eventos variados , que afecten diferentes recursos y que tengan varias opciones
 
 ## Selección aleatoria de eventos Nota: agregar más eventos a medida que se creen eventos y actualizar el valor de n
@@ -69,14 +69,20 @@ def asteriode_metalico():
 def salto_gravitacional():
     """Evento que reduce la distancia restante (avance gratuito)."""
     print("Un campo gravitacional te impulsa cientos de kilómetros hacia adelante.")
-    recursos.actualizar_recurso("distancia_a_destino", -50)
-    recursos.actualizar_recurso("distancia_recorrida", 50)
+    recursos.actualizar_recurso("distancia", 50)
 
 def refugio_cosmico():
     """Evento que otorga moral y reduce días restantes (descanso eficiente)."""
     print("Encuentras un refugio cósmico donde la tripulación descansa bien.")
-    recursos.actualizar_recurso("moral", 8)
-    recursos.actualizar_recurso("dias_restantes", -1)
+    opcion = input("¿Deseas aprovechar el refugio para mejorar la moral y reducir un día de viaje? (s/n): ").lower()
+    while opcion != 's' and opcion != 'n':
+        print("Opción no válida. Intente de nuevo.")
+        opcion = input("¿Deseas aprovechar el refugio para mejorar la moral y reducir un día de viaje? (s/n): ").lower()
+    if opcion == 'n':
+        print("Decides no aprovechar el refugio.")
+    else:
+        recursos.actualizar_recurso("moral", 8)
+        recursos.actualizar_recurso("dias_restantes", -1)
 
 #Eventos aleatorios que reducen los recursos
 def tormenta_cosmica_():
