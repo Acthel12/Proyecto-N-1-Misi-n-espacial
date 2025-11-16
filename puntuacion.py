@@ -13,7 +13,7 @@ def puntuacion_final():
     p_distancia_a_destino = (1 - (recursos.distancia_a_destino / 2500) ) * 0.10
     puntuacion_total = p_oxigneo + p_combustible + p_integridad + p_energia + p_dias_restantes + p_dias_transcurridos + p_moral + p_suministros + p_distancia_a_destino  
     print ( f"""
-su puntuacion total en esta aventura fue de: {int(puntuacion_total) * 100} 
+Su puntuacion total en esta aventura fue de: {int(puntuacion_total) * 100} 
            """)
 
     
