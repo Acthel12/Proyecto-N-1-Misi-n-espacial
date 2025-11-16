@@ -72,6 +72,7 @@ def principal():
             print(f"Dificultad establecida a: {dificultad}")
             input("Presiona Enter para regresar al menú...")
         elif eleccion == '3':
+            # Guía del juego
             print("Características de las dificultades:")
             print("Fácil: El viaje tiene una duración máxima de 30 días y debes recorrer una distancia de 1000 años luz.")
             print("Normal: El viaje tiene una duración máxima de 20 días y debes recorrer una distancia de 2000 años luz.")
