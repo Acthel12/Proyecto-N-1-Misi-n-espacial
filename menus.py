@@ -76,15 +76,15 @@ def configurar_dificultad():
     """Configura los recursos iniciales según la dificultad seleccionada."""
     if dificultad == "Fácil":
         recursos.actualizar_recurso("dias_restantes", 30)  # Más días en dificultad fácil
-        recursos.actualizar_recurso("distancia", 1000)  # Menor distancia en dificultad fácil
+        recursos.actualizar_recurso("distancia", -1000)  # Menor distancia en dificultad fácil
         global eventos_diarios
         eventos_diarios = 3  # Menos eventos diarios en dificultad fácil
     elif dificultad == "Normal":
         recursos.actualizar_recurso("dias_restantes", 20)  # Días estándar
-        recursos.actualizar_recurso("distancia", 2000)  # Distancia estándar
+        recursos.actualizar_recurso("distancia", -2000)  # Distancia estándar
     elif dificultad == "Difícil":
         recursos.actualizar_recurso("dias_restantes", 15)  # Menos días en dificultad difícil
-        recursos.actualizar_recurso("distancia", 2500)  # Mayor distancia en dificultad difícil
+        recursos.actualizar_recurso("distancia", -2500)  # Mayor distancia en dificultad difícil
     
 def in_game_menu():
     """Menú dentro del juego.
@@ -220,8 +220,8 @@ def motores():
             print("Operación cancelada. Regresando al menú de motores...")
             input("Presiona Enter para continuar...")
         elif confirmacion == 's':
-            recursos.actualizar_recurso("combustible", -(cantidad))
-            recursos.actualizar_recurso("distancia", -(math.sqrt(cantidad/100) * (200 / math.sqrt(0.1))))  # Avanza según la raíz cuadrada del combustible usado
+            recursos.actualizar_recurso("combustible", cantidad)
+            recursos.actualizar_recurso("distancia", math.sqrt(cantidad/100) * (200 / math.sqrt(0.1)))  # Avanza según la raíz cuadrada del combustible usado
             print("Mientras los motores funcionan, duermes un poco...")
             print(f"Has avanzado {round(math.sqrt(cantidad/100) * (200 / math.sqrt(0.1)), 2)} en tu viaje.")
             input("Presiona Enter para regresar al menú del juego...")

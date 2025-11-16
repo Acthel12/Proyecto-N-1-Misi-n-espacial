@@ -176,5 +176,3 @@ def motores():
         ▒▒▒▒▒▒  ▒▒▒▒                                      
         ▒▒░░    ▒▒░░                                                                                              
 """)
-
-evento_diario()
