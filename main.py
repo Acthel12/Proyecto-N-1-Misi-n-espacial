@@ -21,6 +21,7 @@ def main():
                                 regresar_al_menu = menus.in_game_menu()
                                 if regresar_al_menu:
                                     break
+                        eventos.reiniciar_eventos()
                         if regresar_al_menu:
                                 break
                         if not recursos.validar_recursos():

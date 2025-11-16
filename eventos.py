@@ -1,32 +1,56 @@
 import random
 import recursos
 
+eventos_ocurridos = ""
+n = 10 # Número total de eventos disponibles Añadir más eventos y actualizar este número
 ## Traten de añadir eventos variados , que afecten diferentes recursos y que tengan varias opciones
 
-## Selección aleatoria de eventos Nota: agregar más eventos a medida que se creen eventos
+## Selección aleatoria de eventos Nota: agregar más eventos a medida que se creen eventos y actualizar el valor de n
+def añadir_evento(evento):
+    """Agrega un evento a la lista de eventos ocurridos."""
+    global eventos_ocurridos
+    eventos_ocurridos += str(evento) 
+
+def reiniciar_eventos():
+    """Reinicia la lista de eventos ocurridos."""
+    global eventos_ocurridos
+    eventos_ocurridos = ""
+
 def evento_aleatorio():
     """Selecciona y ejecuta un evento aleatorio."""
-    eventos = random.choice("123456789a")
-    if eventos == "1":
+    eventos = random.randint(1,n)
+    while eventos_ocurridos.find(str(eventos)) != -1:
+        eventos = random.randint(1,n)
+    if eventos == 1:
         asteriode_metalico()
-    elif eventos == "2":
+        añadir_evento(eventos)
+    elif eventos == 2:
         tormenta_cosmica_()
-    elif eventos == "3":
+        añadir_evento(eventos)
+    elif eventos == 3:
         repartir_suministros()
-    elif eventos == "4":
+        añadir_evento(eventos)
+    elif eventos == 4:
         tormenta_cosmica_repentina()
-    elif eventos == "5":
+        añadir_evento(eventos)
+    elif eventos == 5:
         encontrar_combustible()
-    elif eventos == "6":
+        añadir_evento(eventos)
+    elif eventos == 6:
         ganar_combustible_moral()
-    elif eventos == "7":
+        añadir_evento(eventos)
+    elif eventos == 7:
         minar_combustible()
-    elif eventos == "8":
+        añadir_evento(eventos)
+    elif eventos == 8:
         ganar_energia()
-    elif eventos == "9":
+        añadir_evento(eventos)
+    elif eventos == 9:
         ganar_oxigeno()
-    elif eventos == "a":
+        añadir_evento(eventos)
+    elif eventos == 10:
         ganar_suministros()
+        añadir_evento(eventos)
     input("Presiona Enter para continuar...")
 
 ## Los eventos por ahora solo afetan -5 o +5 a los recursos, pero se pueden modificar
@@ -141,4 +165,3 @@ def ganar_suministros():
     recursos.actualizar_recurso("suministros", 10)
     print(f"Tienes disponible {recursos.suministros}% de suministros.")
 
-evento_aleatorio()
