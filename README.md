@@ -7,7 +7,8 @@ Descripción
 
 Requisitos
 - Python 3.8+ (recomendado)
-- No hay dependencias externas obligatorias para el núcleo (archivo recursos.py).
+- Una terminal que soporte caracteres unicode
+- Una terminal grande a pantalla completa o con el tamaño reducido
 
 Instalación
 - Clona este repositorio y sitúate en la carpeta del proyecto:
