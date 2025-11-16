@@ -79,6 +79,8 @@ def actualizar_recurso(recurso, cantidad):
             integridad = round(integridad, 2)
         else:
             integridad = int(integridad)
+    elif recurso == "dias_restantes":
+        dias_restantes = max(0, dias_restantes + cantidad)
     elif recurso == "dias":
         # Avanzar días: aumentar dias_transcurridos y reducir dias_restantes.
         # cantidad puede ser positiva (avanzar) o negativa (retroceder/corregir).

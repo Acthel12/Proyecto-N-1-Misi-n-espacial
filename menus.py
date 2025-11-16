@@ -2,6 +2,7 @@ import recursos
 import os
 import math
 import ascii
+import puntuacion
 
 dificultad = "Normal"  # Dificultad por defecto: Normal
 eventos_diarios = 5  # Número de eventos diarios por defecto
@@ -73,15 +74,15 @@ def principal():
 
 def configurar_dificultad():
     if dificultad == "Fácil":
-        recursos.actualizar_recurso("dias", -30)  # Más días en dificultad fácil
+        recursos.actualizar_recurso("dias_restantes", 30)  # Más días en dificultad fácil
         recursos.actualizar_recurso("distancia", 1000)  # Menor distancia en dificultad fácil
         global eventos_diarios
         eventos_diarios = 3  # Menos eventos diarios en dificultad fácil
     elif dificultad == "Normal":
-        recursos.actualizar_recurso("dias", -20)  # Días estándar
+        recursos.actualizar_recurso("dias_restantes", 20)  # Días estándar
         recursos.actualizar_recurso("distancia", 2000)  # Distancia estándar
     elif dificultad == "Difícil":
-        recursos.actualizar_recurso("dias", -15)  # Menos días en dificultad difícil
+        recursos.actualizar_recurso("dias_restantes", 15)  # Menos días en dificultad difícil
         recursos.actualizar_recurso("distancia", 2500)  # Mayor distancia en dificultad difícil
     
 def in_game_menu():
@@ -147,6 +148,7 @@ def game_over():
     print("=== GAME OVER ===")
     print("Lo siento, has perdido la misión.")
     recursos.mostrar_recursos()
+    puntuacion.puntuacion_final()
     print("Ir al menu principal o salir del juego.")
     print("1. Ir al menú principal")
     print("2. Salir del juego")
@@ -168,6 +170,7 @@ def victoria():
     print("=== ¡FELICIDADES, HAS GANADO! ===")
     print("Has logrado llegar a tu destino con éxito.")
     recursos.mostrar_recursos()
+    puntuacion.puntuacion_final()
     print("Ir al menu principal o salir del juego.")
     print("1. Ir al menú principal")
     print("2. Salir del juego")
