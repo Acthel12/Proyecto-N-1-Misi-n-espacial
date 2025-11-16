@@ -51,6 +51,10 @@ def evento_aleatorio():
     elif eventos == 10:
         ganar_suministros()
         añadir_evento(eventos)
+    elif eventos == 11:
+        salto_gravitacional(eventos)
+    elif eventos == 12:
+        refugio_cosmico(eventos)
     input("Presiona Enter para continuar...")
 
 ## Los eventos por ahora solo afetan -5 o +5 a los recursos, pero se pueden modificar
@@ -61,6 +65,18 @@ def asteriode_metalico():
     print("¡Has encontrado un asteroide metálico rico en recursos!")
     recursos.actualizar_recurso("suministros", 5)
     recursos.actualizar_recurso("moral", 5)
+
+def salto_gravitacional():
+    """Evento que reduce la distancia restante (avance gratuito)."""
+    print("Un campo gravitacional te impulsa cientos de kilómetros hacia adelante.")
+    recursos.actualizar_recurso("distancia_a_destino", -50)
+    recursos.actualizar_recurso("distancia_recorrida", 50)
+
+def refugio_cosmico():
+    """Evento que otorga moral y reduce días restantes (descanso eficiente)."""
+    print("Encuentras un refugio cósmico donde la tripulación descansa bien.")
+    recursos.actualizar_recurso("moral", 8)
+    recursos.actualizar_recurso("dias_restantes", -1)
 
 #Eventos aleatorios que reducen los recursos
 def tormenta_cosmica_():
