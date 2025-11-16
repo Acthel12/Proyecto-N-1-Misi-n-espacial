@@ -1,6 +1,7 @@
 import menus
 import eventos
 import recursos
+import puntuacion
 
 regresar_al_menu = False
 
