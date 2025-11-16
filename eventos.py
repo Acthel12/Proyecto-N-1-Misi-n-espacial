@@ -112,5 +112,6 @@ def minar_combustible():
         print("Has minado combustible, pero has consumido algunos suministros en el proceso.")
         recursos.actualizar_recurso("combustible", 20)
         recursos.actualizar_recurso("suministros", -5)
+        print(f"Tienes disponible {recursos.combustible} de combustible y {recursos.suministros} de suministros.")
     else:
         print("Decides no minar el combustible.")
