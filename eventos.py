@@ -98,7 +98,7 @@ def encontrar_combustible():
 def ganar_combustible_moral():
     """Evento que otorga combustible y moral."""
     print("¡Un miembro de la tripulación ha encontrado una manera de optimizar el uso del combustible!")
-    recursos.actualizar_recurso("combustible", 5)
+    recursos.actualizar_recurso("combustible", 10)
     recursos.actualizar_recurso("moral", 5)
     
 def minar_combustible():
@@ -110,7 +110,7 @@ def minar_combustible():
         eleccion = input("¿Deseas minar el combustible? (s/n): ").lower()
     if eleccion == "s":
         print("Has minado combustible, pero has consumido algunos suministros en el proceso.")
-        recursos.actualizar_recurso("combustible", 10)
+        recursos.actualizar_recurso("combustible", 20)
         recursos.actualizar_recurso("suministros", -5)
     else:
         print("Decides no minar el combustible.")
