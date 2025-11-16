@@ -234,9 +234,53 @@ def narrativa_facil():
         if recursos.dias_transcurridos== 0:
             narrativa.narrar_primera_parte()
             break
-        if recursos.distancia_a_destino:
+        if 0 < recursos.distancia_recorrida<= 200:
             narrativa.narrar_segunda_parte()
-        narrativa.narrar_tercera_parte()
-        narrativa.narrar_cuarta_parte()
-        narrativa.narrar_final()
-pass
+            break
+        if 200 < recursos.distancia_recorrida <= 500:
+            narrativa.narrar_tercera_parte()
+            break
+        if 500 < recursos.distancia_recorrida <= 800:
+            narrativa.narrar_cuarta_parte()
+            break
+        if recursos.distancia_recorrida == 1000:
+            narrativa.narrar_final()
+            break
+
+def narrativa_normal():
+    """Narrativa para dificultad normal."""
+    while dificultad == "Normal":
+        if recursos.dias_transcurridos== 0:
+            narrativa.narrar_primera_parte()
+            break
+        if 0 < recursos.distancia_recorrida <= 500:
+            narrativa.narrar_segunda_parte()
+            break
+        if 500 < recursos.distancia_recorrida <= 1000:
+            narrativa.narrar_tercera_parte()
+            break
+        if 1000 < recursos.distancia_recorrida <= 1500:
+            narrativa.narrar_cuarta_parte()
+            break
+        if recursos.distancia_recorrida == 2000:
+            narrativa.narrar_final()
+            break
+
+def narrativa_dificil():
+    """Narrativa para dificultad dificil."""
+    while dificultad == "Difícil":
+        if recursos.dias_transcurridos== 0:
+            narrativa.narrar_primera_parte()
+            break
+        if 0 < recursos.distancia_recorrida <= 800:
+            narrativa.narrar_segunda_parte()
+            break
+        if 800 < recursos.distancia_recorrida <= 1500:
+            narrativa.narrar_tercera_parte()
+            break
+        if 1500 < recursos.distancia_recorrida <= 2000:
+            narrativa.narrar_cuarta_parte()
+            break
+        if recursos.distancia_recorrida == 2500:
+            narrativa.narrar_final()
+            break
