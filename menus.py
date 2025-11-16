@@ -120,7 +120,7 @@ def inicio_dia():
     """Menu de inicio de día."""
     print("=== INICIO DEL DÍA ===")
     ascii.inicio_dia()
-    print("Dia numero:", recursos.dias_transcurridos)
+    print("Dia numero:", recursos.dias_transcurridos + 1)
     recursos.mostrar_recursos()
     input("Presiona Enter para continuar...")
 
