@@ -1,7 +1,7 @@
 import menus
 import eventos
 import recursos
-import puntuacion
+import ascii
 
 regresar_al_menu = False
 

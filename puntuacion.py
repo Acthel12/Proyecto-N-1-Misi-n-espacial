@@ -13,9 +13,7 @@ def puntuacion_final():
     p_distancia_a_destino = (1 - (recursos.distancia_a_destino / 2500) ) * 0.10
     puntuacion_total = p_oxigneo + p_combustible + p_integridad + p_energia + p_dias_restantes + p_dias_transcurridos + p_moral + p_suministros + p_distancia_a_destino  
     print ( f"""
-su puntuacion total en esta aventura fua de: {int(puntuacion_total) * 100} 
+su puntuacion total en esta aventura fue de: {int(puntuacion_total) * 100} 
            """)
-puntuacion_final()
-    # Programa la lógica de puntuación aquí y borra este mensaje y pass
-    # Llamas a los recursos como recursos.oxigeno, recursos.combustible, etc. Puedes revizar recursos.py para ver los nombres exactos de las variables.
+
     

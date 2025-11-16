@@ -56,7 +56,7 @@ def validar_recursos():
 
 def actualizar_recurso(recurso, cantidad):
     """Actualiza un recurso específico en una cantidad dada."""
-    global oxigeno, combustible, energia, integridad, dias_restantes, dias_transcurridos, moral, suministros, distancia_a_destino
+    global oxigeno, combustible, energia, integridad, dias_restantes, dias_transcurridos, moral, suministros, distancia_a_destino, distancia_recorrida, distancia_evento
     
     if recurso == "oxigeno":
         oxigeno = max(0, min(100, oxigeno + cantidad))
@@ -113,6 +113,9 @@ def actualizar_recurso(recurso, cantidad):
             distancia_recorrida = round(distancia_recorrida, 2)
         else:
             distancia_recorrida = int(distancia_recorrida)
+    elif recurso == "distancia_evento":
+        distancia_evento = max(0, distancia_evento + cantidad)
+
 
         
 def reiniciar_recursos():
