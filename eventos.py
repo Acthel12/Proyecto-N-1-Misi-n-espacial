@@ -1,7 +1,7 @@
 import random
 import recursos
 
-eventos_ocurridos = ""
+eventos_ocurridos = " "
 n = 10 # Número total de eventos disponibles Añadir más eventos y actualizar este número
 ## Traten de añadir eventos variados , que afecten diferentes recursos y que tengan varias opciones
 
@@ -9,12 +9,12 @@ n = 10 # Número total de eventos disponibles Añadir más eventos y actualizar 
 def añadir_evento(evento):
     """Agrega un evento a la lista de eventos ocurridos."""
     global eventos_ocurridos
-    eventos_ocurridos += str(evento) 
+    eventos_ocurridos += str(evento) + " "
 
 def reiniciar_eventos():
     """Reinicia la lista de eventos ocurridos."""
     global eventos_ocurridos
-    eventos_ocurridos = ""
+    eventos_ocurridos = " "
 
 def evento_aleatorio():
     """Selecciona y ejecuta un evento aleatorio."""
