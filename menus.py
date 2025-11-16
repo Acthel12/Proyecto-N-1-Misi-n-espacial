@@ -1,6 +1,8 @@
 import recursos
 import os
 import math
+import ascii
+import puntuacion
 
 dificultad = "Normal"  # Dificultad por defecto: Normal
 eventos_diarios = 5  # Número de eventos diarios por defecto
@@ -19,15 +21,17 @@ def principal():
     recursos.reiniciar_recursos()
     while True:
         clear_screen()
+        ascii.principal()
         print("=== MENÚ PRINCIPAL ===")
-        print("1. Iniciar juego")
-        print("2. Seleccionar dificultad")
-        print("3. Salir")
+        print("1) Iniciar juego")
+        print("2) Seleccionar dificultad")
+        print("3) Guía del juego")
+        print("4) Salir")
         
         global dificultad    
 
         eleccion = (input("Seleccione una opción: "))
-        while eleccion != '1' and eleccion != '2' and eleccion != '3':
+        while eleccion != '1' and eleccion != '2' and eleccion != '3' and eleccion != '4':
             print("Opción no válida. Intente de nuevo.")
             eleccion = input("Seleccione una opción: ")
             
@@ -58,20 +62,28 @@ def principal():
             print(f"Dificultad establecida a: {dificultad}")
             input("Presiona Enter para regresar al menú...")
         elif eleccion == '3':
+            # Guía del juego
+            print("===CARACTERÍSTICAS DE LAS DIFICULTADES===")
+            print("Fácil: El viaje tiene una duración máxima de 30 días y debes recorrer una distancia de 1000 años luz.")
+            print("Normal: El viaje tiene una duración máxima de 20 días y debes recorrer una distancia de 2000 años luz.")
+            print("Difícil: El viaje tiene una duración máxima de 15 días y debes recorrer una distancia de 2500 años luz.")
+            input("Presiona Enter para regresar al menú...")
+        elif eleccion == '4':
             print("Saliendo del juego. ¡Hasta luego!")
             exit()
 
 def configurar_dificultad():
+    """Configura los recursos iniciales según la dificultad seleccionada."""
     if dificultad == "Fácil":
-        recursos.actualizar_recurso("dias", -30)  # Más días en dificultad fácil
+        recursos.actualizar_recurso("dias_restantes", 30)  # Más días en dificultad fácil
         recursos.actualizar_recurso("distancia", 1000)  # Menor distancia en dificultad fácil
         global eventos_diarios
         eventos_diarios = 3  # Menos eventos diarios en dificultad fácil
     elif dificultad == "Normal":
-        recursos.actualizar_recurso("dias", -20)  # Días estándar
+        recursos.actualizar_recurso("dias_restantes", 20)  # Días estándar
         recursos.actualizar_recurso("distancia", 2000)  # Distancia estándar
     elif dificultad == "Difícil":
-        recursos.actualizar_recurso("dias", -15)  # Menos días en dificultad difícil
+        recursos.actualizar_recurso("dias_restantes", 15)  # Menos días en dificultad difícil
         recursos.actualizar_recurso("distancia", 2500)  # Mayor distancia en dificultad difícil
     
 def in_game_menu():
@@ -80,6 +92,7 @@ def in_game_menu():
     while True:
         clear_screen()
         print("=== MENÚ DEL JUEGO ===")
+        ascii.in_game_menu()
         print("1. Ver recursos")
         print("2. Continuar juego")
         print("3. Salir al menú principal")
@@ -92,6 +105,7 @@ def in_game_menu():
         if eleccion == '1':
             clear_screen()
             print("=== RECURSOS ACTUALES ===")
+            ascii.recursos()
             recursos.mostrar_recursos()
             input("Presiona Enter para regresar al menú...")  # Pausa para que el jugador pueda ver los recursos
         elif eleccion == '2':
@@ -105,34 +119,38 @@ def inicio_dia():
     clear_screen()
     """Menu de inicio de día."""
     print("=== INICIO DEL DÍA ===")
+    ascii.inicio_dia()
     print("Dia numero:", recursos.dias_transcurridos)
     recursos.mostrar_recursos()
     input("Presiona Enter para continuar...")
 
 def fin_dia():
-    clear_screen()
     """Menu de fin de día."""
+    clear_screen()
     print("=== FIN DEL DÍA ===")
+    ascii.fin_dia()
     recursos.mostrar_recursos()
     recursos.actualizar_recurso("dias", 1)
     if dificultad == "Difícil":
-        recursos.actualizar_recurso("suministros", -1.5)  # Pérdida adicional de suministros en dificultad difícil
-        recursos.actualizar_recurso("moral", -1)  # Pérdida adicional de moral en dificultad difícil
-        recursos.actualizar_recurso("energia", -1.5)  # Pérdida adicional de energía en dificultad difícil
-        recursos.actualizar_recurso("oxigeno", -1.5)  # Pérdida adicional de oxígeno en dificultad difícil
+        recursos.actualizar_recurso("suministros", -5)  # Pérdida adicional de suministros en dificultad difícil
+        recursos.actualizar_recurso("moral", -2.5)  # Pérdida adicional de moral en dificultad difícil
+        recursos.actualizar_recurso("energia", -5)  # Pérdida adicional de energía en dificultad difícil
+        recursos.actualizar_recurso("oxigeno", -5)  # Pérdida adicional de oxígeno en dificultad difícil
     else:
-        recursos.actualizar_recurso("suministros", -1)
-        recursos.actualizar_recurso("moral", -0.5)
-        recursos.actualizar_recurso("energia", -1)
-        recursos.actualizar_recurso("oxigeno", -1)
+        recursos.actualizar_recurso("suministros", -2.5)
+        recursos.actualizar_recurso("moral", -1)
+        recursos.actualizar_recurso("energia", -2.5)
+        recursos.actualizar_recurso("oxigeno", -2.5)
     input("Presiona Enter para continuar...")
 
 def game_over():
-    clear_screen()
     """Menu de game over."""
+    clear_screen()
     print("=== GAME OVER ===")
+    ascii.game_over()
     print("Lo siento, has perdido la misión.")
     recursos.mostrar_recursos()
+    puntuacion.puntuacion_final()
     print("Ir al menu principal o salir del juego.")
     print("1. Ir al menú principal")
     print("2. Salir del juego")
@@ -148,11 +166,13 @@ def game_over():
         exit()
 
 def victoria():
-    clear_screen()
     """Menu de victoria."""
+    clear_screen()
     print("=== ¡FELICIDADES, HAS GANADO! ===")
+    ascii.victoria()
     print("Has logrado llegar a tu destino con éxito.")
     recursos.mostrar_recursos()
+    puntuacion.puntuacion_final()
     print("Ir al menu principal o salir del juego.")
     print("1. Ir al menú principal")
     print("2. Salir del juego")
@@ -168,11 +188,12 @@ def victoria():
         exit() 
 
 def motores():
-    clear_screen()
     """Menu de motores."""
+    clear_screen()
     while recursos.combustible > 0:
         clear_screen()
         print("=== MENÚ DE MOTORES ===")
+        ascii.motores()
         print("Aquí puedes gestionar los motores de tu nave espacial.")
         print("Que cantidad de combustible deseas usar para avanzar?")
         print("la cantidad máxima es 50 %.")
@@ -189,7 +210,8 @@ def motores():
             cantidad = input("Ingresa la cantidad de combustible a usar: ")                        
         cantidad = float(cantidad)      
         print(f"Usando {cantidad}% de combustible para avanzar...")
-        print("Esta seguro?")
+        print(f"Tu nave avanzará una distancia de {round(math.sqrt(cantidad/100) * (200 / math.sqrt(0.1)), 2)} años luz.")
+        print("Está seguro?")
         confirmacion = input("Ingrese 's' para confirmar o 'n' para cancelar: ")
         while confirmacion != 's' and confirmacion != 'n':
             print("Opción no válida. Intente de nuevo.")
@@ -201,6 +223,6 @@ def motores():
             recursos.actualizar_recurso("combustible", -(cantidad))
             recursos.actualizar_recurso("distancia", -(math.sqrt(cantidad/100) * (200 / math.sqrt(0.1))))  # Avanza según la raíz cuadrada del combustible usado
             print("Mientras los motores funcionan, duermes un poco...")
-            print(f"Has avanzado {math.sqrt(cantidad/100) * (1000 / math.sqrt(0.5))} en tu viaje.")
+            print(f"Has avanzado {round(math.sqrt(cantidad/100) * (200 / math.sqrt(0.1)), 2)} en tu viaje.")
             input("Presiona Enter para regresar al menú del juego...")
             break

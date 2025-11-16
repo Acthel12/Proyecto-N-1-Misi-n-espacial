@@ -79,6 +79,8 @@ def actualizar_recurso(recurso, cantidad):
             integridad = round(integridad, 2)
         else:
             integridad = int(integridad)
+    elif recurso == "dias_restantes":
+        dias_restantes = max(0, dias_restantes + cantidad)
     elif recurso == "dias":
         # Avanzar días: aumentar dias_transcurridos y reducir dias_restantes.
         # cantidad puede ser positiva (avanzar) o negativa (retroceder/corregir).
@@ -99,6 +101,10 @@ def actualizar_recurso(recurso, cantidad):
             moral = int(moral)
     elif recurso == "distancia":
         distancia_a_destino = max(0, distancia_a_destino + cantidad)
+        if distancia_a_destino - int(distancia_a_destino) != 0:
+            distancia_a_destino = round(distancia_a_destino, 2)
+        else:
+            distancia_a_destino = int(distancia_a_destino)
 
         
 def reiniciar_recursos():
