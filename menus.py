@@ -76,6 +76,7 @@ def principal():
             print("Fácil: El viaje tiene una duración máxima de 30 días y debes recorrer una distancia de 1000 años luz.")
             print("Normal: El viaje tiene una duración máxima de 20 días y debes recorrer una distancia de 2000 años luz.")
             print("Difícil: El viaje tiene una duración máxima de 15 días y debes recorrer una distancia de 2500 años luz.")
+            input("Presiona Enter para regresar al menú...")
         elif eleccion == '4':
             print("Saliendo del juego. ¡Hasta luego!")
             exit()
