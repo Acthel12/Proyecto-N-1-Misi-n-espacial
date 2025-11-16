@@ -73,6 +73,7 @@ def principal():
             exit()
 
 def configurar_dificultad():
+    """Configura los recursos iniciales según la dificultad seleccionada."""
     if dificultad == "Fácil":
         recursos.actualizar_recurso("dias_restantes", 30)  # Más días en dificultad fácil
         recursos.actualizar_recurso("distancia", 1000)  # Menor distancia en dificultad fácil
@@ -90,8 +91,8 @@ def in_game_menu():
     Permite al jugador ver recursos, continuar o salir al menú principal."""
     while True:
         clear_screen()
-        ascii.in_game_menu()
         print("=== MENÚ DEL JUEGO ===")
+        ascii.in_game_menu()
         print("1. Ver recursos")
         print("2. Continuar juego")
         print("3. Salir al menú principal")
@@ -104,6 +105,7 @@ def in_game_menu():
         if eleccion == '1':
             clear_screen()
             print("=== RECURSOS ACTUALES ===")
+            ascii.recursos()
             recursos.mostrar_recursos()
             input("Presiona Enter para regresar al menú...")  # Pausa para que el jugador pueda ver los recursos
         elif eleccion == '2':
@@ -115,37 +117,37 @@ def in_game_menu():
 
 def inicio_dia():
     clear_screen()
-    ascii.inicio_dia()
     """Menu de inicio de día."""
     print("=== INICIO DEL DÍA ===")
+    ascii.inicio_dia()
     print("Dia numero:", recursos.dias_transcurridos)
     recursos.mostrar_recursos()
     input("Presiona Enter para continuar...")
 
 def fin_dia():
-    clear_screen()
-    ascii.fin_dia()
     """Menu de fin de día."""
+    clear_screen()
     print("=== FIN DEL DÍA ===")
+    ascii.fin_dia()
     recursos.mostrar_recursos()
     recursos.actualizar_recurso("dias", 1)
     if dificultad == "Difícil":
-        recursos.actualizar_recurso("suministros", -1.5)  # Pérdida adicional de suministros en dificultad difícil
-        recursos.actualizar_recurso("moral", -1)  # Pérdida adicional de moral en dificultad difícil
-        recursos.actualizar_recurso("energia", -1.5)  # Pérdida adicional de energía en dificultad difícil
-        recursos.actualizar_recurso("oxigeno", -1.5)  # Pérdida adicional de oxígeno en dificultad difícil
+        recursos.actualizar_recurso("suministros", -5)  # Pérdida adicional de suministros en dificultad difícil
+        recursos.actualizar_recurso("moral", -2.5)  # Pérdida adicional de moral en dificultad difícil
+        recursos.actualizar_recurso("energia", -5)  # Pérdida adicional de energía en dificultad difícil
+        recursos.actualizar_recurso("oxigeno", -5)  # Pérdida adicional de oxígeno en dificultad difícil
     else:
-        recursos.actualizar_recurso("suministros", -1)
-        recursos.actualizar_recurso("moral", -0.5)
-        recursos.actualizar_recurso("energia", -1)
-        recursos.actualizar_recurso("oxigeno", -1)
+        recursos.actualizar_recurso("suministros", -2.5)
+        recursos.actualizar_recurso("moral", -1)
+        recursos.actualizar_recurso("energia", -2.5)
+        recursos.actualizar_recurso("oxigeno", -2.5)
     input("Presiona Enter para continuar...")
 
 def game_over():
-    clear_screen()
-    ascii.game_over()
     """Menu de game over."""
+    clear_screen()
     print("=== GAME OVER ===")
+    ascii.game_over()
     print("Lo siento, has perdido la misión.")
     recursos.mostrar_recursos()
     puntuacion.puntuacion_final()
@@ -164,10 +166,10 @@ def game_over():
         exit()
 
 def victoria():
-    clear_screen()
-    ascii.victoria()
     """Menu de victoria."""
+    clear_screen()
     print("=== ¡FELICIDADES, HAS GANADO! ===")
+    ascii.victoria()
     print("Has logrado llegar a tu destino con éxito.")
     recursos.mostrar_recursos()
     puntuacion.puntuacion_final()
@@ -186,12 +188,12 @@ def victoria():
         exit() 
 
 def motores():
-    clear_screen()
-    ascii.motores()
     """Menu de motores."""
+    clear_screen()
     while recursos.combustible > 0:
         clear_screen()
         print("=== MENÚ DE MOTORES ===")
+        ascii.motores()
         print("Aquí puedes gestionar los motores de tu nave espacial.")
         print("Que cantidad de combustible deseas usar para avanzar?")
         print("la cantidad máxima es 50 %.")
