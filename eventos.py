@@ -6,7 +6,7 @@ import recursos
 #selección aleatoria de eventos Nota: agregar más eventos a medida que se creen eventos
 def evento_aleatorio():
     """Selecciona y ejecuta un evento aleatorio."""
-    eventos = random.choice("1234")
+    eventos = random.choice("1234567")
     if eventos == "1":
         asteriode_metalico()
     elif eventos == "2":
@@ -15,6 +15,12 @@ def evento_aleatorio():
         repartir_suministros()
     elif eventos == "4":
         tormenta_cosmica_repentina()
+    elif eventos == "5":
+        encontrar_combustible()
+    elif eventos == "6":
+        ganar_combustible_moral()
+    elif eventos == "7":
+        minar_combustible()
     input("Presiona Enter para continuar...")
 
 #Los eventos por ahora solo afetan -5 o +5 a los recursos, pero se pueden modificar
@@ -82,3 +88,29 @@ def repartir_suministros():
                 print("La moral de la tripulación se mantiene estable.")
     else:
         print("La moral de la tripulación es alta, no es necesario aumentar la ración de suministros.")
+
+#Eventos para ganar combustible
+def encontrar_combustible():
+    """Evento que otorga combustible."""
+    print("¡Has encontrado un depósito de combustible flotando en el espacio!")
+    recursos.actualizar_recurso("combustible", 5)
+
+def ganar_combustible_moral():
+    """Evento que otorga combustible y moral."""
+    print("¡Un miembro de la tripulación ha encontrado una manera de optimizar el uso del combustible!")
+    recursos.actualizar_recurso("combustible", 5)
+    recursos.actualizar_recurso("moral", 5)
+    
+def minar_combustible():
+    """Evento que permite minar combustible a costa de suministros."""
+    print("Has encontrado un asteroide rico en combustible.")
+    eleccion = input("¿Deseas minar el combustible? (s/n): ").lower()
+    while eleccion != "s" and eleccion != "n":
+        print("Opción no válida. Intente de nuevo.")
+        eleccion = input("¿Deseas minar el combustible? (s/n): ").lower()
+    if eleccion == "s":
+        print("Has minado combustible, pero has consumido algunos suministros en el proceso.")
+        recursos.actualizar_recurso("combustible", 10)
+        recursos.actualizar_recurso("suministros", -5)
+    else:
+        print("Decides no minar el combustible.")
