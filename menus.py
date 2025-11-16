@@ -211,7 +211,7 @@ def motores():
         cantidad = float(cantidad)      
         print(f"Usando {cantidad}% de combustible para avanzar...")
         print(f"Tu nave avanzará una distancia de {round(math.sqrt(cantidad/100) * (200 / math.sqrt(0.1)), 2)} años luz.")
-        print("Esta seguro?")
+        print("Está seguro?")
         confirmacion = input("Ingrese 's' para confirmar o 'n' para cancelar: ")
         while confirmacion != 's' and confirmacion != 'n':
             print("Opción no válida. Intente de nuevo.")
