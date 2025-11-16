@@ -1,6 +1,7 @@
 import menus
 import eventos
 import recursos
+import ascii
 
 regresar_al_menu = False
 
@@ -15,6 +16,7 @@ def main():
                         for i in range(menus.eventos_diarios):
                                 menus.clear_screen()
                                 print(f"=== EVENTO DIARIO ({i + 1} de {menus.eventos_diarios})===")
+                                ascii.evento_diario()
                                 eventos.evento_aleatorio()
                                 if not recursos.validar_recursos() :
                                     break

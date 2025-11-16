@@ -24,6 +24,13 @@ def principal():
 def in_game_menu():
     pass
 
+def recursos():
+    #puede ser una cajita que represente almacenamiento de recursos
+    pass
+
+def evento_diario():
+    pass
+
 def inicio_dia():
     print("""
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
