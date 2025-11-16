@@ -137,5 +137,3 @@ def motores():
 "Has iniciado los motores de la nave"
 
 """)
-
-motores()
