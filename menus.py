@@ -1,31 +1,10 @@
 import recursos
 import os
 import math
+import ascii
 
 dificultad = "Normal"  # Dificultad por defecto: Normal
 eventos_diarios = 5  # Número de eventos diarios por defecto
-
-def ascii_art():
-    print("""
-                      _ 
-    __  ____      _  //            ______                      _       __
-   /  |/  (_)____(_)___  ____     / ____/________  ____ ______(_)___ _/ /
-  / /|_/ / / ___/ / __ \/ __ \   / __/ / ___/ __ \/ __ `/ ___/ / __ `/ /       __
- / /  / / (__  ) / /_/ / / / /  / /___(__  ) /_/ / /_/ / /__/ / /_/ / /        \ \_____
-/_/  /_/_/____/_/\____/_/ /_/  /_____/____/ .___/\__,_/\___/_/\__,_/_/      ###[==_____>
-                                         /_/                                   /_/
-                                                                                                          
-                                          ███
-                                        ████
-                                                                                                          
-██╗   ██╗██╗  ████████╗██╗███╗   ███╗ █████╗ ████████╗██╗   ██╗███╗   ███╗
-██║   ██║██║  ╚══██╔══╝██║████╗ ████║██╔══██╗╚══██╔══╝██║   ██║████╗ ████║
-██║   ██║██║     ██║   ██║██╔████╔██║███████║   ██║   ██║   ██║██╔████╔██║
-██║   ██║██║     ██║   ██║██║╚██╔╝██║██╔══██║   ██║   ██║   ██║██║╚██╔╝██║
-╚██████╔╝███████╗██║   ██║██║ ╚═╝ ██║██║  ██║   ██║   ╚██████╔╝██║ ╚═╝ ██║
- ╚═════╝ ╚══════╝╚═╝   ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝   ╚═╝    ╚═════╝ ╚═╝     ╚═╝                                                                                                                                                                                                                                             
-                                                                                                          """)
-
 
 def clear_screen():
     """Limpia la pantalla de la consola."""
@@ -41,7 +20,7 @@ def principal():
     recursos.reiniciar_recursos()
     while True:
         clear_screen()
-        ascii_art()
+        ascii.principal()
         print("=== MENÚ PRINCIPAL ===")
         print("1) Iniciar juego")
         print("2) Seleccionar dificultad")
@@ -110,6 +89,7 @@ def in_game_menu():
     Permite al jugador ver recursos, continuar o salir al menú principal."""
     while True:
         clear_screen()
+        ascii.in_game_menu()
         print("=== MENÚ DEL JUEGO ===")
         print("1. Ver recursos")
         print("2. Continuar juego")
@@ -134,6 +114,7 @@ def in_game_menu():
 
 def inicio_dia():
     clear_screen()
+    ascii.inicio_dia()
     """Menu de inicio de día."""
     print("=== INICIO DEL DÍA ===")
     print("Dia numero:", recursos.dias_transcurridos)
@@ -142,6 +123,7 @@ def inicio_dia():
 
 def fin_dia():
     clear_screen()
+    ascii.fin_dia()
     """Menu de fin de día."""
     print("=== FIN DEL DÍA ===")
     recursos.mostrar_recursos()
@@ -160,6 +142,7 @@ def fin_dia():
 
 def game_over():
     clear_screen()
+    ascii.game_over()
     """Menu de game over."""
     print("=== GAME OVER ===")
     print("Lo siento, has perdido la misión.")
@@ -180,6 +163,7 @@ def game_over():
 
 def victoria():
     clear_screen()
+    ascii.victoria()
     """Menu de victoria."""
     print("=== ¡FELICIDADES, HAS GANADO! ===")
     print("Has logrado llegar a tu destino con éxito.")
@@ -200,6 +184,7 @@ def victoria():
 
 def motores():
     clear_screen()
+    ascii.motores()
     """Menu de motores."""
     while recursos.combustible > 0:
         clear_screen()
