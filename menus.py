@@ -3,6 +3,7 @@ import os
 import math
 import ascii
 import puntuacion
+import narrativa
 
 dificultad = "Normal"  # Dificultad por defecto: Normal
 eventos_diarios = 5  # Número de eventos diarios por defecto
@@ -226,3 +227,16 @@ def motores():
             print(f"Has avanzado {round(math.sqrt(cantidad/100) * (200 / math.sqrt(0.1)), 2)} en tu viaje.")
             input("Presiona Enter para regresar al menú del juego...")
             break
+        
+def narrativa_facil():
+    """Narrativa para dificultad fácil."""
+    while dificultad == "Fácil":
+        if recursos.dias_transcurridos== 0:
+            narrativa.narrar_primera_parte()
+            break
+        if recursos.distancia_a_destino:
+            narrativa.narrar_segunda_parte()
+        narrativa.narrar_tercera_parte()
+        narrativa.narrar_cuarta_parte()
+        narrativa.narrar_final()
+pass
