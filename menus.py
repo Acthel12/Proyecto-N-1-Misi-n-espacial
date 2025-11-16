@@ -33,9 +33,10 @@ def principal():
         clear_screen()
         ascii_art()
         print("=== MENÚ PRINCIPAL ===")
-        print("1. Iniciar juego")
-        print("2. Seleccionar dificultad")
-        print("3. Salir")
+        print("1) Iniciar juego")
+        print("2) Seleccionar dificultad")
+        print("3) Guía del juego")
+        print("4) Salir")
         
         global dificultad    
 
@@ -71,6 +72,11 @@ def principal():
             print(f"Dificultad establecida a: {dificultad}")
             input("Presiona Enter para regresar al menú...")
         elif eleccion == '3':
+            print("Características de las dificultades:")
+            print("Fácil: El viaje tiene una duración máxima de 30 días y debes recorrer una distancia de 1000 años luz.")
+            print("Normal: El viaje tiene una duración máxima de 20 días y debes recorrer una distancia de 2000 años luz.")
+            print("Difícil: El viaje tiene una duración máxima de 15 días y debes recorrer una distancia de 2500 años luz.")
+        elif eleccion == '4':
             print("Saliendo del juego. ¡Hasta luego!")
             exit()
 
