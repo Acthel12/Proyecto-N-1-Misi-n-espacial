@@ -1,6 +1,6 @@
  #Funciones para narrar la misión 'Ultimátum Espacial'
  
-def narrar_primera__parte():
+def narrar_primera_parte():
     narrativa_1 = """
 
 Estás en la fragata rebelde Corazón de Alderán junto con tu pequeño equipo de inteligencia. A tu alrededor, solo hay destrucción. El ruido de las alarmas perfora tus oídos y el aire huele a metal fundido. La batalla ha sido perdida.
@@ -63,4 +63,3 @@ La Alianza ahora tiene la información que necesita para planear un ataque decis
 """
     print(narrativa_final)
     
-narrar_primera__parte()
