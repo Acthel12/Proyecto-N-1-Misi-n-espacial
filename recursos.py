@@ -6,7 +6,9 @@ dias_restantes = 0
 dias_transcurridos = 0
 moral = 100
 suministros = 100
-distancia_a_destino = 0 
+distancia_a_destino = 0
+distancia_recorrida = 0 
+distancia_evento = 0
 
 def mostrar_recursos():
     """Muestra los recursos actuales del jugador."""
@@ -19,6 +21,7 @@ def mostrar_recursos():
     print(f"Días transcurridos: {dias_transcurridos}")
     print(f"Moral de la tripulación: {moral}%")
     print(f"Distancia al destino: {distancia_a_destino} años luz")
+    print(f"Distancia recorrida: {distancia_recorrida} años luz")
 
 def validar_recursos():
     """Verifica si algún recurso ha llegado a cero o si los días han llegado a su límite."""
@@ -100,16 +103,21 @@ def actualizar_recurso(recurso, cantidad):
         else:
             moral = int(moral)
     elif recurso == "distancia":
-        distancia_a_destino = max(0, distancia_a_destino + cantidad)
+        distancia_a_destino = max(0, distancia_a_destino - cantidad)
+        distancia_recorrida = max(0, distancia_recorrida + cantidad)
         if distancia_a_destino - int(distancia_a_destino) != 0:
             distancia_a_destino = round(distancia_a_destino, 2)
         else:
             distancia_a_destino = int(distancia_a_destino)
+        if distancia_recorrida - int(distancia_recorrida) != 0:
+            distancia_recorrida = round(distancia_recorrida, 2)
+        else:
+            distancia_recorrida = int(distancia_recorrida)
 
         
 def reiniciar_recursos():
     """Reinicia todos los recursos a sus valores iniciales."""
-    global oxigeno, combustible, energia, integridad, dias_restantes, dias_transcurridos, moral, suministros, distancia_a_destino
+    global oxigeno, combustible, energia, integridad, dias_restantes, dias_transcurridos, moral, suministros, distancia_a_destino, distancia_recorrida, distancia_evento
     oxigeno = 100
     combustible = 100
     energia = 100
@@ -119,4 +127,6 @@ def reiniciar_recursos():
     dias_transcurridos = 0
     moral = 100
     distancia_a_destino = 0
+    distancia_recorrida = 0 
+    distancia_evento = 0
 
