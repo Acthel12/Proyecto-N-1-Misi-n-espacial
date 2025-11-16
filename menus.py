@@ -221,7 +221,7 @@ def motores():
             print("Operación cancelada. Regresando al menú de motores...")
             input("Presiona Enter para continuar...")
         elif confirmacion == 's':
-            recursos.actualizar_recurso("combustible", cantidad)
+            recursos.actualizar_recurso("combustible", -cantidad)
             recursos.actualizar_recurso("distancia", math.sqrt(cantidad/100) * (200 / math.sqrt(0.1)))  # Avanza según la raíz cuadrada del combustible usado
             print("Mientras los motores funcionan, duermes un poco...")
             print(f"Has avanzado {round(math.sqrt(cantidad/100) * (200 / math.sqrt(0.1)), 2)} en tu viaje.")
