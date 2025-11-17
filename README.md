@@ -16,7 +16,7 @@ Instalación
   - cd "c:\Users\Usuario\Documents\Proyectos\Proyecto-N-1-Misi-n-espacial"
 
 Ejecución
-- Si tienes un script principal (por ejemplo `main.py`), ejecútalo con:
+- ejecútalo con:
   - python main.py
 - Para probar las funciones de recursos desde REPL o un script:
   - from recursos import mostrar_recursos, actualizar_recurso, validar_recursos, reiniciar_recursos
