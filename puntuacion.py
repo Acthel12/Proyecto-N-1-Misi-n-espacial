@@ -14,6 +14,7 @@ def puntuacion_final():
     
     puntuacion_total = p_oxigneo + p_combustible + p_integridad + p_energia + p_dias_restantes + p_dias_transcurridos + p_moral + p_suministros + p_distancia_a_destino  
     punt = puntuacion_total
+    
     #diferentes tiopos de meajes para difrentes puntuaciones 
     if punt >= 1500 :
         print(f"Puntuación final: {punt}.")
