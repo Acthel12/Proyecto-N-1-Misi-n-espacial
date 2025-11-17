@@ -32,13 +32,4 @@ Estructura del proyecto
     - reiniciar_recursos(): restablece los valores iniciales.
 - README.md — (este archivo) documentación básica.
 
-Uso rápido (ejemplos)
-- Avanzar 1 día:
-  - actualizar_recurso("dias", 1)
-- Reducir oxígeno en 10:
-  - actualizar_recurso("oxigeno", -10)
-- Mostrar estado:
-  - mostrar_recursos()
-- Comprobar si la misión continúa:
-  - if not validar_recursos(): print("Misión finalizada")
 
