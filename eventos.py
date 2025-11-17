@@ -2,7 +2,7 @@ import random
 import recursos
 
 eventos_ocurridos = " "
-n = 10 # Número total de eventos disponibles Añadir más eventos y actualizar este número
+n = 12 # Número total de eventos disponibles Añadir más eventos y actualizar este número
 ## Traten de añadir eventos variados , que afecten diferentes recursos y que tengan varias opciones
 
 ## Selección aleatoria de eventos Nota: agregar más eventos a medida que se creen eventos y actualizar el valor de n
@@ -51,6 +51,12 @@ def evento_aleatorio():
     elif eventos == 10:
         ganar_suministros()
         añadir_evento(eventos)
+    elif eventos == 11:
+        salto_gravitacional()
+        añadir_evento(eventos)
+    elif eventos == 12:
+        refugio_cosmico()
+        añadir_evento(eventos)
     input("Presiona Enter para continuar...")
 
 ## Los eventos por ahora solo afetan -5 o +5 a los recursos, pero se pueden modificar
@@ -61,6 +67,24 @@ def asteriode_metalico():
     print("¡Has encontrado un asteroide metálico rico en recursos!")
     recursos.actualizar_recurso("suministros", 5)
     recursos.actualizar_recurso("moral", 5)
+
+def salto_gravitacional():
+    """Evento que reduce la distancia restante (avance gratuito)."""
+    print("Un campo gravitacional te impulsa cientos de kilómetros hacia adelante.")
+    recursos.actualizar_recurso("distancia", 50)
+
+def refugio_cosmico():
+    """Evento que otorga moral y reduce días restantes (descanso eficiente)."""
+    print("Encuentras un refugio cósmico donde la tripulación descansa bien.")
+    opcion = input("¿Deseas aprovechar el refugio para mejorar la moral y reducir un día de viaje? (s/n): ").lower()
+    while opcion != 's' and opcion != 'n':
+        print("Opción no válida. Intente de nuevo.")
+        opcion = input("¿Deseas aprovechar el refugio para mejorar la moral y reducir un día de viaje? (s/n): ").lower()
+    if opcion == 'n':
+        print("Decides no aprovechar el refugio.")
+    else:
+        recursos.actualizar_recurso("moral", 8)
+        recursos.actualizar_recurso("dias_restantes", -1)
 
 #Eventos aleatorios que reducen los recursos
 def tormenta_cosmica_():
