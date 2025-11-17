@@ -52,7 +52,8 @@ def evento_aleatorio():
         ganar_suministros()
         añadir_evento(eventos)
     elif eventos == 11:
-        salto_gravitacional(eventos)
+        salto_gravitacional()
+        añadir_evento(eventos)
     input("Presiona Enter para continuar...")
 
 ## Los eventos por ahora solo afetan -5 o +5 a los recursos, pero se pueden modificar
