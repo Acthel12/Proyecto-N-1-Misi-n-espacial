@@ -53,8 +53,6 @@ def evento_aleatorio():
         añadir_evento(eventos)
     elif eventos == 11:
         salto_gravitacional(eventos)
-    elif eventos == 12:
-        refugio_cosmico(eventos)
     input("Presiona Enter para continuar...")
 
 ## Los eventos por ahora solo afetan -5 o +5 a los recursos, pero se pueden modificar
