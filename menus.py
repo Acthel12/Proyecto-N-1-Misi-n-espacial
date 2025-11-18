@@ -147,11 +147,12 @@ def fin_dia():
 def game_over():
     """Menu de game over."""
     clear_screen()
+    narrativa.narrativa_al_perder()
+    clear_screen()
     print("=== GAME OVER ===")
     ascii.game_over()
     print("Lo siento, has perdido la misión.")
     recursos.mostrar_recursos()
-    puntuacion.puntuacion_final()
     print("Ir al menu principal o salir del juego.")
     print("1. Ir al menú principal")
     print("2. Salir del juego")
