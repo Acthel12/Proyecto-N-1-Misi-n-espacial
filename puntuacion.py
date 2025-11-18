@@ -1,51 +1,49 @@
 import recursos
 import menus
 
-
-def buscar_distancia():
+def multiplicador_por_dificultad():
     if menus.dificultad == "Fácil":
-        return 1000
+        return 0.9
     if menus.dificultad == "Normal":
-        return 2000
+        return 1
     if menus.dificultad == "Dificil":
-        return 2500
-        
+        return 1.15
 
 def puntuacion_final():
     """Calcula y devuelve la puntuación final basada en los recursos restantes."""
     p_oxigneo = (recursos.oxigeno * 0.10) / 100
     p_combustible = (recursos.combustible * 0.10) / 100
-    p_integridad = (recursos.integridad * 0.25) /100
-    p_energia = (recursos.energia * 0.05)
+    p_integridad = (recursos.integridad * 0.30) /100
+    p_energia = (recursos.energia * 0.05)/100
     p_dias_restantes = (recursos.dias_restantes * 0.00)
     p_dias_transcurridos = ((100 - recursos.dias_transcurridos) * 0.05) /100 
-    p_moral = (recursos. moral * 0.20) / 100
-    p_suministros = (recursos.suministros * 0.15)
-    p_distancia_a_destino = (1 - (recursos.distancia_a_destino / (buscar_distancia())) ) * 0.10
+    p_moral = (recursos. moral * 0.25) / 100
+    p_suministros = (recursos.suministros * 0.15)/100
     
-    puntuacion_total = p_oxigneo + p_combustible + p_integridad + p_energia + p_dias_restantes + p_dias_transcurridos + p_moral + p_suministros + p_distancia_a_destino  
-    punt = int(puntuacion_total * 100)
+    puntuacion_total = p_oxigneo + p_combustible + p_integridad + p_energia + p_dias_restantes + p_dias_transcurridos + p_moral + p_suministros  
+    punt = int(puntuacion_total * 1000 * 1)
     
     #diferentes tiopos de meajes para difrentes puntuaciones 
-    if punt >= 1500 :
+    if punt >= 1150 :
         print(f"Puntuación final: {punt}.")
         print("Su nombre resonará en los pasillos de la flota. "
               "En el silencio entre estrellas, los comandantes recordarán que, "
               "en esta misión, usted hizo lo imposible… y venció.")
     
-    elif punt >= 800:
+    elif punt >= 1000:
     
         print(f"Puntuación final: {punt}.")
         print("La misión exigió más de lo que cualquiera habría soportado, "
               "pero usted no cedió. La Alianza reconoce su valor; "
               "su avance marcó el camino para quienes lo seguirán.")
 
-    elif punt >= 200:
-        # Registro de una Derrota que Habla
-        print(f"Puntuación final: {punt}.")
-        print("El fuego enemigo fue implacable, y la misión se desmoronó ante su intensidad. "
-              "Aun así, sus señales finales servirán como advertencia para la Alianza. "
-              "Incluso en la caída, dejó un mensaje que puede salvar mundos.")
+#Esto no se va a utilizar por que  la puntuacion no se ejecuta cuando pierdes, podria cambiarse a un mensaje de que lo lograste a duras penas.
+#    elif punt >= 200:
+#        # Registro de una Derrota que Habla
+#        print(f"Puntuación final: {punt}.")
+#        print("El fuego enemigo fue implacable, y la misión se desmoronó ante su intensidad. "
+#              "Aun así, sus señales finales servirán como advertencia para la Alianza. "
+#              "Incluso en la caída, dejó un mensaje que puede salvar mundos.")
 
     else:
     
@@ -54,4 +52,4 @@ def puntuacion_final():
               "Tal vez no todo salió según lo previsto… pero cada batalla sobrevivida "
               "escribe una nueva línea en la historia.")
 
-    
+puntuacion_final()
