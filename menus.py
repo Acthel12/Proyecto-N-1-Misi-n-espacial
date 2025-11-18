@@ -119,6 +119,10 @@ def in_game_menu():
 def inicio_dia():
     clear_screen()
     """Menu de inicio de día."""
+    narrativa_facil()
+    narrativa_normal()
+    narrativa_dificil()
+    clear_screen()
     print("=== INICIO DEL DÍA ===")
     ascii.inicio_dia()
     print("Dia numero:", recursos.dias_transcurridos + 1)
@@ -231,57 +235,45 @@ def motores():
         
 def narrativa_facil():
     """Narrativa para dificultad fácil."""
-    while dificultad == "Fácil":
+    if dificultad == "Fácil":
         if recursos.dias_transcurridos== 0:
             narrativa.narrar_primera_parte()
-            break
         if 0 < recursos.distancia_recorrida<= 200:
             narrativa.narrar_segunda_parte()
-            break
         if 200 < recursos.distancia_recorrida <= 500:
             narrativa.narrar_tercera_parte()
-            break
         if 500 < recursos.distancia_recorrida <= 800:
             narrativa.narrar_cuarta_parte()
-            break
         if recursos.distancia_recorrida == 1000:
             narrativa.narrar_final()
-            break
+        input("Presione enter para continuar...")
 
 def narrativa_normal():
     """Narrativa para dificultad normal."""
-    while dificultad == "Normal":
+    if dificultad == "Normal":
         if recursos.dias_transcurridos== 0:
             narrativa.narrar_primera_parte()
-            break
         if 0 < recursos.distancia_recorrida <= 500:
             narrativa.narrar_segunda_parte()
-            break
         if 500 < recursos.distancia_recorrida <= 1000:
             narrativa.narrar_tercera_parte()
-            break
         if 1000 < recursos.distancia_recorrida <= 1500:
             narrativa.narrar_cuarta_parte()
-            break
         if recursos.distancia_recorrida == 2000:
             narrativa.narrar_final()
-            break
+        input("Presione enter para continuar...")
 
 def narrativa_dificil():
     """Narrativa para dificultad dificil."""
-    while dificultad == "Difícil":
+    if dificultad == "Difícil":
         if recursos.dias_transcurridos== 0:
             narrativa.narrar_primera_parte()
-            break
         if 0 < recursos.distancia_recorrida <= 800:
             narrativa.narrar_segunda_parte()
-            break
         if 800 < recursos.distancia_recorrida <= 1500:
             narrativa.narrar_tercera_parte()
-            break
         if 1500 < recursos.distancia_recorrida <= 2000:
             narrativa.narrar_cuarta_parte()
-            break
         if recursos.distancia_recorrida == 2500:
             narrativa.narrar_final()
-            break
+        input("Presione enter para continuar...")
