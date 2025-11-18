@@ -119,9 +119,7 @@ def in_game_menu():
 def inicio_dia():
     clear_screen()
     """Menu de inicio de día."""
-    narrativa_facil()
-    narrativa_normal()
-    narrativa_dificil()
+    narrativa()
     clear_screen()
     print("=== INICIO DEL DÍA ===")
     ascii.inicio_dia()
@@ -233,8 +231,8 @@ def motores():
             input("Presiona Enter para regresar al menú del juego...")
             break
         
-def narrativa_facil():
-    """Narrativa para dificultad fácil."""
+def narrativa():
+    """Narrativa para las diferents dificultades."""
     if dificultad == "Fácil":
         if recursos.dias_transcurridos== 0:
             narrativa.narrar_primera_parte()
@@ -247,10 +245,7 @@ def narrativa_facil():
         if recursos.distancia_recorrida == 1000:
             narrativa.narrar_final()
         input("Presione enter para continuar...")
-
-def narrativa_normal():
-    """Narrativa para dificultad normal."""
-    if dificultad == "Normal":
+    elif dificultad == "Normal":
         if recursos.dias_transcurridos== 0:
             narrativa.narrar_primera_parte()
         if 0 < recursos.distancia_recorrida <= 500:
@@ -262,10 +257,7 @@ def narrativa_normal():
         if recursos.distancia_recorrida == 2000:
             narrativa.narrar_final()
         input("Presione enter para continuar...")
-
-def narrativa_dificil():
-    """Narrativa para dificultad dificil."""
-    if dificultad == "Difícil":
+    elif dificultad == "Difícil":
         if recursos.dias_transcurridos== 0:
             narrativa.narrar_primera_parte()
         if 0 < recursos.distancia_recorrida <= 800:
