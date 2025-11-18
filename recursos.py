@@ -25,31 +25,23 @@ def mostrar_recursos():
 
 def validar_recursos():
     """Verifica si algún recurso ha llegado a cero o si los días han llegado a su límite."""
-    global oxigeno, combustible, energia, integridad, dias_restantes, dias_transcurridos, moral, suministros
 
     # Comprobaciones críticas: si cualquiera de estos recursos llega a 0, la misión falla
     if oxigeno <= 0:
-        print("Oxígeno agotado. Fin de la misión.")
         return False
     if combustible <= 0:
-        print("Combustible agotado. Fin de la misión.")
         return False
     if energia <= 0:
-        print("Energía agotada. Fin de la misión.")
         return False
     if integridad <= 0:
-        print("Integridad de la nave crítica. Fin de la misión.")
         return False
     if suministros <= 0:
-        print("Suministros agotados. Fin de la misión.")
         return False
     if moral <= 0:
-        print("Moral de la tripulación completamente baja. Fin de la misión.")
         return False
 
     # Si los días restantes llegan a 0 después de haber transcurrido al menos un día, la misión termina.
     if dias_restantes <= 0 and dias_transcurridos > 0:
-        print("Se han agotado los días de la misión. Fin de la misión.")
         return False
 
     return True
@@ -116,7 +108,28 @@ def actualizar_recurso(recurso, cantidad):
     elif recurso == "distancia_evento":
         distancia_evento = max(0, distancia_evento + cantidad)
 
+def comprobar_causa_de_gameover():
+    if oxigeno <= 0:
+        return "oxigeno"
+    if combustible <= 0:
+        return "combustible"
+    if energia <= 0:
+        return "energia"
+    if integridad <= 0:
+        return "integridad"
+    if suministros <= 0:
+        return "suministros"
+    if moral <= 0:
+        return "moral"
 
+    # Si los días restantes llegan a 0 después de haber transcurrido al menos un día, la misión termina.
+    if dias_restantes <= 0 and dias_transcurridos > 0:
+        return "dias"
+    
+    else:
+        print("No debio perder el juego, por favor reporte esto al equipo desarrollador")
+        input("Presione enter para continuar.")
+        return "none"
         
 def reiniciar_recursos():
     """Reinicia todos los recursos a sus valores iniciales."""

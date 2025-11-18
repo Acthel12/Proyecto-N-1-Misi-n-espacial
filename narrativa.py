@@ -1,5 +1,9 @@
  #Funciones para narrar la misión 'Ultimátum Espacial'
- 
+import recursos
+
+#Recuerda que la terminal se limpia cada vez que se inicia un menu asi que si quieres que el usuario pueda ver lo que se dice tienes que añadir un input("(mensaje)")
+#para que cuando le de a enter, pero esto lo vamos a ver cuando lo implimetemos en menu:
+
 def narrar_primera_parte():
     narrativa_1 = """
 
@@ -63,3 +67,43 @@ La Alianza ahora tiene la información que necesita para planear un ataque decis
 """
     print(narrativa_final)
     
+def final_combustible():
+    pass
+
+def final_integridad():
+    pass
+
+def final_oxigeno():
+    pass
+
+def final_energia():
+    pass
+
+def final_dias():
+    pass
+
+def final_moral():
+    pass
+
+def final_suministros():
+    pass
+
+def narrativa_al_perder():
+    opcion = recursos.comprobar_causa_de_gameover()
+    if opcion == "combustible":
+        final_combustible()
+    elif opcion == "integridad":
+        final_integridad()
+    elif opcion == "dias":
+        final_dias()
+    elif opcion == "oxigeno":
+        final_oxigeno()
+    elif opcion == "energia":
+        final_energia
+    elif opcion == "moral":
+        final_moral()
+    elif opcion == "suministros":
+        final_suministros()
+    else:
+        return
+    input("Presione enter para continuar.")
