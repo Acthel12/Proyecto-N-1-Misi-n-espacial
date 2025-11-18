@@ -1,4 +1,15 @@
 import recursos
+import menus
+
+
+def buscar_distancia():
+    if menus.dificultad == "Fácil":
+        return 1000
+    if menus.dificultad == "Normal":
+        return 2000
+    if menus.dificultad == "Dificil":
+        return 2500
+        
 
 def puntuacion_final():
     """Calcula y devuelve la puntuación final basada en los recursos restantes."""
@@ -10,7 +21,7 @@ def puntuacion_final():
     p_dias_transcurridos = ((100 - recursos.dias_transcurridos) * 0.05) /100 
     p_moral = (recursos. moral * 0.20) / 100
     p_suministros = (recursos.suministros * 0.15)
-    p_distancia_a_destino = (1 - (recursos.distancia_a_destino / 2500) ) * 0.10
+    p_distancia_a_destino = (1 - (recursos.distancia_a_destino / (buscar_distancia())) ) * 0.10
     
     puntuacion_total = p_oxigneo + p_combustible + p_integridad + p_energia + p_dias_restantes + p_dias_transcurridos + p_moral + p_suministros + p_distancia_a_destino  
     punt = int(puntuacion_total * 100)
