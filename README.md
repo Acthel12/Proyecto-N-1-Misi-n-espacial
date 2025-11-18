@@ -16,7 +16,7 @@ Instalación
   - cd "c:\Users\Usuario\Documents\Proyectos\Proyecto-N-1-Misi-n-espacial"
 
 Ejecución
-- Si tienes un script principal (por ejemplo `main.py`), ejecútalo con:
+- ejecútalo con:
   - python main.py
 - Para probar las funciones de recursos desde REPL o un script:
   - from recursos import mostrar_recursos, actualizar_recurso, validar_recursos, reiniciar_recursos
@@ -32,13 +32,4 @@ Estructura del proyecto
     - reiniciar_recursos(): restablece los valores iniciales.
 - README.md — (este archivo) documentación básica.
 
-Uso rápido (ejemplos)
-- Avanzar 1 día:
-  - actualizar_recurso("dias", 1)
-- Reducir oxígeno en 10:
-  - actualizar_recurso("oxigeno", -10)
-- Mostrar estado:
-  - mostrar_recursos()
-- Comprobar si la misión continúa:
-  - if not validar_recursos(): print("Misión finalizada")
 
