@@ -6,9 +6,9 @@ Realizado por:
 
 | Nombre Completo | Identificación |
 | :-------------- | :------------- |
-| Andres  | V-00.000.000 |
+| Andres  | V-32.051.226 |
 | Gabriel Eloy | V-32.051.221 |
-| Juan Guevara | V-00.000.000 |
+| Juan Guevara | V-26.582.031 |
 | Juan Francisco | V-32.051.184 |
 
 Descripción
