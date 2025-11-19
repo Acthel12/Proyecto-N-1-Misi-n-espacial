@@ -21,12 +21,17 @@ def narrar_primera_parte():
     menus.clear_screen()
     ascii.narrativa()
     print("Corren. Te abres paso entre escombros y llamas, sabiendo que cada paso es un segundo de vida para millones. Te lanzas junto con tu equipo y el Jedi a la cabina del interceptor, el Spectre, la última nave de escape. Tú eres quien lo pilota.")
+    print("Esquivas rapidamente los interceptores del imperio, luego de un rato, gracias a la maniobrabilidad del spectre logras llegar lejos de la batalla.")
+    menus.clear_screen()
+    ascii.narrativa()
+    print("No se informo la ubicacion de la base que recibiria los planos, solo se indico el sistema estelar destino AXKB-1001.")
+    print("Fijas el rumbo a AXKB-1001, y te preparas para tu viaje...")
     input("Presiona Enter para continuar...")
 
 
 def narrar_segunda_parte():
     ascii.narrativa()
-    print("Apenas has abandonado los restos de la fragata y avanzado un poco a tu destino, las alarmas se disparan, advirtiéndote. Estás siendo esperado. El Imperio sabía que escaparían. \nUna flota de reconocimiento imperial liderada por el destructor Venganza Silenciosa emerge de la negrura y te persigue. No quieren una gran batalla, solo capturarlos y los planos.")
+    print("Las alarmas se disparan, advirtiéndote. Estás siendo esperado. El Imperio sabía que escaparían. \nUna flota de reconocimiento imperial liderada por el destructor Venganza Silenciosa emerge de la negrura y te persigue. No quieren una gran batalla, solo capturarlos y los planos.")
     input("Presiona Enter para continuar...")
     menus.clear_screen()
     ascii.narrativa()
@@ -39,16 +44,17 @@ def narrar_tercera_parte():
     input("Presiona Enter para continuar...")
     menus.clear_screen()
     ascii.narrativa()
-    print("De repente, un disparo te alcanza. Sientes cómo el impacto sacude tu nave. El hiperimpulsor está dañado. Tu tripulación se desespera. \nLa distancia se reduce. Vordus está a punto de alcanzarte, pero en ese momento, una señal débil y encriptada llega a tu comunicador. \nTe dan una nueva orden: La base de Endor ha sido comprometida. Ve al planeta desconocido Proton-9.")
+    print("""De repente, un disparo te alcanza. Sientes cómo el impacto sacude tu nave. El hiperimpulsor está dañado. Tu tripulación se desespera. \nLa distancia se reduce. Vordus está a punto de alcanzarte, pero en ese momento, una señal débil y encriptada llega a tu comunicador. "Necesitan ayuda?" LLega una flota rebelde de tamaño considerable que obliga al general Vordus a retirarse.""")
+    print(""""Jaja, una pequeña flota de reconocimiento no podra acabar con las fuerzas del general Kaelen Var". Logras reparar los daños en el hiperpropulsor y te dan una nueva orden: "Volveran con una fuerza de asalto , dirigete a la base secreta en el Planeta Proton-9, nosotros debemos dispersarnos rapidamente" """)
     input("Presiona Enter para continuar...")
     menus.clear_screen()
     ascii.narrativa()
-    print("Debes dirigirte a esta estación de retransmisión abandonada. Tu misión ya no es escapar, sino transmitir los planos desde allí. Es la última carta de la Alianza. Es tu única oportunidad.")
+    print("Con las reparaciones de emergencia realizadas y con el destino claro, te diriges rapidamente al planeta Proton-9.")
     input("Presiona Enter para continuar...")
 
 def narrar_cuarta_parte():
     ascii.narrativa()
-    print("Te precipitas hacia la atmósfera de Proton-9. Sabes que el destructor Venganza Silenciosa te sigue de cerca, entrando en el sistema. \nLlegas al punto crítico: la nave se estabiliza para el aterrizaje. La transmisión debe comenzar ahora, antes de que tu sombra, el General Vordus, te encuentre. \nTodo depende de ti.")
+    print("LLegas al sistema AXKB-1001 hogar del planeta Proton-9. Sabes que el destructor Venganza Silenciosa te sigue de cerca, entrando en el sistema. \nTe falta poco para llegar, tu tripulacion esta ansiosa. Debes llegar rapido a tu destino, antes de que tu sombra, el General Vordus, te encuentre. \nTodo depende de ti.")
     input("Presiona Enter para continuar...")
 
 def narrar_final():
