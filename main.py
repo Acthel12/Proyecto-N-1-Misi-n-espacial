@@ -6,12 +6,13 @@ import ascii
 regresar_al_menu = False
 
 def main():
+        """Logica principal del juego"""
         while True:
                 menus.principal()
                 while recursos.validar_recursos():
                         menus.inicio_dia()
                         regresar_al_menu = menus.in_game_menu()
-                        if regresar_al_menu:
+                        if regresar_al_menu: 
                                 break
                         for i in range(menus.eventos_diarios):
                                 menus.clear_screen()
