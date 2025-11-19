@@ -111,10 +111,11 @@ def final_energia():
 def final_dias():
     """Funcion para narrar el mensaje de game_over por falta de dias"""    
     ascii.narrativa()
-    print("El reloj de la misión ha superado el límite. El punto de encuentro de la Alianza Rebelde ha sido abandonado.")
-    print("La flota no podía esperar más por que el imperio habria rodeado las fuerzas de la Alianza. Estás varado, y la transmisión de los planos nunca llegó a tiempo para cambiar el rumbo de la guerra.")
-    print("Ahora solo queda la espera, la certeza de que nadie vendrá en tu rescate.")
-    print("\n>>> MISIÓN FRACASADA: TARDE PARA EL RESCATE")
+    print("El cronómetro ha llegado a cero. No es solo el límite de la misión; es el tiempo que el Imperio calculó que tardaría en 'peinar' este sector.")
+    print("Las comunicaciones se inundan con un ruido ensordecedor: la flota de rastreo imperial ha triangulado tu posición y está saltando al hiperespacio.")
+    print("Ya no hay escapatoria. Los detectores de proximidad se vuelven locos mientras decenas de Destructores Imperiales aparecen sobre ti, sus siluetas negras bloqueando las estrellas.")
+    print("Tu retraso ha sellado el destino de la Alianza. Los planos morirán contigo.")
+    print("\n>>> MISIÓN FRACASADA: ALCANZADO POR LA SOMBRA IMPERIAL")
     input("Presiona Enter para terminar...")
 
 def final_moral():
