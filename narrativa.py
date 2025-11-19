@@ -61,25 +61,61 @@ def narrar_final():
     input("Presiona Enter para continuar...")
 
 def final_combustible():
-    pass
+    ascii.narrativa()
+    print("Un pitido lastimero anuncia la sentencia final: los tanques de combustible están vacíos. La fragata pierde velocidad, los motores gimen y se apagan.")
+    print("A través de la ventana principal, las luces del Destructor Imperial Venganza Silenciosa se agigantan, sus cañones turboláser brillando con intención asesina.")
+    print("La huida ha terminado. Los gritos de tu equipo se ahogan en la desesperación al ver los haces de luz del tractor envolver vuestra nave, inmóvil y condenada.")
+    print("Los planos de la Estrella de la Muerte serán recuperados por el Imperio, y tu destino, sellado.")
+    print("\n>>> MISIÓN FRACASADA: ATRAPADO Y CAPTURADO")
+    input("Presiona Enter para terminar...")
 
 def final_integridad():
-    pass
+    ascii.narrativa()
+    print("Escuchas un chirrido agudo, seguido del sonido más aterrador de todos: el del aire escapando. El casco ha cedido bajo el fuego enemigo.")
+    print("Las grietas se expanden por la cabina, y la presión interna cae en picada. El frío te envuelve y las luces parpadean por última vez.")
+    print("Tu respiración se convierte en escarcha. Ya no hay escape. La nave se desgarra alrededor de tu equipo.")
+    print("\n>>> MISIÓN FRACASADA: FRAGATA DESTRUIDA")
+    input("Presiona Enter para terminar...")
 
 def final_oxigeno():
-    pass
+    ascii.narrativa()
+    print("El indicador de O₂ está en rojo intermitente, una burla cruel. Notas el mareo, la euforia extraña que precede al colapso.")
+    print("Intentas enviar un mensaje, pero tus dedos son lentos y pesados. El mundo se vuelve borroso, los colores se distorsionan.")
+    print("Lo último que ves es el rostro de tu copiloto, antes de que el sueño eterno del espacio te reclame.")
+    print("\n>>> MISIÓN FRACASADA: ASFIXIA EN EL VACÍO")
+    input("Presiona Enter para terminar...")
 
 def final_energia():
-    pass
+    ascii.narrativa()
+    print("La cabina se sume en una oscuridad total. La energía de los escudos y los motores se ha agotado por completo. Estás a la deriva.")
+    print("A lo lejos, las luces del Destructor Venganza Silenciosa te envuelven. Estás indefenso. Capturado.")
+    print("Los planos de la Estrella de la Muerte caerán en manos del Imperio. Tu sacrificio fue en vano.")
+    print("\n>>> MISIÓN FRACASADA: ENTREGADO AL ENEMIGO")
+    input("Presiona Enter para terminar...")
 
 def final_dias():
-    pass
+    ascii.narrativa()
+    print("El reloj de la misión ha superado el límite. El punto de encuentro de la Alianza Rebelde ha sido abandonado.")
+    print("La flota no podía esperar más. Estás varado, y la transmisión de los planos nunca llegó a tiempo para cambiar el rumbo de la guerra.")
+    print("Ahora solo queda la espera, la certeza de que nadie vendrá.")
+    print("\n>>> MISIÓN FRACASADA: TARDE PARA EL RESCATE")
+    input("Presiona Enter para terminar...")
 
 def final_moral():
-    pass
+    ascii.narrativa()
+    print("Los murmullos se convierten en gritos y los gritos en abierta rebelión. Tu equipo ha perdido toda esperanza.")
+    print("Un motín estalla en la bodega. La lucha interna por el último escape es brutal y caótica. La misión se ha derrumbado por dentro.")
+    print("Con el corazón destrozado, ves cómo el último miembro leal cae. La fragata cae en manos de desertores. El plan Rebelde ha sido traicionado.")
+    print("\n>>> MISIÓN FRACASADA: TRAICIÓN Y DESESPERACIÓN")
+    input("Presiona Enter para terminar...")
 
 def final_suministros():
-    pass
+    ascii.narrativa()
+    print("El último paquete de raciones fue consumido hace días. El cansancio se convierte en agotamiento. La mente se nubla por la sed.")
+    print("Ya no puedes operar los controles con precisión. La debilidad te obliga a tumbarte en el suelo frío de la cabina.")
+    print("La Resistencia se desvanece contigo. No fue el enemigo quien te derrotó, fue la necesidad más básica.")
+    print("\n>>> MISIÓN FRACASADA: AGOTAMIENTO Y HAMBRE")
+    input("Presiona Enter para terminar...")
 
 def narrativa_al_perder():
     opcion = recursos.comprobar_causa_de_gameover()
@@ -97,6 +133,8 @@ def narrativa_al_perder():
         final_moral()
     elif opcion == "suministros":
         final_suministros()
+    elif opcion == "dias":
+        final_dias
     else:
         return
     input("Presione enter para continuar.")

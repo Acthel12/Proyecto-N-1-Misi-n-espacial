@@ -5,8 +5,19 @@ import ascii
 import puntuacion
 import narrativa
 
+narrativa_ejecutada1 = False
+narrativa_ejecutada2 = False
+narrativa_ejecutada3 = False
+narrativa_ejecutada4 = False
 dificultad = "Normal"  # Dificultad por defecto: Normal
 eventos_diarios = 5  # Número de eventos diarios por defecto
+
+def reiniciar_narrativa():
+    global narrativa_ejecutada1, narrativa_ejecutada2 , narrativa_ejecutada3, narrativa_ejecutada4
+    narrativa_ejecutada1 = False
+    narrativa_ejecutada2 = False
+    narrativa_ejecutada3 = False
+    narrativa_ejecutada4 = False
 
 def clear_screen():
     """Limpia la pantalla de la consola."""
@@ -20,6 +31,7 @@ def principal():
     """Menu principal del juego.
     Sirve para iniciar el juego, seleccionar la dificultad o salir."""
     recursos.reiniciar_recursos()
+    reiniciar_narrativa()
     while True:
         clear_screen()
         ascii.principal()
@@ -119,7 +131,7 @@ def in_game_menu():
 def inicio_dia():
     clear_screen()
     """Menu de inicio de día."""
-    narrativa()
+    narrativa_juego()
     clear_screen()
     print("=== INICIO DEL DÍA ===")
     ascii.inicio_dia()
@@ -135,15 +147,15 @@ def fin_dia():
     recursos.mostrar_recursos()
     recursos.actualizar_recurso("dias", 1)
     if dificultad == "Difícil":
-        recursos.actualizar_recurso("suministros", -5)  # Pérdida adicional de suministros en dificultad difícil
-        recursos.actualizar_recurso("moral", -2.5)  # Pérdida adicional de moral en dificultad difícil
-        recursos.actualizar_recurso("energia", -5)  # Pérdida adicional de energía en dificultad difícil
-        recursos.actualizar_recurso("oxigeno", -5)  # Pérdida adicional de oxígeno en dificultad difícil
+        recursos.actualizar_recurso("suministros", -10)  # Pérdida adicional de suministros en dificultad difícil
+        recursos.actualizar_recurso("moral", -5)  # Pérdida adicional de moral en dificultad difícil
+        recursos.actualizar_recurso("energia", -10)  # Pérdida adicional de energía en dificultad difícil
+        recursos.actualizar_recurso("oxigeno", -10)  # Pérdida adicional de oxígeno en dificultad difícil
     else:
-        recursos.actualizar_recurso("suministros", -2.5)
-        recursos.actualizar_recurso("moral", -1)
-        recursos.actualizar_recurso("energia", -2.5)
-        recursos.actualizar_recurso("oxigeno", -2.5)
+        recursos.actualizar_recurso("suministros", -6)
+        recursos.actualizar_recurso("moral", -3)
+        recursos.actualizar_recurso("energia", -6)
+        recursos.actualizar_recurso("oxigeno", -6)
     input("Presiona Enter para continuar...")
 
 def game_over():
@@ -171,6 +183,7 @@ def game_over():
 
 def victoria():
     """Menu de victoria."""
+    narrativa.narrar_final()
     clear_screen()
     print("=== ¡FELICIDADES, HAS GANADO! ===")
     ascii.victoria()
@@ -214,7 +227,7 @@ def motores():
             cantidad = input("Ingresa la cantidad de combustible a usar: ")                        
         cantidad = float(cantidad)      
         print(f"Usando {cantidad}% de combustible para avanzar...")
-        print(f"Tu nave avanzará una distancia de {round(math.sqrt(cantidad/100) * (200 / math.sqrt(0.1)), 2)} años luz.")
+        print(f"Tu nave avanzará una distancia de {round(math.sqrt(cantidad/100) * (200 / math.sqrt(0.5)), 2)} años luz.")
         print("Está seguro?")
         confirmacion = input("Ingrese 's' para confirmar o 'n' para cancelar: ")
         while confirmacion != 's' and confirmacion != 'n':
@@ -225,47 +238,48 @@ def motores():
             input("Presiona Enter para continuar...")
         elif confirmacion == 's':
             recursos.actualizar_recurso("combustible", -cantidad)
-            recursos.actualizar_recurso("distancia", math.sqrt(cantidad/100) * (200 / math.sqrt(0.1)))  # Avanza según la raíz cuadrada del combustible usado
+            recursos.actualizar_recurso("distancia", math.sqrt(cantidad/100) * (200 / math.sqrt(0.5)))  # Avanza según la raíz cuadrada del combustible usado
             print("Mientras los motores funcionan, duermes un poco...")
-            print(f"Has avanzado {round(math.sqrt(cantidad/100) * (200 / math.sqrt(0.1)), 2)} en tu viaje.")
+            print(f"Has avanzado {round(math.sqrt(cantidad/100) * (200 / math.sqrt(0.5)), 2)} en tu viaje.")
             input("Presiona Enter para regresar al menú del juego...")
             break
         
-def narrativa():
+def narrativa_juego():
     """Narrativa para las diferents dificultades."""
+    global narrativa_ejecutada1, narrativa_ejecutada2 , narrativa_ejecutada3, narrativa_ejecutada4
     if dificultad == "Fácil":
-        if recursos.dias_transcurridos== 0:
+        if recursos.dias_transcurridos== 0 and not narrativa_ejecutada1:
             narrativa.narrar_primera_parte()
-        if 0 < recursos.distancia_recorrida<= 200:
+            narrativa_ejecutada1 = True
+        if 0 < recursos.distancia_recorrida<= 200 and not narrativa_ejecutada2:
             narrativa.narrar_segunda_parte()
-        if 200 < recursos.distancia_recorrida <= 500:
+            narrativa_ejecutada2 = True
+        if 200 < recursos.distancia_recorrida <= 500 and not narrativa_ejecutada3:
             narrativa.narrar_tercera_parte()
-        if 500 < recursos.distancia_recorrida <= 800:
+            narrativa_ejecutada3 = True
+        if 500 < recursos.distancia_recorrida <= 800 and not narrativa_ejecutada4:
             narrativa.narrar_cuarta_parte()
-        if recursos.distancia_recorrida == 1000:
-            narrativa.narrar_final()
-        input("Presione enter para continuar...")
+            narrativa_ejecutada4 = True
     elif dificultad == "Normal":
-        if recursos.dias_transcurridos== 0:
+        if recursos.dias_transcurridos== 0 and not narrativa_ejecutada1:
             narrativa.narrar_primera_parte()
-        if 0 < recursos.distancia_recorrida <= 500:
+            narrativa_ejecutada1 = True
+        if 0 < recursos.distancia_recorrida <= 500 and not narrativa_ejecutada2:
             narrativa.narrar_segunda_parte()
-        if 500 < recursos.distancia_recorrida <= 1000:
+            narrativa_ejecutada2 = True
+        if 500 < recursos.distancia_recorrida <= 1000 and not narrativa_ejecutada3:
             narrativa.narrar_tercera_parte()
-        if 1000 < recursos.distancia_recorrida <= 1500:
+            narrativa_ejecutada3 = True
+        if 1000 < recursos.distancia_recorrida <= 1500 and not narrativa_ejecutada4:
             narrativa.narrar_cuarta_parte()
-        if recursos.distancia_recorrida == 2000:
-            narrativa.narrar_final()
-        input("Presione enter para continuar...")
+            narrativa_ejecutada4 = True
     elif dificultad == "Difícil":
-        if recursos.dias_transcurridos== 0:
+        if recursos.dias_transcurridos== 0 and not narrativa_ejecutada1:
             narrativa.narrar_primera_parte()
-        if 0 < recursos.distancia_recorrida <= 800:
+        if 0 < recursos.distancia_recorrida <= 800 and not narrativa_ejecutada2:
             narrativa.narrar_segunda_parte()
-        if 800 < recursos.distancia_recorrida <= 1500:
+        if 800 < recursos.distancia_recorrida <= 1500 and not narrativa_ejecutada3:
             narrativa.narrar_tercera_parte()
-        if 1500 < recursos.distancia_recorrida <= 2000:
+        if 1500 < recursos.distancia_recorrida <= 2000 and not narrativa_ejecutada4:
             narrativa.narrar_cuarta_parte()
-        if recursos.distancia_recorrida == 2500:
-            narrativa.narrar_final()
-        input("Presione enter para continuar...")
+
