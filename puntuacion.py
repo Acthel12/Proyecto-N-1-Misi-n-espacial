@@ -52,4 +52,3 @@ def puntuacion_final():
               "Tal vez no todo salió según lo previsto… pero cada batalla sobrevivida "
               "escribe una nueva línea en la historia.")
 
-puntuacion_final()
