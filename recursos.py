@@ -111,19 +111,19 @@ def actualizar_recurso(recurso, cantidad):
 def comprobar_causa_de_gameover():
     if oxigeno <= 0:
         return "oxigeno"
-    if combustible <= 0:
+    elif combustible <= 0:
         return "combustible"
-    if energia <= 0:
+    elif energia <= 0:
         return "energia"
-    if integridad <= 0:
+    elif integridad <= 0:
         return "integridad"
-    if suministros <= 0:
+    elif suministros <= 0:
         return "suministros"
-    if moral <= 0:
+    elif moral <= 0:
         return "moral"
-
+    
     # Si los días restantes llegan a 0 después de haber transcurrido al menos un día, la misión termina.
-    if dias_restantes <= 0 and dias_transcurridos > 0:
+    elif dias_restantes <= 0 and dias_transcurridos > 0:
         return "dias"
     
     else:
