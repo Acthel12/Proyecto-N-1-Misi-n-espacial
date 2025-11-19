@@ -323,7 +323,7 @@ def ataque_pirata():
             recursos.actualizar_recurso("suministros", 20)
             print("Lograstes conseguir algunos suministros de sus restos.")
         elif suerte >= 35:
-            print("Luego de una larga batalla, logras hacerte con la victoria sin resivir mucho daño en tu casco")
+            print("Luego de una larga batalla, logras hacerte con la victoria sin recibir mucho daño en tu casco")
             print("Recuperas algunos suministros de los restos flotantes en el campo de batalla")
             recursos.actualizar_recurso("energia", -20)
             recursos.actualizar_recurso("integridad", -25)
