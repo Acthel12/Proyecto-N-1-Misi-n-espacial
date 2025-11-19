@@ -148,7 +148,7 @@ def narrativa_al_perder():
     elif opcion == "oxigeno":
         final_oxigeno()
     elif opcion == "energia":
-        final_energia
+        final_energia()
     elif opcion == "moral":
         final_moral()
     elif opcion == "suministros":
