@@ -140,7 +140,7 @@ def narrativa_al_perder():
     elif opcion == "suministros":
         final_suministros()
     elif opcion == "dias":
-        final_dias
+        final_dias()
     else:
         return
     input("Presione enter para continuar.")
