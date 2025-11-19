@@ -319,19 +319,24 @@ def ataque_pirata():
             recursos.actualizar_recurso("energia", -20)
             recursos.actualizar_recurso("suministros", 20)
             print("Lograstes conseguir algunos suministros de sus restos.")
-        if suerte >= 35:
+        elif suerte >= 35:
             print("Luego de una larga batalla, logras hacerte con la victoria sin resivir mucho daño en tu casco")
             print("Recuperas algunos suministros de los restos flotantes en el campo de batalla")
             recursos.actualizar_recurso("energia", -20)
             recursos.actualizar_recurso("integridad", -25)
             recursos.actualizar_recurso("suministros", 15)
-        if suerte > 10:
+        elif suerte > 10:
             print("Los piratas eran desertores del imperio con tecnologia avanzada")
-            print("La battalla estuvo dificil pero lograste hacerte con la victoria")
+            print("La batalla estuvo dificil pero lograste hacerte con la victoria")
             print("Recuperas algunos suministros de los restos flotantes en el campo de batalla")
             recursos.actualizar_recurso("energia", -35)
             recursos.actualizar_recurso("integridad", -50)
             recursos.actualizar_recurso("suministros", 30)
+        else:
+            print("Has perdido la batalla y tuviste que huir rapidamente")
+            recursos.actualizar_recurso("integridad",-50)
+            recursos.actualizar_recurso("energia", -35)
+            recursos.actualizar_recurso("combustible", -20)
     else:
         print("Decides huir rapidamente.")
         recursos.actualizar_recurso("combustible", -20)
@@ -473,7 +478,32 @@ def energia_cometa():
     else:
         print("Decides no arriesgarte. Continúas tu viaje sin cambios.")
 
-
-
-
-
+def dron_imperio():
+    """Evento de pelea con un dron de reconocimiento que puede afectar los dias y la integridad"""
+    print("Te consigues un Dron de reconocimiento del imperio, patrullando la zona")
+    print("Si te descubre la flota podria alcanzarte antes de lo que esperabas. Por eso decides esconderte")
+    print("Pero podrias destruirlo y retrasar el avanze de la flota un tiempo")
+    opcion = input("Que Decides, lo destruiras (s/n)?")
+    
+    while opcion != "s" and opcion != "n":
+        print("Opcion no valida")
+        opcion = input("Que Decides, lo destruiras (s/n)?")
+    
+    suerte = random.randint(1,100)
+    
+    if opcion == "s":
+        if suerte >= 50:
+            print("Logras acertarle un golpe critico, con esto el imperio tardara en comprobar esta zona.")
+            recursos.actualizar_recurso("dias_restantes", 4)
+        elif suerte >= 25:
+            print("El Dron de reconocimiento tenia armas y te causo un poco de daño antes de ser destruido.")
+            recursos.actualizar_recurso("dias_restantes", 4)
+            recursos.actualizar_recurso("integridad", -15)
+        else:
+            print("Antes de que alcanzaras el dron este a huido, ahora tienes menos tiempo antes que el imperio te localize")
+            recursos.actualizar_recurso("dias_restantes", -4)
+    else:
+        if suerte >= 25:
+            print("Te escondiste  en un cinturon de asteroides cercano.")
+            print("El dron luego de un dia se va y te deja via libre")
+            recursos.actualizar_recurso("dias_restantes",)
