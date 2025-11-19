@@ -155,4 +155,3 @@ def narrativa_al_perder():
         final_suministros()
     else:
         return
-    input("Presione enter para continuar.")
