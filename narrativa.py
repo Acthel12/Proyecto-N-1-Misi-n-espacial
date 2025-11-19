@@ -7,6 +7,7 @@ import menus
 #para que cuando le de a enter, pero esto lo vamos a ver cuando lo implimetemos en menu:
 
 def narrar_primera_parte():
+    """Funcion para narrar la primera parte de la historia"""
     ascii.narrativa()
     print("Estás en la fragata rebelde Corazón de Alderán junto con tu pequeño equipo de inteligencia. A tu alrededor, solo hay destrucción. El ruido de las alarmas perfora tus oídos y el aire huele a metal fundido. La batalla ha sido perdida.")
     input("Presiona Enter para continuar...")
@@ -30,6 +31,7 @@ def narrar_primera_parte():
 
 
 def narrar_segunda_parte():
+    """Funcion para narrar la segunda parte de la historia"""
     ascii.narrativa()
     print("Las alarmas se disparan, advirtiéndote. Estás siendo esperado. El Imperio sabía que escaparían. \nUna flota de reconocimiento imperial liderada por el destructor Venganza Silenciosa emerge de la negrura y te persigue. No quieren una gran batalla, solo capturarlos y los planos.")
     input("Presiona Enter para continuar...")
@@ -39,6 +41,7 @@ def narrar_segunda_parte():
     input("Presiona Enter para continuar...")
 
 def narrar_tercera_parte():
+    """Funcion para narrar la tercera parte de la historia"""
     ascii.narrativa()
     print("Estás esquivando. El Venganza Silenciosa te pisa los talones. \nTe obligan a desviarte a través de un denso campo de asteroides, y el destructor ha sembrado el camino con boyas de interdicción para atraparte en el espacio real. Debes pilotar con una precisión de cirujano.")
     input("Presiona Enter para continuar...")
@@ -53,11 +56,13 @@ def narrar_tercera_parte():
     input("Presiona Enter para continuar...")
 
 def narrar_cuarta_parte():
+    """Funcion para narrar la cuarta parte de la historia"""
     ascii.narrativa()
     print("LLegas al sistema AXKB-1001 hogar del planeta Proton-9. Sabes que el destructor Venganza Silenciosa te sigue de cerca, entrando en el sistema. \nTe falta poco para llegar, tu tripulacion esta ansiosa. Debes llegar rapido a tu destino, antes de que tu sombra, el General Vordus, te encuentre. \nTodo depende de ti.")
     input("Presiona Enter para continuar...")
 
 def narrar_final():
+    """Funcion para narrar cuando ganas la aventura"""
     ascii.narrativa()
     print("Con un último esfuerzo, logras transmitir los planos de la Estrella de la Muerte a la Alianza Rebelde desde Proton-9. La señal se envía justo cuando el destructor Venganza Silenciosa emerge de la atmósfera, incapaz de detenerte a tiempo.\nLa Alianza ahora tiene la información que necesita para planear un ataque decisivo contra el Imperio. Has cumplido tu misión, y aunque el camino ha sido arduo, tu valentía y determinación han salvado a millones.")
     input("Presiona Enter para continuar...")
@@ -67,6 +72,7 @@ def narrar_final():
     input("Presiona Enter para continuar...")
 
 def final_combustible():
+    """Funcion para narrar el mensaje de game_over por falta de combustible"""
     ascii.narrativa()
     print("Un pitido lastimero anuncia la sentencia final: los tanques de combustible están vacíos. La fragata pierde velocidad, los motores gimen y se apagan.")
     print("A través de la ventana principal, las luces del Destructor Imperial Venganza Silenciosa se agigantan, sus cañones turboláser brillando con intención asesina.")
@@ -76,6 +82,7 @@ def final_combustible():
     input("Presiona Enter para terminar...")
 
 def final_integridad():
+    """Funcion para narrar el mensaje de game_over por falta de integridad"""
     ascii.narrativa()
     print("Escuchas un chirrido agudo, seguido del sonido más aterrador de todos: el del aire escapando. El casco ha cedido bajo el fuego enemigo.")
     print("Las grietas se expanden por la cabina, y la presión interna cae en picada. El frío te envuelve y las luces parpadean por última vez.")
@@ -84,6 +91,7 @@ def final_integridad():
     input("Presiona Enter para terminar...")
 
 def final_oxigeno():
+    """Funcion para narrar el mensaje de game_over por falta de oxigeno"""
     ascii.narrativa()
     print("El indicador de O₂ está en rojo intermitente, una burla cruel. Notas el mareo, la euforia extraña que precede al colapso.")
     print("Intentas enviar un mensaje, pero tus dedos son lentos y pesados. El mundo se vuelve borroso, los colores se distorsionan.")
@@ -92,6 +100,7 @@ def final_oxigeno():
     input("Presiona Enter para terminar...")
 
 def final_energia():
+    """Funcion para narrar el mensaje de game_over por falta de energia"""    
     ascii.narrativa()
     print("La cabina se sume en una oscuridad total. La energía de los escudos y los motores se ha agotado por completo. Estás a la deriva.")
     print("A lo lejos, las luces del Destructor Venganza Silenciosa te envuelven. Estás indefenso. Capturado.")
@@ -100,14 +109,16 @@ def final_energia():
     input("Presiona Enter para terminar...")
 
 def final_dias():
+    """Funcion para narrar el mensaje de game_over por falta de dias"""    
     ascii.narrativa()
     print("El reloj de la misión ha superado el límite. El punto de encuentro de la Alianza Rebelde ha sido abandonado.")
-    print("La flota no podía esperar más. Estás varado, y la transmisión de los planos nunca llegó a tiempo para cambiar el rumbo de la guerra.")
-    print("Ahora solo queda la espera, la certeza de que nadie vendrá.")
+    print("La flota no podía esperar más por que el imperio habria rodeado las fuerzas de la Alianza. Estás varado, y la transmisión de los planos nunca llegó a tiempo para cambiar el rumbo de la guerra.")
+    print("Ahora solo queda la espera, la certeza de que nadie vendrá en tu rescate.")
     print("\n>>> MISIÓN FRACASADA: TARDE PARA EL RESCATE")
     input("Presiona Enter para terminar...")
 
 def final_moral():
+    """Funcion para narrar el mensaje de game_over por falta de moral"""
     ascii.narrativa()
     print("Los murmullos se convierten en gritos y los gritos en abierta rebelión. Tu equipo ha perdido toda esperanza.")
     print("Un motín estalla en la bodega. La lucha interna por el último escape es brutal y caótica. La misión se ha derrumbado por dentro.")
@@ -116,6 +127,7 @@ def final_moral():
     input("Presiona Enter para terminar...")
 
 def final_suministros():
+    """Funcion para narrar el mensaje de game_over por falta de suministro"""
     ascii.narrativa()
     print("El último paquete de raciones fue consumido hace días. El cansancio se convierte en agotamiento. La mente se nubla por la sed.")
     print("Ya no puedes operar los controles con precisión. La debilidad te obliga a tumbarte en el suelo frío de la cabina.")
@@ -124,6 +136,7 @@ def final_suministros():
     input("Presiona Enter para terminar...")
 
 def narrativa_al_perder():
+    """Funcion que decide el mensaje a mostrar segun que recurso llego a 0"""
     opcion = recursos.comprobar_causa_de_gameover()
     if opcion == "combustible":
         final_combustible()
@@ -139,8 +152,6 @@ def narrativa_al_perder():
         final_moral()
     elif opcion == "suministros":
         final_suministros()
-    elif opcion == "dias":
-        final_dias()
     else:
         return
     input("Presione enter para continuar.")
