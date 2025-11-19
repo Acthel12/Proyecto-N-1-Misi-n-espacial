@@ -2,7 +2,7 @@ import random
 import recursos
 
 eventos_ocurridos = " "
-n = 23 #Número total de eventos disponibles Añadir más eventos y actualizar este número
+n = 24 #Número total de eventos disponibles Añadir más eventos y actualizar este número
 ## Traten de añadir eventos variados , que afecten diferentes recursos y que tengan varias opciones
 
 ## Selección aleatoria de eventos Nota: agregar más eventos a medida que se creen eventos y actualizar el valor de n
@@ -89,6 +89,9 @@ def evento_aleatorio():
         añadir_evento(eventos)
     elif eventos == 23:
         energia_cometa()
+        añadir_evento(eventos)
+    elif eventos == 24:
+        dron_imperio()
         añadir_evento(eventos)
     input("Presiona Enter para continuar...")
 
