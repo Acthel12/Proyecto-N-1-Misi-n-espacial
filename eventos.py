@@ -2,7 +2,7 @@ import random
 import recursos
 
 eventos_ocurridos = " "
-n = 14 #Número total de eventos disponibles Añadir más eventos y actualizar este número
+n = 23 #Número total de eventos disponibles Añadir más eventos y actualizar este número
 ## Traten de añadir eventos variados , que afecten diferentes recursos y que tengan varias opciones
 
 ## Selección aleatoria de eventos Nota: agregar más eventos a medida que se creen eventos y actualizar el valor de n
@@ -62,6 +62,33 @@ def evento_aleatorio():
         añadir_evento(eventos)
     elif eventos == 14:
         estacion_de_servicio()
+        añadir_evento(eventos)
+    elif eventos == 15:
+        asalto_enemigo()
+        añadir_evento(eventos)
+    elif eventos == 16:
+        drones_hostiles()
+        añadir_evento(eventos)
+    elif eventos == 17:
+        ataque_pirata()
+        añadir_evento(eventos)
+    elif eventos == 18:
+        falla_navegacion()
+        añadir_evento(eventos)
+    elif eventos == 19:
+        destructor_alienigena()
+        añadir_evento(eventos)
+    elif eventos == 20:
+        tormenta_particulas()
+        añadir_evento(eventos)
+    elif eventos == 21:
+        fuente_energia_desconocida()
+        añadir_evento(eventos)
+    elif eventos == 22:
+        cortocircuito_sistemas()
+        añadir_evento(eventos)
+    elif eventos == 23:
+        energia_cometa()
         añadir_evento(eventos)
     input("Presiona Enter para continuar...")
 
@@ -225,5 +252,228 @@ def ganar_suministros():
     """Evento que otorga suministros."""
     print("¡Has encontrado un cargamento abandonado de suministros!")
     recursos.actualizar_recurso("suministros", 20)
+
+
+
+#eventos de batalla
+
+#asalto a la nave
+
+def asalto_enemigo():
+    """Evento donde enemigos abordan la nave."""
+    print("¡Un grupo enemigo ha abordado tu nave!")
+    print("La tripulacion esta luchando por defenderse.")
+
+    recursos.actualizar_recurso("suministros", -25)
+    recursos.actualizar_recurso("moral", -20)
+
+    print("Los enemigos robaron suministros.")
+    print("La moral de la tripulacion ha bajado.")
+
+    azar = random.randint(1, 2)
+
+    if azar == 1:
+        print("Logras expulsar a los invasores.")
+        recursos.actualizar_recurso("moral", 20)
+    else:
+        print("Los invasores escaparon sin ser detenidos.")
+
+#emboscada de drones
+
+def drones_hostiles():
+    """Evento donde drones hostiles atacan la nave."""
+    print("Unos drones hostiles aparecen alrededor de tu nave.")
+    print("No puedes evitar el ataque.")
+
+    recursos.actualizar_recurso("integridad", -20)
+    recursos.actualizar_recurso("energia", -20)
+
+    print("Los drones atacaron tu nave.")
+    print("Perdiste integridad y energia.")
+
+    azar = random.randint(1, 3)
+
+    if azar == 1:
+        recursos.actualizar_recurso("suministros", 25)
+        print("Destruiste un dron y recuperaste piezas utiles.")
+
+#ataque pirata espacial
+
+def ataque_pirata():
+    """Evento en donde unos piratas espaciales atacan la nave."""
+    print("¡Unos piratas espaciales estan atacando tu nave!")
+    print("1. Pelear")
+    print("2. Huir")
+
+    opcion = input("Elige una opcion: ")
+
+    while opcion != "1" and opcion != "2":
+        print("Opcion no valida. Intente de nuevo.")
+        opcion = input("Elige una opcion: ")
+
+    if opcion == "1":
+        suerte = random.randint(1,100)
+        print("Decidiste pelear contra los piratas.")
+        if suerte > 80:
+            print("Por suerte los piratas no estuvieron preparados y no fueron rival para ti y tu nave.")
+            recursos.actualizar_recurso("energia", -20)
+            recursos.actualizar_recurso("suministros", 20)
+            print("Lograstes conseguir algunos suministros de sus restos.")
+        if suerte >= 35:
+            print("Luego de una larga batalla, logras hacerte con la victoria sin resivir mucho daño en tu casco")
+            print("Recuperas algunos suministros de los restos flotantes en el campo de batalla")
+            recursos.actualizar_recurso("energia", -20)
+            recursos.actualizar_recurso("integridad", -25)
+            recursos.actualizar_recurso("suministros", 15)
+        if suerte > 10:
+            print("Los piratas eran desertores del imperio con tecnologia avanzada")
+            print("La battalla estuvo dificil pero lograste hacerte con la victoria")
+            print("Recuperas algunos suministros de los restos flotantes en el campo de batalla")
+            recursos.actualizar_recurso("energia", -35)
+            recursos.actualizar_recurso("integridad", -50)
+            recursos.actualizar_recurso("suministros", 30)
+    else:
+        print("Decides huir rapidamente.")
+        recursos.actualizar_recurso("combustible", -20)
+        print("Gastaste combustible para escapar.")
+
+#falla navegacion
+
+def falla_navegacion():
+    """Evento que reduce energía y puede causar perdida de días."""
+    print("¡Ha ocurrido una falla en el sistema de navegación!")
+    print("El sistema te pide que elijas entre reiniciar o intentar reparar manualmente.")
+    eleccion = input("¿Reiniciar sistema (1) o reparar manualmente (2)?: ")
+
+    while eleccion != "1" and eleccion != "2":
+        print("Opción no válida. Intente de nuevo.")
+        eleccion = input("¿Reiniciar sistema (1) o reparar manualmente (2)?: ")
+
+    if eleccion == "1":
+        print("Reiniciaste el sistema, pero consumió energía.")
+        recursos.actualizar_recurso("energia", -20)
+    else:
+        print("Intentas repararlo manualmente, pero tardas varios días.")
+        recursos.actualizar_recurso("dias_restantes", -3)
+        recursos.actualizar_recurso("energia", -10)
+
+
+#destructor alienigena
+
+def destructor_alienigena():
+    """Enfrentas un destructor alienígena"""
+    print("¡Un destructor alienígena se dispone a abri fuego contra tu nave!")
+    eleccion = input("¿Usar escudos (1) o atacar directamente (2)?: ")
+
+    while eleccion != "1" and eleccion != "2":
+        print("Opción no válida.")
+        eleccion = input("¿Escudos (1) o atacar (2)?: ")
+
+    if eleccion == "1":
+        recursos.actualizar_recurso("energia", -20)
+        suerte = random.randint(1, 100)
+        if suerte >= 50:
+            print("¡Absorbes parte del ataque y la nave enemiga se retira! Ganas energía y moral!")
+            recursos.actualizar_recurso("moral", 15)
+        else:
+            print("Los escudos fallan parcialmente y recibes daño.")
+            recursos.actualizar_recurso("integridad", -35)
+    else:
+        suerte = random.randint(1, 100)
+        if suerte >= 70:
+            print("¡Ataque directo exitoso! La nave enemiga cae y recuperas suministros y combustible!")
+            recursos.actualizar_recurso("suministros", 35)
+            recursos.actualizar_recurso("combustible", 30)
+        else:
+            print("El ataque falla parcialmente y tu nave recibe daño.")
+            recursos.actualizar_recurso("integridad", -30)
+
+#tormenta de particulas
+
+def tormenta_particulas():
+    """Una tormenta de partículas puede dañar o cargar tu nave según cómo reacciones."""
+    print("¡Una tormenta de partículas se aproxima!")
+    eleccion = input("¿Activar escudos (1) o canalizar energía para cargar la nave (2)?: ")
+    
+    while eleccion != '1' and eleccion != '2':
+        print("Opción no válida.")
+        eleccion = input("¿Escudos (1) o cargar energía (2)?: ")
+    
+    if eleccion == '1':
+        print("Proteges la nave, pero consumes energía de los escudos.")
+        recursos.actualizar_recurso("energia", -30)
+    else:
+        suerte = random.randint(1, 100)
+        if suerte >= 60:
+            print("¡La tormenta carga parcialmente tus sistemas! Obtienes energía extra.")
+            recursos.actualizar_recurso("energia", 30)
+        else:
+            print("Intentas cargar energía, pero la tormenta causa daños graves.")
+            recursos.actualizar_recurso("energia", -25)
+            recursos.actualizar_recurso("integridad", -20)
+
+#fuente de energia desconocida
+
+
+def fuente_energia_desconocida():
+    """Encuentras una fuente de energía inestable."""
+    print("¡Has encontrado una fuente de energía desconocida flotando en el espacio!")
+    eleccion = input("¿Deseas conectarte y extraer energía (s/n)?: ").lower()
+    while eleccion != 's' and eleccion != 'n':
+        print("Opción no válida.")
+        eleccion = input("¿Deseas conectarte y extraer energía (s/n)?: ").lower()
+    
+    if eleccion == 's':
+        suerte = random.randint(1, 100)
+        if suerte >= 40:
+            print("¡Éxito! La nave obtiene energía extra sin problemas.")
+            recursos.actualizar_recurso("energia", 30)
+        else:
+            print("La fuente era inestable, tu nave sufre daños al intentar extraer energía.")
+            recursos.actualizar_recurso("energia", -20)
+            recursos.actualizar_recurso("integridad", -15)
+    else:
+        print("Decides no arriesgarte y continúas tu viaje.")
+
+
+
+#corto circuito en los sistemas
+
+def cortocircuito_sistemas():
+    """Un fallo eléctrico reduce la energía de la nave."""
+    print("¡Un cortocircuito en los sistemas eléctricos reduce tu energía!")
+    recursos.actualizar_recurso("energia", -30)
+    print("Se han reducido 30% de energía debido al cortocircuito.")
+
+
+#energia de un cometa
+
+
+
+def energia_cometa():
+    """Un cometa cercano emite partículas que tu nave puede aprovechar."""
+    print("¡Un cometa pasa cerca de tu nave y emite partículas energéticas!")
+    eleccion = input("¿Deseas aprovechar la energía del cometa (s/n)?: ").lower()
+    
+    while eleccion != 's' and eleccion != 'n':
+        print("Opción no válida.")
+        eleccion = input("¿Deseas aprovechar la energía del cometa (s/n)?: ").lower()
+    
+    if eleccion == 's':
+        suerte = random.randint(1,100)
+        if suerte >= 65:
+            print("¡Exitoso! Obtienes un buen aumento de energía.")
+            recursos.actualizar_recurso("energia", 45)
+        elif suerte >= 35:
+            print("No fuiste lo suficientemente rapido para alcanzar el cometa.")
+            recursos.actualizar_recurso("moral",-10)
+        else:
+            print("Un mal calculo hace que el cometa choque con la nave y la dañe un poco.")
+            recursos.actualizar_recurso("integridad", -15)
+    else:
+        print("Decides no arriesgarte. Continúas tu viaje sin cambios.")
+
+
+
 
 
