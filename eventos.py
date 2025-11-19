@@ -509,4 +509,4 @@ def dron_imperio():
         if suerte >= 25:
             print("Te escondiste  en un cinturon de asteroides cercano.")
             print("El dron luego de un dia se va y te deja via libre")
-            recursos.actualizar_recurso("dias_restantes",)
+            recursos.actualizar_recurso("dias_restantes", 1)
