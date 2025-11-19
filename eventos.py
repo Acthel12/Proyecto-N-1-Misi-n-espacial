@@ -2,7 +2,7 @@ import random
 import recursos
 
 eventos_ocurridos = " "
-n = 14 #Número total de eventos disponibles Añadir más eventos y actualizar este número
+n = 23 #Número total de eventos disponibles Añadir más eventos y actualizar este número
 ## Traten de añadir eventos variados , que afecten diferentes recursos y que tengan varias opciones
 
 ## Selección aleatoria de eventos Nota: agregar más eventos a medida que se creen eventos y actualizar el valor de n
@@ -274,7 +274,7 @@ def asalto_enemigo():
 
     if azar == 1:
         print("Logras expulsar a los invasores.")
-        recursos.actualizar_recurso("integridad", 25)
+        recursos.actualizar_recurso("moral", 20)
     else:
         print("Los invasores escaparon sin ser detenidos.")
 
@@ -312,13 +312,28 @@ def ataque_pirata():
         opcion = input("Elige una opcion: ")
 
     if opcion == "1":
+        suerte = random.randint(1,100)
         print("Decidiste pelear contra los piratas.")
-        recursos.actualizar_recurso("energia", -20)
-        recursos.actualizar_recurso("integridad", -25)
-        recursos.actualizar_recurso("suministros", 30)
-        print("Ganaste suministros pero tu nave sufrio danos.")
+        if suerte > 80:
+            print("Por suerte los piratas no estuvieron preparados y no fueron rival para ti y tu nave.")
+            recursos.actualizar_recurso("energia", -20)
+            recursos.actualizar_recurso("suministros", 20)
+            print("Lograstes conseguir algunos suministros de sus restos.")
+        if suerte >= 35:
+            print("Luego de una larga batalla, logras hacerte con la victoria sin resivir mucho daño en tu casco")
+            print("Recuperas algunos suministros de los restos flotantes en el campo de batalla")
+            recursos.actualizar_recurso("energia", -20)
+            recursos.actualizar_recurso("integridad", -25)
+            recursos.actualizar_recurso("suministros", 15)
+        if suerte > 10:
+            print("Los piratas eran desertores del imperio con tecnologia avanzada")
+            print("La battalla estuvo dificil pero lograste hacerte con la victoria")
+            print("Recuperas algunos suministros de los restos flotantes en el campo de batalla")
+            recursos.actualizar_recurso("energia", -35)
+            recursos.actualizar_recurso("integridad", -50)
+            recursos.actualizar_recurso("suministros", 30)
     else:
-        print("Intentas huir rapidamente.")
+        print("Decides huir rapidamente.")
         recursos.actualizar_recurso("combustible", -20)
         print("Gastaste combustible para escapar.")
 
@@ -346,8 +361,8 @@ def falla_navegacion():
 #destructor alienigena
 
 def destructor_alienigena():
-    """Enfrentas un destructor alienígena. Si sobrevives, obtienes energía extra."""
-    print("¡Un destructor alienígena abre fuego contra tu nave!")
+    """Enfrentas un destructor alienígena"""
+    print("¡Un destructor alienígena se dispone a abri fuego contra tu nave!")
     eleccion = input("¿Usar escudos (1) o atacar directamente (2)?: ")
 
     while eleccion != "1" and eleccion != "2":
@@ -359,13 +374,11 @@ def destructor_alienigena():
         suerte = random.randint(1, 100)
         if suerte >= 50:
             print("¡Absorbes parte del ataque y la nave enemiga se retira! Ganas energía y moral!")
-            recursos.actualizar_recurso("energia", 20)
             recursos.actualizar_recurso("moral", 15)
         else:
             print("Los escudos fallan parcialmente y recibes daño.")
             recursos.actualizar_recurso("integridad", -35)
     else:
-        recursos.actualizar_recurso("energia", -20)
         suerte = random.randint(1, 100)
         if suerte >= 70:
             print("¡Ataque directo exitoso! La nave enemiga cae y recuperas suministros y combustible!")
@@ -447,8 +460,16 @@ def energia_cometa():
         eleccion = input("¿Deseas aprovechar la energía del cometa (s/n)?: ").lower()
     
     if eleccion == 's':
-        print("¡Exitoso! Obtienes un buen aumento de energía.")
-        recursos.actualizar_recurso("energia", 45)
+        suerte = random.randint(1,100)
+        if suerte >= 65:
+            print("¡Exitoso! Obtienes un buen aumento de energía.")
+            recursos.actualizar_recurso("energia", 45)
+        elif suerte >= 35:
+            print("No fuiste lo suficientemente rapido para alcanzar el cometa.")
+            recursos.actualizar_recurso("moral",-10)
+        else:
+            print("Un mal calculo hace que el cometa choque con la nave y la dañe un poco.")
+            recursos.actualizar_recurso("integridad", -15)
     else:
         print("Decides no arriesgarte. Continúas tu viaje sin cambios.")
 
