@@ -26,29 +26,21 @@ def puntuacion_final():
     #diferentes tipos de mensajes para diferentes puntuaciones 
     if punt >= 1150 :
         print(f"Puntuación final: {punt}.")
-        print("Su nombre resonará en los pasillos de la flota. "
-              "En el silencio entre estrellas, los comandantes recordarán que, "
+        print("Su nombre resonará en los pasillos de la flota. \n"
+              "En el silencio entre estrellas, los comandantes recordarán que, \n"
               "en esta misión, usted hizo lo imposible… y venció.")
     
     elif punt >= 1000:
     
         print(f"Puntuación final: {punt}.")
-        print("La misión exigió más de lo que cualquiera habría soportado, "
-              "pero usted no cedió. La Alianza reconoce su valor; "
+        print("La misión exigió más de lo que cualquiera habría soportado,\n"
+              "pero usted no cedió. La Alianza reconoce su valor;\n"
               "su avance marcó el camino para quienes lo seguirán.")
-
-#Esto no se va a utilizar por que  la puntuacion no se ejecuta cuando pierdes, podria cambiarse a un mensaje de que lo lograste a duras penas.
-#    elif punt >= 200:
-#        # Registro de una Derrota que Habla
-#        print(f"Puntuación final: {punt}.")
-#        print("El fuego enemigo fue implacable, y la misión se desmoronó ante su intensidad. "
-#              "Aun así, sus señales finales servirán como advertencia para la Alianza. "
-#              "Incluso en la caída, dejó un mensaje que puede salvar mundos.")
 
     else:
     
         print(f"Puntuación final: {punt}.")
-        print("La ruta fue dura, la sombra del enemigo constante, y aún así logró regresar. "
-              "Tal vez no todo salió según lo previsto… pero cada batalla sobrevivida "
+        print("La ruta fue dura, la sombra del enemigo constante, y aún así logró regresar. \n"
+              "Tal vez no todo salió según lo previsto… pero cada batalla sobrevivida \n"
               "escribe una nueva línea en la historia.")
 
