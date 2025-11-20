@@ -6,7 +6,7 @@ import ascii
 regresar_al_menu = False
 
 def main():
-        """Logica principal del juego"""
+        """Lógica principal del juego"""
         while True:
                 menus.principal()
                 while recursos.validar_recursos():

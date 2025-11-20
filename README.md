@@ -6,10 +6,10 @@ Realizado por:
 
 | Nombre Completo | Identificación |
 | :-------------- | :------------- |
-| Andres  | V-32.051.226 |
-| Gabriel Eloy | V-32.051.221 |
+| Andrés Díaz  | V-32.051.226 |
+| Gabriel Carneiro | V-32.051.221 |
 | Juan Guevara | V-26.582.031 |
-| Juan Francisco | V-32.051.184 |
+| Juan Villarroel | V-32.051.184 |
 
 Descripción
 - Juego/simulador en el que se controlan recursos de una nave (oxígeno, combustible, energía, integridad, suministros, moral) y se gestionan días de misión.
@@ -22,7 +22,7 @@ Requisitos
 Instalación
 - Clona este repositorio y sitúate en la carpeta del proyecto:
   - git clone <repositorio>
-  - cd "(Carpeta_donde_se_clono)\Proyecto-N-1-Misi-n-espacial"
+  - cd "(Carpeta_donde_se_clonó)\Proyecto-N-1-Misi-n-espacial"
 
 Ejecución
 - ejecútalo con:
