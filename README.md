@@ -2,6 +2,15 @@
 
 Proyecto Nº1: simulador sencillo de gestión de recursos para una misión espacial.
 
+Realizado por:
+
+| Nombre Completo | Identificación |
+| :-------------- | :------------- |
+| Andres  | V-32.051.226 |
+| Gabriel Eloy | V-32.051.221 |
+| Juan Guevara | V-26.582.031 |
+| Juan Francisco | V-32.051.184 |
+
 Descripción
 - Juego/simulador en el que se controlan recursos de una nave (oxígeno, combustible, energía, integridad, suministros, moral) y se gestionan días de misión.
 

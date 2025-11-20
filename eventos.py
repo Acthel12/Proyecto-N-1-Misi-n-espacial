@@ -2,7 +2,7 @@ import random
 import recursos
 
 eventos_ocurridos = " "
-n = 23 #Número total de eventos disponibles Añadir más eventos y actualizar este número
+n = 24 #Número total de eventos disponibles Añadir más eventos y actualizar este número
 ## Traten de añadir eventos variados , que afecten diferentes recursos y que tengan varias opciones
 
 ## Selección aleatoria de eventos Nota: agregar más eventos a medida que se creen eventos y actualizar el valor de n
@@ -89,6 +89,9 @@ def evento_aleatorio():
         añadir_evento(eventos)
     elif eventos == 23:
         energia_cometa()
+        añadir_evento(eventos)
+    elif eventos == 24:
+        dron_imperio()
         añadir_evento(eventos)
     input("Presiona Enter para continuar...")
 
@@ -320,7 +323,7 @@ def ataque_pirata():
             recursos.actualizar_recurso("suministros", 20)
             print("Lograstes conseguir algunos suministros de sus restos.")
         elif suerte >= 35:
-            print("Luego de una larga batalla, logras hacerte con la victoria sin resivir mucho daño en tu casco")
+            print("Luego de una larga batalla, logras hacerte con la victoria sin recibir mucho daño en tu casco")
             print("Recuperas algunos suministros de los restos flotantes en el campo de batalla")
             recursos.actualizar_recurso("energia", -20)
             recursos.actualizar_recurso("integridad", -25)
@@ -506,4 +509,4 @@ def dron_imperio():
         if suerte >= 25:
             print("Te escondiste  en un cinturon de asteroides cercano.")
             print("El dron luego de un dia se va y te deja via libre")
-            recursos.actualizar_recurso("dias_restantes",)
+            recursos.actualizar_recurso("dias_restantes", 1)

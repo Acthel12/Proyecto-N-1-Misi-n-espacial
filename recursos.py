@@ -8,7 +8,7 @@ moral = 100
 suministros = 100
 distancia_a_destino = 0
 distancia_recorrida = 0 
-distancia_evento = 0
+distancia_evento = 0 #Tenia algunas ideas para esto pero al final no lo implementamos lo dejo para un futuro si sigo con este proyecto por los jajas
 
 def mostrar_recursos():
     """Muestra los recursos actuales del jugador."""
@@ -109,6 +109,7 @@ def actualizar_recurso(recurso, cantidad):
         distancia_evento = max(0, distancia_evento + cantidad)
 
 def comprobar_causa_de_gameover():
+    """Comprueba que recurso llego a 0 y devuelve cual es el recurso que causo el gameover"""
     if oxigeno <= 0:
         return "oxigeno"
     elif combustible <= 0:

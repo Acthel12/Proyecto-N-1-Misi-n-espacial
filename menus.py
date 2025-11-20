@@ -183,6 +183,7 @@ def game_over(): #Función para el menú cuando pierdes el juego
         exit()
 
 def victoria(): #Función para el menú cuando ganas el juego
+    clear_screen()
     """Menú de victoria."""
     narrativa.narrar_final()
     clear_screen()
