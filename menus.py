@@ -41,12 +41,14 @@ def principal():
         print("2) Seleccionar dificultad")
         print("3) Guía del juego")
         print("4) Salir")
+        print()
         
         global dificultad    
 
         eleccion = (input("Seleccione una opción: "))
         while eleccion != '1' and eleccion != '2' and eleccion != '3' and eleccion != '4': #Condiciones para cuando las opciones no son válidas
             print("Opción no válida. Intente de nuevo.")
+            print()
             eleccion = input("Seleccione una opción: ")
             
         if eleccion == '1': #Iniciar juego
@@ -60,11 +62,13 @@ def principal():
             print("1. Fácil")
             print("2. Normal")
             print("3. Difícil")
+            print()
             
             dificultad = input("Seleccione la dificultad: ")
             
             while dificultad != '1' and dificultad != '2' and dificultad != '3': #Condiciones para cuando las opciones no son válidas
                 print("Opción no válida. Intente de nuevo.")
+                print()
                 dificultad = input("Seleccione la dificultad: ")    
             
             if dificultad == '1':
@@ -74,6 +78,7 @@ def principal():
             elif dificultad == '3':
                 dificultad = "Difícil"
             print(f"Dificultad establecida a: {dificultad}")
+            print()
             input("Presiona Enter para regresar al menú...")
         elif eleccion == '3':
             # Guía del juego
@@ -81,6 +86,7 @@ def principal():
             print("Fácil: El viaje tiene una duración máxima de 30 días y debes recorrer una distancia de 1000 años luz.")
             print("Normal: El viaje tiene una duración máxima de 20 días y debes recorrer una distancia de 2000 años luz.")
             print("Difícil: El viaje tiene una duración máxima de 15 días y debes recorrer una distancia de 2500 años luz.")
+            print()
             input("Presiona Enter para regresar al menú...")
         elif eleccion == '4': #Salir del juego y detener el programa
             print("Saliendo del juego. ¡Hasta luego!")
@@ -110,10 +116,12 @@ def in_game_menu():
         print("1. Ver recursos")
         print("2. Continuar juego")
         print("3. Salir al menú principal")
+        print()
         
         eleccion = input("Seleccione una opción: ")
         while eleccion != '1' and eleccion != '2' and eleccion != '3': #Condiciones para cuando las opciones no son válidas
             print("Opción no válida. Intente de nuevo.")
+            print()
             eleccion = input("Seleccione una opción: ")
         
         if eleccion == '1': #Muestra los recursos actuales
@@ -121,6 +129,7 @@ def in_game_menu():
             print("=== RECURSOS ACTUALES ===")
             ascii.recursos()
             recursos.mostrar_recursos()
+            print()
             input("Presiona Enter para regresar al menú...")
         elif eleccion == '2': #Continúa el juego
             print("Continuando el juego...")
@@ -138,6 +147,7 @@ def inicio_dia(): #Función para el inicio del día
     ascii.inicio_dia()
     print("Día número:", recursos.dias_transcurridos + 1) #Muestra los días transcurridos actuales
     recursos.mostrar_recursos()
+    print()
     input("Presiona Enter para continuar...")
 
 def fin_dia():
@@ -157,6 +167,7 @@ def fin_dia():
         recursos.actualizar_recurso("moral", -3)
         recursos.actualizar_recurso("energia", -6)
         recursos.actualizar_recurso("oxigeno", -6)
+        print()
     input("Presiona Enter para continuar...")
 
 def game_over(): #Función para el menú cuando pierdes el juego
@@ -171,12 +182,15 @@ def game_over(): #Función para el menú cuando pierdes el juego
     print("Ir al menú principal o salir del juego.")
     print("1. Ir al menú principal")
     print("2. Salir del juego")
+    print()
     eleccion = input("Seleccione una opción: ")
     while eleccion != '1' and eleccion != '2': #Condiciones para cuando las opciones no son válidas
         print("Opción no válida. Intente de nuevo.")
+        print()
         eleccion = input("Seleccione una opción: ")
     if eleccion == '1': #Regresa al menú principal
         print("Regresando al menú principal...")
+        print()
         input("Presiona Enter para continuar...")
     elif eleccion == '2': #Salir del juego
         print("Saliendo del juego. ¡Hasta luego!")
@@ -195,12 +209,15 @@ def victoria(): #Función para el menú cuando ganas el juego
     print("Ir al menú principal o salir del juego.")
     print("1. Ir al menú principal")
     print("2. Salir del juego")
+    print()
     eleccion = input("Seleccione una opción: ")
     while eleccion != '1' and eleccion != '2': #Condiciones para cuando las opciones no son válidas
         print("Opción no válida. Intente de nuevo.")
+        print()
         eleccion = input("Seleccione una opción: ")
     if eleccion == '1': #Regresa al menú principal
         print("Regresando al menú principal...")
+        print()
         input("Presiona Enter para continuar...")
     elif eleccion == '2': #Salir del juego
         print("Saliendo del juego. ¡Hasta luego!")
@@ -218,6 +235,7 @@ def motores(): #Función para manejar los motores de la nave
         print("la cantidad máxima es 50 %.")
         print("La cantidad minima es 0 %.")
         print(f"Tienes {recursos.combustible}% de combustible disponible.")
+        print()
         cantidad = input("Ingresa la cantidad de combustible a usar: ")
         while (cantidad.replace('.','',1).isdigit() == False) or (float(cantidad) <= 0.0 or float(cantidad) > 50.0) or (float(cantidad) > float(recursos.combustible)): #Bucle para comprobar que la cantidad ingresada es válida
             if cantidad.replace('.','',1).isdigit() == False:
@@ -226,23 +244,28 @@ def motores(): #Función para manejar los motores de la nave
                 print("La cantidad debe estar entre 0 y 50. Intente de nuevo.")
             elif float(cantidad) > float(recursos.combustible):
                 print("No tienes suficiente combustible. Intente de nuevo.")
+            print()
             cantidad = input("Ingresa la cantidad de combustible a usar: ")                        
         cantidad = float(cantidad)
         print(f"Usando {cantidad}% de combustible para avanzar...")
         print(f"Tu nave avanzará una distancia de {round(math.sqrt(cantidad/100) * (200 / math.sqrt(0.5)), 2)} años luz.") #Fórmula para calcular la distancia avanzada según el combustible usado
         print("Está seguro?") #Confirmación antes de usar el combustible
+        print()
         confirmacion = input("Ingrese 's' para confirmar o 'n' para cancelar: ")
         while confirmacion != 's' and confirmacion != 'n':
             print("Opción no válida. Intente de nuevo.")
+            print()
             confirmacion = input("Ingrese 's' para confirmar o 'n' para cancelar: ")
         if confirmacion == 'n':
             print("Operación cancelada. Regresando al menú de motores...")
+            print()
             input("Presiona Enter para continuar...")
         elif confirmacion == 's': #Actualiza los recursos según el combustible usado
             recursos.actualizar_recurso("combustible", -cantidad)
             recursos.actualizar_recurso("distancia", math.sqrt(cantidad/100) * (200 / math.sqrt(0.5)))  # Avanza según la raíz cuadrada del combustible usado
             print("Mientras los motores funcionan, duermes un poco...")
             print(f"Has avanzado {round(math.sqrt(cantidad/100) * (200 / math.sqrt(0.5)), 2)} en tu viaje.")
+            print()
             input("Presiona Enter para regresar al menú del juego...")
             break
         
