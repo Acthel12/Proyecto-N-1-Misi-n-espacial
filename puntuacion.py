@@ -23,7 +23,7 @@ def puntuacion_final():
     puntuacion_total = p_oxigneo + p_combustible + p_integridad + p_energia + p_dias_restantes + p_dias_transcurridos + p_moral + p_suministros  
     punt = int(puntuacion_total * 1000 * 1)
     
-    #diferentes tiopos de meajes para difrentes puntuaciones 
+    #diferentes tipos de mensajes para diferentes puntuaciones 
     if punt >= 1150 :
         print(f"Puntuación final: {punt}.")
         print("Su nombre resonará en los pasillos de la flota. "
@@ -48,7 +48,7 @@ def puntuacion_final():
     else:
     
         print(f"Puntuación final: {punt}.")
-        print("La ruta fue dura, la sombra del enemigo constante, y aun así logró regresar. "
+        print("La ruta fue dura, la sombra del enemigo constante, y aún así logró regresar. "
               "Tal vez no todo salió según lo previsto… pero cada batalla sobrevivida "
               "escribe una nueva línea en la historia.")
 
