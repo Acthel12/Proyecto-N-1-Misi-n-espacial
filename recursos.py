@@ -129,6 +129,7 @@ def comprobar_causa_de_gameover():
     
     else:
         print("No debio perder el juego, por favor reporte esto al equipo desarrollador")
+        print()
         input("Presione enter para continuar.")
         return "none"
         

@@ -92,6 +92,7 @@ def evento_aleatorio():
     elif eventos == 24:
         dron_imperio()
         añadir_evento(eventos)
+    print()
     input("Presiona Enter para continuar...")
 
 
@@ -110,9 +111,11 @@ def salto_gravitacional():
 def refugio_cosmico():
     """Evento que otorga moral y reduce días restantes (descanso eficiente)."""
     print("Encuentras un refugio cósmico donde la tripulación descansa bien.")
+    print()
     opcion = input("¿Deseas aprovechar el refugio para mejorar la moral y reducir un día de viaje? (s/n): ").lower()
     while opcion != 's' and opcion != 'n':
         print("Opción no válida. Intente de nuevo.")
+        print()
         opcion = input("¿Deseas aprovechar el refugio para mejorar la moral y reducir un día de viaje? (s/n): ").lower()
     if opcion == 'n':
         print("Decides no aprovechar el refugio. La tripulación se siente un poco desanimada.")
@@ -126,9 +129,11 @@ def refugio_cosmico():
 def tormenta_cosmica_():
     """Evento que reduce integridad o suministros."""
     print("¡En el camino te has topado con una tormenta cósmica!")
+    print()
     eleccion = input("¿Deseas esquivarla (1) o atravesarla (2)? ")
     while eleccion != '1' and eleccion != '2':
         print("Opción no válida. Intente de nuevo.")
+        print()
         eleccion = input("¿Deseas esquivarla (1) o atravesarla (2)? ")
     if eleccion == '1':
         recurso = random.choice("cd")
@@ -160,9 +165,11 @@ def repartir_suministros():
     print("Has decidido visitar los camarotes para ver a la tripulación.")
     if recursos.moral <= 50:
         print("Observas a la tripulacion desmotivada. Podrías aumentar la ración de suministros de hoy para elevar un poco los ánimos.")
+        print()
         eleccion = input("¿Deseas aumentar la ración de suministros? (s/n): ").lower()
         while eleccion != 's' and eleccion != 'n':
             print("Opción no válida. Intente de nuevo.")
+            print()
             eleccion = input("¿Deseas aumentar la ración de suministros? (s/n): ").lower()
         if eleccion == 's':
             print("Has aumentado la ración de suministros, mejorando la moral de la tripulación.")
@@ -182,9 +189,11 @@ def repartir_suministros():
 def abandonar_tripulacion():
     """Evento donde abandonamos parte de la tripulación para ahorrar suministros."""
     print("Ha habido un problema en la gestión de recursos y se ha decidido que parte de la tripulación debe abandonar la nave para ahorrar suministros.")
+    print()
     eleccion = input("¿Deseas que parte de la tripulación abandone la nave? (s/n): ").lower()
     while eleccion != 's' and eleccion != 'n':
         print("Opción no válida. Intente de nuevo.")
+        print()
         eleccion = input("¿Deseas que parte de la tripulación abandone la nave? (s/n): ").lower()
     if eleccion == 's':
         print("Parte de la tripulación ha abandonado la nave, ahorrando suministros pero reduciendo la moral.")
@@ -210,9 +219,11 @@ def ganar_combustible_moral():
 def minar_combustible():
     """Evento que permite minar combustible a costa de suministros."""
     print("Has encontrado un asteroide rico en combustible.")
+    print()
     eleccion = input("¿Deseas minar el combustible? (s/n): ").lower()
     while eleccion != "s" and eleccion != "n":
         print("Opción no válida. Intente de nuevo.")
+        print()
         eleccion = input("¿Deseas minar el combustible? (s/n): ").lower()
     if eleccion == "s":
         print("Has minado combustible, pero has consumido algunos suministros en el proceso.")
@@ -225,9 +236,11 @@ def estacion_de_servicio():
     """Evento que permite restablecer integridad a costa de unos días"""
     print("Te has encontrado con una estacion de servicio aliada, mientras te dispones a recargar algo de combustible rápidamente")
     print("Consciente de tu situación, la estación decide hacer una reparación gratis, lo negativo es que tardarán un par de días en hacerlo.")
+    print()
     eleccion = input("¿Aceptas la reparación? (s/n): ").lower()
     while eleccion != "s" and eleccion != "n":
         print("Opción no válida. Intente de nuevo.")
+        print()
         eleccion = input("¿Aceptas la reparación? (s/n): ").lower()
     if eleccion == "s":
         print("Has aceptado, además del combustible reparán tu casco.")
@@ -305,11 +318,12 @@ def ataque_pirata():
     print("¡Unos piratas espaciales están atacando tu nave!")
     print("1. Pelear")
     print("2. Huir")
-
+    print()
     opcion = input("Elige una opción: ")
 
     while opcion != "1" and opcion != "2":
         print("Opción no válida. Intente de nuevo.")
+        print()
         opcion = input("Elige una opción: ")
 
     if opcion == "1":
@@ -349,10 +363,12 @@ def falla_navegacion():
     """Evento que reduce energía y puede causar perdida de días."""
     print("¡Ha ocurrido una falla en el sistema de navegación!")
     print("El sistema te pide que elijas entre reiniciar o intentar reparar manualmente.")
+    print()
     eleccion = input("¿Reiniciar sistema (1) o reparar manualmente (2)?: ")
 
     while eleccion != "1" and eleccion != "2":
         print("Opción no válida. Intente de nuevo.")
+        print()
         eleccion = input("¿Reiniciar sistema (1) o reparar manualmente (2)?: ")
 
     if eleccion == "1":
@@ -369,10 +385,12 @@ def falla_navegacion():
 def destructor_alienigena():
     """Enfrentas un destructor alienígena"""
     print("¡Un destructor alienígena se dispone a abrir fuego contra tu nave!")
+    print()
     eleccion = input("¿Usar escudos (1) o atacar directamente (2)?: ")
 
     while eleccion != "1" and eleccion != "2":
         print("Opción no válida.")
+        print()
         eleccion = input("¿Escudos (1) o atacar (2)?: ")
 
     if eleccion == "1":
@@ -399,10 +417,12 @@ def destructor_alienigena():
 def tormenta_particulas():
     """Una tormenta de partículas puede dañar o cargar tu nave según cómo reacciones."""
     print("¡Una tormenta de partículas se aproxima!")
+    print()
     eleccion = input("¿Activar escudos (1) o canalizar energía para cargar la nave (2)?: ")
     
     while eleccion != '1' and eleccion != '2':
         print("Opción no válida.")
+        print()
         eleccion = input("¿Escudos (1) o cargar energía (2)?: ")
     
     if eleccion == '1':
@@ -423,9 +443,11 @@ def tormenta_particulas():
 def fuente_energia_desconocida():
     """Encuentras una fuente de energía inestable."""
     print("¡Has encontrado una fuente de energía desconocida flotando en el espacio!")
+    print()
     eleccion = input("¿Deseas conectarte y extraer energía (s/n)?: ").lower()
     while eleccion != 's' and eleccion != 'n':
         print("Opción no válida.")
+        print()
         eleccion = input("¿Deseas conectarte y extraer energía (s/n)?: ").lower()
     
     if eleccion == 's':
@@ -458,10 +480,12 @@ def cortocircuito_sistemas():
 def energia_cometa():
     """Un cometa cercano emite partículas que tu nave puede aprovechar."""
     print("¡Un cometa pasa cerca de tu nave y emite partículas energéticas!")
+    print()
     eleccion = input("¿Deseas aprovechar la energía del cometa (s/n)?: ").lower()
     
     while eleccion != 's' and eleccion != 'n':
         print("Opción no válida.")
+        print()
         eleccion = input("¿Deseas aprovechar la energía del cometa (s/n)?: ").lower()
     
     if eleccion == 's':
@@ -483,10 +507,12 @@ def dron_imperio():
     print("Te consigues un dron de reconocimiento del Imperio, patrullando la zona")
     print("Si te descubre la flota podría alcanzarte antes de lo que esperabas; por eso decides esconderte")
     print("Pero podrías destruirlo y retrasar el avance de la flota un tiempo")
+    print()
     opcion = input("¿Qué decides, lo destruirás (s/n)?: ").lower()
     
     while opcion != "s" and opcion != "n":
         print("Opción no válida")
+        print()
         opcion = input("¿Qué decides, lo destruirás (s/n)?: ").lower()
     
     suerte = random.randint(1,100)
