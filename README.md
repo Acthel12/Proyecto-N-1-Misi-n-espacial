@@ -1,4 +1,4 @@
-# Proyecto-N-1 — Misi-n espacial
+# Proyecto-N-1 — Misión espacial
 
 Proyecto Nº1: simulador sencillo de gestión de recursos para una misión espacial.
 
