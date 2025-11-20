@@ -109,7 +109,7 @@ def actualizar_recurso(recurso, cantidad):
         distancia_evento = max(0, distancia_evento + cantidad)
 
 def comprobar_causa_de_gameover():
-    """Comprueba que recurso llego a 0 y devuelve cual es el recurso que causo el gameover"""
+    """Comprueba qué recurso llegó a 0 y devuelve cuál es el recurso que causó el gameover"""
     if oxigeno <= 0:
         return "oxigeno"
     elif combustible <= 0:
