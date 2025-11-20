@@ -94,20 +94,18 @@ def principal():
 
 def configurar_dificultad():
     """Configura los recursos iniciales según la dificultad seleccionada."""
+    global eventos_diarios
     if dificultad == "Fácil":
         recursos.actualizar_recurso("dias_restantes", 30)  # Más días en dificultad fácil
         recursos.actualizar_recurso("distancia", -1000)  # Menor distancia en dificultad fácil
-        global eventos_diarios
         eventos_diarios = 3  # Menos eventos diarios en dificultad fácil
     elif dificultad == "Normal":
         recursos.actualizar_recurso("dias_restantes", 20)  # Días estándar
         recursos.actualizar_recurso("distancia", -2000)  # Distancia estándar
-        global eventos_diarios
         eventos_diarios = 5  # Eventos diarios estándar
     elif dificultad == "Difícil":
         recursos.actualizar_recurso("dias_restantes", 15)  # Menos días en dificultad difícil
         recursos.actualizar_recurso("distancia", -2500)  # Mayor distancia en dificultad difícil
-        global eventos_diarios
         eventos_diarios = 7  # Más eventos diarios en dificultad difícil
     
 def in_game_menu():
