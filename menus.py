@@ -320,10 +320,14 @@ def narrativa_juego(): #Función para manejar la narrativa del juego de acuerdo 
     elif recursos.dificultad == "Difícil":
         if recursos.dias_transcurridos== 0 and not narrativa_ejecutada1:
             narrativa.narrar_primera_parte()
+            narrativa_ejecutada1 = True
         if 0 < recursos.distancia_recorrida <= 800 and not narrativa_ejecutada2:
             narrativa.narrar_segunda_parte()
+            narrativa_ejecutada2 = True
         if 800 < recursos.distancia_recorrida <= 1500 and not narrativa_ejecutada3:
             narrativa.narrar_tercera_parte()
+            narrativa_ejecutada3 = True
         if 1500 < recursos.distancia_recorrida <= 2000 and not narrativa_ejecutada4:
             narrativa.narrar_cuarta_parte()
+            narrativa_ejecutada4 = True
 
