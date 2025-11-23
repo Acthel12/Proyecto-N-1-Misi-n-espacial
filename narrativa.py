@@ -33,6 +33,7 @@ def narrar_primera_parte():
     ascii.narrativa()
     print("Corren. Te abres paso entre escombros y llamas, sabiendo que cada paso es un segundo de vida\npara millones. Te lanzas junto con tu equipo y el Jedi a la cabina del interceptor, el Spectre, la \núltima nave de escape. Tú eres quien lo pilota.")
     print("Esquivas rápidamente los interceptores del imperio, luego de un rato, gracias a la maniobrabilidad \ndel spectre logras llegar lejos de la batalla.")
+    print()
     input("Presiona Enter para continuar...")
     clear_screen()
     ascii.narrativa()
@@ -94,9 +95,9 @@ def narrar_final():
 def final_combustible():
     """Función para narrar el mensaje de game_over por falta de combustible"""
     ascii.narrativa()
-    print("Un pitido lastimero anuncia la sentencia final: los tanques de combustible están vacíos. La fragata pierde velocidad, los motores se apagan.")
-    print("A través de la ventana principal, las luces del destructor imperial Venganza Silenciosa se agigantan, sus cañones turboláser brillando con intención asesina.")
-    print("La huida ha terminado. Los gritos de tu equipo se ahogan en la desesperación al ver el haz de luz del destructor envolver vuestra nave, inmóvil y condenada.")
+    print("Un pitido lastimero anuncia la sentencia final: los tanques de combustible están vacíos. La \nfragata pierde velocidad, los motores se apagan.")
+    print("A través de la ventana principal, las luces del destructor imperial Venganza Silenciosa se \nagigantan, sus cañones turboláser brillando con intención asesina.")
+    print("La huida ha terminado. Los gritos de tu equipo se ahogan en la desesperación al ver el haz de \nluz del destructor envolver vuestra nave, inmóvil y condenada.")
     print("Los planos de la Estrella de la Muerte serán recuperados por el Imperio, y tu destino, sellado.")
     print("\n>>> MISIÓN FRACASADA: ATRAPADO Y CAPTURADO")
     print()
@@ -105,9 +106,9 @@ def final_combustible():
 def final_integridad():
     """Función para narrar el mensaje de game_over por falta de integridad"""
     ascii.narrativa()
-    print("Escuchas un chirrido agudo, seguido del sonido más aterrador de todos: el del aire escapando. El casco ha cedido bajo el fuego enemigo.")
-    print("Las grietas se expanden por la cabina, y la presión interna cae en picada. El frío te envuelve y las luces parpadean por última vez.")
-    print("Tu respiración se convierte en escarcha. Ya no hay escape. La nave se desgarra alrededor de tu equipo.")
+    print("Escuchas un chirrido agudo, seguido del sonido más aterrador de todos: el del aire escapando. \nEl casco ha cedido bajo el fuego enemigo.")
+    print("Las grietas se expanden por la cabina, y la presión interna cae en picada. El frío te envuelve \ny las luces parpadean por última vez.")
+    print("Tu respiración se convierte en escarcha. Ya no hay escape. La nave se desgarra alrededor de tu \nequipo.")
     print("\n>>> MISIÓN FRACASADA: FRAGATA DESTRUIDA")
     print()
     input("Presiona Enter para terminar...")
@@ -115,9 +116,9 @@ def final_integridad():
 def final_oxigeno():
     """Función para narrar el mensaje de game_over por falta de oxígeno"""
     ascii.narrativa()
-    print("El indicador de O₂ está en rojo intermitente. Notas el mareo, la euforia extraña que precede al colapso.")
-    print("Intentas enviar un mensaje, pero tus dedos son lentos y pesados. El mundo se vuelve borroso, los colores se distorsionan.")
-    print("Lo último que ves es el rostro de tu copiloto, antes de que el sueño eterno del espacio te reclame.")
+    print("El indicador de O₂ está en rojo intermitente. Notas el mareo, la euforia extraña que precede \nal colapso.")
+    print("Intentas enviar un mensaje, pero tus dedos son lentos y pesados. El mundo se vuelve borroso, \nlos colores se distorsionan.")
+    print("Lo último que ves es el rostro de tu copiloto, antes de que el sueño eterno del espacio te \nreclame.")
     print("\n>>> MISIÓN FRACASADA: ASFIXIA EN EL VACÍO")
     print()
     input("Presiona Enter para terminar...")
@@ -125,8 +126,8 @@ def final_oxigeno():
 def final_energia():
     """Función para narrar el mensaje de game_over por falta de energía"""    
     ascii.narrativa()
-    print("La cabina se sume en una oscuridad total. La energía de los escudos y los motores se ha agotado por completo. Estás a la deriva.")
-    print("A lo lejos, las luces del destructor Venganza Silenciosa te envuelven. Estás indefenso. Capturado.")
+    print("La cabina se sume en una oscuridad total. La energía de los escudos y los motores se ha agotado \npor completo. Estás a la deriva.")
+    print("A lo lejos, las luces del destructor Venganza Silenciosa te envuelven. Estás indefenso. \nCapturado.")
     print("Los planos de la Estrella de la Muerte caerán en manos del Imperio. Tu sacrificio fue en vano.")
     print("\n>>> MISIÓN FRACASADA: ENTREGADO AL ENEMIGO")
     print()
@@ -135,9 +136,9 @@ def final_energia():
 def final_dias():
     """Función para narrar el mensaje de game_over por falta de días"""    
     ascii.narrativa()
-    print("El cronómetro ha llegado a cero. No es solo el límite de la misión; es el tiempo que el Imperio calculó que tardaría en lograr su cometido.")
-    print("Las comunicaciones se inundan con un ruido ensordecedor: la flota de rastreo imperial ha triangulado tu posición y está saltando al hiperespacio.")
-    print("Ya no hay escapatoria. Los detectores de proximidad se vuelven locos mientras decenas de Destructores Imperiales aparecen sobre ti, sus siluetas negras bloqueando las estrellas.")
+    print("El cronómetro ha llegado a cero. No es solo el límite de la misión; es el tiempo que el Imperio \ncalculó que tardaría en lograr su cometido.")
+    print("Las comunicaciones se inundan con un ruido ensordecedor: la flota de rastreo imperial ha \ntriangulado tu posición y está saltando al hiperespacio.")
+    print("Ya no hay escapatoria. Los detectores de proximidad se vuelven locos mientras decenas de \nDestructores Imperiales aparecen sobre ti, sus siluetas negras bloqueando las estrellas.")
     print("Tu retraso ha sellado el destino de la Alianza. Los planos morirán contigo.")
     print("\n>>> MISIÓN FRACASADA: ALCANZADO POR LA SOMBRA IMPERIAL")
     print()
@@ -146,9 +147,9 @@ def final_dias():
 def final_moral():
     """Función para narrar el mensaje de game_over por falta de moral"""
     ascii.narrativa()
-    print("Los murmullos se convierten en gritos y los gritos en abierta rebelión. Tu equipo ha perdido toda esperanza.")
-    print("Un motín estalla en la bodega. La lucha interna por el último escape es brutal y caótica. La misión se ha derrumbado por dentro.")
-    print("Con el corazón destrozado, ves cómo el último miembro leal cae. La fragata cae en manos de desertores. El plan rebelde ha sido traicionado.")
+    print("Los murmullos se convierten en gritos y los gritos en abierta rebelión. Tu equipo ha perdido \ntoda esperanza.")
+    print("Un motín estalla en la bodega. La lucha interna por el último escape es brutal y caótica. La \nmisión se ha derrumbado por dentro.")
+    print("Con el corazón destrozado, ves cómo el último miembro leal cae. La fragata cae en manos de \ndesertores. El plan rebelde ha sido traicionado.")
     print("\n>>> MISIÓN FRACASADA: TRAICIÓN Y DESESPERACIÓN")
     print()
     input("Presiona Enter para terminar...")
@@ -156,9 +157,9 @@ def final_moral():
 def final_suministros():
     """Función para narrar el mensaje de game_over por falta de suministro"""
     ascii.narrativa()
-    print("El último paquete de raciones fue consumido hace días. El cansancio se convierte en agotamiento. La mente se nubla por la sed.")
-    print("Ya no puedes operar los controles con precisión. La debilidad te obliga a tumbarte en el suelo frío de la cabina.")
-    print("La Resistencia se desvanece contigo. No fue el enemigo quien te derrotó, fue la necesidad más básica.")
+    print("El último paquete de raciones fue consumido hace días. El cansancio se convierte en agotamiento. \nLa mente se nubla por la sed.")
+    print("Ya no puedes operar los controles con precisión. La debilidad te obliga a tumbarte en el suelo \nfrío de la cabina.")
+    print("La Resistencia se desvanece contigo. No fue el enemigo quien te derrotó, fue la necesidad más \nbásica.")
     print("\n>>> MISIÓN FRACASADA: AGOTAMIENTO Y HAMBRE")
     print()
     input("Presiona Enter para terminar...")
