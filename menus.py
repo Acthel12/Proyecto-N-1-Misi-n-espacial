@@ -11,7 +11,7 @@ narrativa_ejecutada1 = False
 narrativa_ejecutada2 = False
 narrativa_ejecutada3 = False
 narrativa_ejecutada4 = False
-dificultad = "Normal"  # Dificultad por defecto: Normal
+
 eventos_diarios = 5  # Número de eventos diarios por defecto
 
 def reiniciar_narrativa(): #Reinicia la narrativa
@@ -43,7 +43,7 @@ def principal():
         print("4) Salir")
         print()
         
-        global dificultad    
+
 
         eleccion = (input("Seleccione una opción: "))
         while eleccion != '1' and eleccion != '2' and eleccion != '3' and eleccion != '4': #Condiciones para cuando las opciones no son válidas
@@ -58,26 +58,26 @@ def principal():
         elif eleccion == '2':
             #Selección de dificultad
             print("=== SELECCIONAR DIFICULTAD ===")
-            print(f"Dificultad actual: {dificultad}")
+            print(f"Dificultad actual: {recursos.dificultad}")
             print("1. Fácil")
             print("2. Normal")
             print("3. Difícil")
             print()
             
-            dificultad = input("Seleccione la dificultad: ")
+            recursos.dificultad = input("Seleccione la dificultad: ")
             
-            while dificultad != '1' and dificultad != '2' and dificultad != '3': #Condiciones para cuando las opciones no son válidas
+            while recursos.dificultad != '1' and recursos.dificultad != '2' and recursos.dificultad != '3': #Condiciones para cuando las opciones no son válidas
                 print("Opción no válida. Intente de nuevo.")
                 print()
-                dificultad = input("Seleccione la dificultad: ")    
+                recursos.dificultad = input("Seleccione la dificultad: ")    
             
-            if dificultad == '1':
-                dificultad = "Fácil"
-            elif dificultad == '2':
-                dificultad = "Normal"
-            elif dificultad == '3':
-                dificultad = "Difícil"
-            print(f"Dificultad establecida a: {dificultad}")
+            if recursos.dificultad == '1':
+                recursos.dificultad = "Fácil"
+            elif recursos.dificultad == '2':
+                recursos.dificultad = "Normal"
+            elif recursos.dificultad == '3':
+                recursos.dificultad = "Difícil"
+            print(f"Dificultad establecida a: {recursos.dificultad}")
             print()
             input("Presiona Enter para regresar al menú...")
         elif eleccion == '3':
@@ -95,15 +95,15 @@ def principal():
 def configurar_dificultad():
     """Configura los recursos iniciales según la dificultad seleccionada."""
     global eventos_diarios
-    if dificultad == "Fácil":
+    if recursos.dificultad == "Fácil":
         recursos.actualizar_recurso("dias_restantes", 30)  # Más días en dificultad fácil
         recursos.actualizar_recurso("distancia", -1000)  # Menor distancia en dificultad fácil
         eventos_diarios = 3  # Menos eventos diarios en dificultad fácil
-    elif dificultad == "Normal":
+    elif recursos.dificultad == "Normal":
         recursos.actualizar_recurso("dias_restantes", 20)  # Días estándar
         recursos.actualizar_recurso("distancia", -2000)  # Distancia estándar
         eventos_diarios = 5  # Eventos diarios estándar
-    elif dificultad == "Difícil":
+    elif recursos.dificultad == "Difícil":
         recursos.actualizar_recurso("dias_restantes", 15)  # Menos días en dificultad difícil
         recursos.actualizar_recurso("distancia", -2500)  # Mayor distancia en dificultad difícil
         eventos_diarios = 7  # Más eventos diarios en dificultad difícil
@@ -159,7 +159,7 @@ def fin_dia():
     ascii.fin_dia()
     recursos.mostrar_recursos()
     recursos.actualizar_recurso("dias", 1)
-    if dificultad == "Difícil":
+    if recursos.dificultad == "Difícil":
         recursos.actualizar_recurso("suministros", -10)  # Pérdida adicional de suministros en dificultad difícil
         recursos.actualizar_recurso("moral", -5)  # Pérdida adicional de moral en dificultad difícil
         recursos.actualizar_recurso("energia", -10)  # Pérdida adicional de energía en dificultad difícil
@@ -274,7 +274,7 @@ def motores(): #Función para manejar los motores de la nave
 def narrativa_juego(): #Función para manejar la narrativa del juego de acuerdo a la dificultad seleccionada
     """Narrativa para las diferents dificultades."""
     global narrativa_ejecutada1, narrativa_ejecutada2 , narrativa_ejecutada3, narrativa_ejecutada4
-    if dificultad == "Fácil":
+    if recursos.dificultad == "Fácil":
         if recursos.dias_transcurridos== 0 and not narrativa_ejecutada1:
             narrativa.narrar_primera_parte()
             narrativa_ejecutada1 = True
@@ -287,7 +287,7 @@ def narrativa_juego(): #Función para manejar la narrativa del juego de acuerdo 
         if 500 < recursos.distancia_recorrida <= 800 and not narrativa_ejecutada4:
             narrativa.narrar_cuarta_parte()
             narrativa_ejecutada4 = True
-    elif dificultad == "Normal":
+    elif recursos.dificultad == "Normal":
         if recursos.dias_transcurridos== 0 and not narrativa_ejecutada1:
             narrativa.narrar_primera_parte()
             narrativa_ejecutada1 = True
@@ -300,7 +300,7 @@ def narrativa_juego(): #Función para manejar la narrativa del juego de acuerdo 
         if 1000 < recursos.distancia_recorrida <= 1500 and not narrativa_ejecutada4:
             narrativa.narrar_cuarta_parte()
             narrativa_ejecutada4 = True
-    elif dificultad == "Difícil":
+    elif recursos.dificultad == "Difícil":
         if recursos.dias_transcurridos== 0 and not narrativa_ejecutada1:
             narrativa.narrar_primera_parte()
         if 0 < recursos.distancia_recorrida <= 800 and not narrativa_ejecutada2:

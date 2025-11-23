@@ -1,12 +1,12 @@
 import recursos
-import menus
+
 
 def multiplicador_por_dificultad():
-    if menus.dificultad == "Fácil":
+    if recursos.dificultad == "Fácil":
         return 0.9
-    if menus.dificultad == "Normal":
+    if recursos.dificultad == "Normal":
         return 1
-    if menus.dificultad == "Dificil":
+    if recursos.dificultad == "Difícil":
         return 1.15
 
 def puntuacion_final():
