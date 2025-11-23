@@ -10,6 +10,7 @@ distancia_a_destino = 0
 distancia_recorrida = 0 
 distancia_evento = 0 #Tenia algunas ideas para esto pero al final no lo implementamos lo dejo para un futuro si sigo con este proyecto por los jajas
 dificultad = "Normal"
+eventos_diarios = 5  # Número de eventos diarios por defecto
 
 def mostrar_recursos():
     """Muestra los recursos actuales del jugador."""
