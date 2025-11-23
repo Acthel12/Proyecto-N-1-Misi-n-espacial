@@ -1,34 +1,42 @@
  #Funciones para narrar la misión 'Ultimátum Espacial'
 import recursos
 import ascii
-import menus
+import os
 
 #Recuerda que la terminal se limpia cada vez que se inicia un menu asi que si quieres que el usuario pueda ver lo que se dice tienes que añadir un input("(mensaje)")
 #para que cuando le de a enter, pero esto lo vamos a ver cuando lo implimetemos en menu:
 
+def clear_screen():
+    """Limpia la pantalla de la consola."""
+    if os.name == 'nt':  # Revisa si el sistema operativo es Windows
+        os.system('cls')
+    else:  # Asume que es un sistema tipo Unix (Linux, macOS)
+        os.system('clear')
+
 def narrar_primera_parte():
     """Función para narrar la primera parte de la historia"""
     ascii.narrativa()
-    print("Estás en la fragata rebelde Corazón de Alderán junto con tu pequeño equipo de inteligencia. A tu alrededor, solo hay destrucción. El ruido de las alarmas perfora tus oídos y el aire huele a metal fundido. La batalla ha sido perdida.")
+    print("Estás en la fragata rebelde Corazón de Alderán junto con tu pequeño equipo de inteligencia. A tu \nalrededor, solo hay destrucción. El ruido de las alarmas perfora tus oídos y el aire huele a metal\nfundido. La batalla ha sido perdida.")
     print()
     input("Presiona Enter para continuar...")
-    menus.clear_screen()
+    clear_screen()
     ascii.narrativa()
-    print("El equipo de asalto terrestre o  más bien, lo que queda de él, regresa a la nave con un único superviviente, un Jedi. \nÉl había traído el objetivo a costa de sus compañeros: el Módulo de Datos cifrado Clase Delta. Este contenía los planos completos que revelarían la debilidad del arma de destrucción masiva más reciente del imperio, la estrella de la muerte.")
+    print("El equipo de asalto terrestre o  más bien, lo que queda de él, regresa a la nave con un único \nsuperviviente, un Jedi. Él había traído el objetivo a costa de sus compañeros: \nel Módulo de Datos cifrado Clase Delta. Este contenía los planos completos que revelarían la\ndebilidad del arma de destrucción masiva más reciente del imperio, la estrella de la muerte.")
     print()
     input("Presiona Enter para continuar...")
-    menus.clear_screen()
+    clear_screen()
     ascii.narrativa()
-    print("""Con rapidez, tu y tu equipo acogen al Jedi herido y cansado. Simultáneamente, con mucho pesar, te conectas con el comandante y le explicas la situación, el te dice "ya sabes lo que tienes que hacer, la Alianza cuenta contigo, te deseo suerte." """)
+    print("""Con rapidez, tu y tu equipo acogen al Jedi herido y cansado. Simultáneamente, con mucho pesar, te \nconectas con el comandante y le explicas la situación, el te dice "ya sabes lo que tienes que hacer, \nla Alianza cuenta contigo, te deseo suerte." """)
     print()
     input("Presiona Enter para continuar...")
-    menus.clear_screen()
+    clear_screen()
     ascii.narrativa()
-    print("Corren. Te abres paso entre escombros y llamas, sabiendo que cada paso es un segundo de vida para millones. Te lanzas junto con tu equipo y el Jedi a la cabina del interceptor, el Spectre, la última nave de escape. Tú eres quien lo pilota.")
-    print("Esquivas rapidamente los interceptores del imperio, luego de un rato, gracias a la maniobrabilidad del spectre logras llegar lejos de la batalla.")
-    menus.clear_screen()
+    print("Corren. Te abres paso entre escombros y llamas, sabiendo que cada paso es un segundo de vida\npara millones. Te lanzas junto con tu equipo y el Jedi a la cabina del interceptor, el Spectre, la \núltima nave de escape. Tú eres quien lo pilota.")
+    print("Esquivas rápidamente los interceptores del imperio, luego de un rato, gracias a la maniobrabilidad \ndel spectre logras llegar lejos de la batalla.")
+    input("Presiona Enter para continuar...")
+    clear_screen()
     ascii.narrativa()
-    print("No se informo la ubicacion de la base que recibiria los planos, solo se indico el sistema estelar destino AXKB-1001.")
+    print("No se informo la ubicacion de la base que recibiria los planos, \nsolo se indico el sistema estelar destino AXKB-1001.")
     print("Fijas el rumbo a AXKB-1001, y te preparas para tu viaje...")
     print()
     input("Presiona Enter para continuar...")
@@ -37,28 +45,28 @@ def narrar_primera_parte():
 def narrar_segunda_parte():
     """Función para narrar la segunda parte de la historia"""
     ascii.narrativa()
-    print("Las alarmas se disparan, advirtiéndote. Estás siendo esperado. El Imperio sabía que escaparían. \nUna flota de reconocimiento imperial liderada por el destructor Venganza Silenciosa emerge de la negrura y te persigue. No quieren una gran batalla, solo capturarlos y los planos.")
+    print("Las alarmas se disparan, advirtiéndote. Estás siendo esperado. El Imperio sabía que escaparían. \nUna flota de reconocimiento imperial liderada por el destructor Venganza Silenciosa emerge de la \nnegrura y te persigue. No quieren una gran batalla, solo capturarlos y los planos.")
     print()
     input("Presiona Enter para continuar...")
-    menus.clear_screen()
+    clear_screen()
     ascii.narrativa()
-    print("Escuchas la voz fría y autoritaria del General Vordus en tu comunicador, ofreciéndote un ultimátum que sabes que no puedes aceptar. \nTienes poco tiempo, debes entregar los planos antes de que caigan en manos equivocadas.")
+    print("Escuchas la voz fría y autoritaria del General Vordus en tu comunicador, ofreciéndote un ultimátum \nque sabes que no puedes aceptar. Tienes poco tiempo, debes entregar los planos antes de que caigan \nen manos equivocadas.")
     print()
     input("Presiona Enter para continuar...")
 
 def narrar_tercera_parte():
     """Función para narrar la tercera parte de la historia"""
     ascii.narrativa()
-    print("Estás esquivando. El Venganza Silenciosa te pisa los talones. \nTe obligan a desviarte a través de un denso campo de asteroides, y el destructor ha sembrado el camino con boyas de interdicción para atraparte en el espacio real. Debes pilotar con una precisión de cirujano.")
+    print("Estás esquivando. El Venganza Silenciosa te pisa los talones. \nTe obligan a desviarte a través de un denso campo de asteroides, y el destructor ha sembrado el \ncamino con boyas de interdicción para atraparte en el espacio real. Debes pilotar con una precisión \nde cirujano.")
     print()
     input("Presiona Enter para continuar...")
-    menus.clear_screen()
+    clear_screen()
     ascii.narrativa()
-    print("""De repente, un disparo te alcanza. Sientes cómo el impacto sacude tu nave. El hiperimpulsor está dañado. Tu tripulación se desespera. \nLa distancia se reduce. Vordus está a punto de alcanzarte, pero en ese momento, una señal débil y encriptada llega a tu comunicador. "Necesitan ayuda?" LLega una flota rebelde de tamaño considerable que obliga al general Vordus a retirarse.""")
-    print(""""Jaja, una pequeña flota de reconocimiento no podra acabar con las fuerzas del general Kaelen Var". Logras reparar los daños en el hiperimpulsor y te dan una nueva orden: "Volverán con una fuerza de asalto, dirígete a la base secreta en el Planeta Proton-9, nosotros debemos dispersarnos rápidamente" """)
+    print("""De repente, un disparo te alcanza. Sientes cómo el impacto sacude tu nave. El hiperimpulsor está\ndañado. Tu tripulación se desespera. La distancia se reduce. Vordus está a punto de alcanzarte, pero en ese \nmomento, una señal débil y encriptada llega a tu comunicador. "Necesitan ayuda?" LLega una flota \nrebelde de tamaño considerable que obliga al general Vordus a retirarse.""")
+    print(""""Jaja, una pequeña flota de reconocimiento no podra acabar con las fuerzas del general Kaelen Var". \nLogras reparar los daños en el hiperimpulsor y te dan una nueva orden: "Volverán con una fuerza de \nasalto, dirígete a la base secreta en el Planeta Proton-9, nosotros debemos dispersarnos rápidamente" """)
     print()
     input("Presiona Enter para continuar...")
-    menus.clear_screen()
+    clear_screen()
     ascii.narrativa()
     print("Con las reparaciones de emergencia realizadas y el destino claro, te diriges rápidamente al planeta Proton-9.")
     print()
@@ -67,17 +75,17 @@ def narrar_tercera_parte():
 def narrar_cuarta_parte():
     """Función para narrar la cuarta parte de la historia"""
     ascii.narrativa()
-    print("Llegas al sistema AXKB-1001 hogar del planeta Proton-9. Sabes que el destructor Venganza Silenciosa te sigue de cerca, entrando en el sistema. \nTe falta poco para llegar, tu tripulacion esta ansiosa. Debes llegar rápido a tu destino, antes de que tu sombra, el General Vordus, te encuentre. \nTodo depende de ti.")
+    print("Llegas al sistema AXKB-1001 hogar del planeta Proton-9. Sabes que el destructor Venganza Silenciosa \nte sigue de cerca, entrando en el sistema. Te falta poco para llegar, tu tripulacion esta ansiosa. \nDebes llegar rápido a tu destino, antes de que tu sombra, el General Vordus, te encuentre. \nTodo depende de ti.")
     print()
     input("Presiona Enter para continuar...")
 
 def narrar_final():
     """Función para narrar cuando ganas la aventura"""
     ascii.narrativa()
-    print("Con un último esfuerzo, logras transmitir los planos de la Estrella de la Muerte a la Alianza Rebelde desde Proton-9. La señal se envía justo cuando el destructor Venganza Silenciosa emerge de la atmósfera, incapaz de detenerte a tiempo.\nLa Alianza ahora tiene la información que necesita para planear un ataque decisivo contra el Imperio. Has cumplido tu misión, y aunque el camino ha sido arduo, tu valentía y determinación han salvado a millones.")
+    print("Con un último esfuerzo, logras transmitir los planos de la Estrella de la Muerte a la Alianza Rebelde \ndesde Proton-9. La señal se envía justo cuando el destructor Venganza Silenciosa emerge de la \natmósfera, incapaz de detenerte a tiempo. La Alianza ahora tiene la información que necesita para \nplanear un ataque decisivo contra el Imperio. Has cumplido tu misión, y aunque el camino ha sido \narduo, tu valentía y determinación han salvado a millones.")
     print()
     input("Presiona Enter para continuar...")
-    menus.clear_screen()
+    clear_screen()
     ascii.narrativa()
     print("¡Felicidades, has completado la misión 'Ultimátum Espacial' con éxito!")
     print()
