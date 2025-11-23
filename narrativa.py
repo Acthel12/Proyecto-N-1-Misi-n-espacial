@@ -26,7 +26,7 @@ def narrar_primera_parte():
     input("Presiona Enter para continuar...")
     clear_screen()
     ascii.narrativa()
-    print("""Con rapidez, tu y tu equipo acogen al Jedi herido y cansado. Simultáneamente, con mucho pesar, te \nconectas con el comandante y le explicas la situación, el te dice "ya sabes lo que tienes que hacer, \nla Alianza cuenta contigo, te deseo suerte." """)
+    print("""Con rapidez, tú y tu equipo acogen al Jedi herido y cansado. Simultáneamente, con mucho pesar, te \nconectas con el comandante y le explicas la situación, él te dice "ya sabes lo que tienes que hacer, \nla Alianza cuenta contigo, te deseo suerte." """)
     print()
     input("Presiona Enter para continuar...")
     clear_screen()
@@ -36,7 +36,7 @@ def narrar_primera_parte():
     input("Presiona Enter para continuar...")
     clear_screen()
     ascii.narrativa()
-    print("No se informo la ubicacion de la base que recibiria los planos, \nsolo se indico el sistema estelar destino AXKB-1001.")
+    print("No se informó la ubicación de la base que recibiría los planos, \nsolo se indicó el sistema estelar destino AXKB-1001.")
     print("Fijas el rumbo a AXKB-1001, y te preparas para tu viaje...")
     print()
     input("Presiona Enter para continuar...")
@@ -62,8 +62,8 @@ def narrar_tercera_parte():
     input("Presiona Enter para continuar...")
     clear_screen()
     ascii.narrativa()
-    print("""De repente, un disparo te alcanza. Sientes cómo el impacto sacude tu nave. El hiperimpulsor está\ndañado. Tu tripulación se desespera. La distancia se reduce. Vordus está a punto de alcanzarte, pero en ese \nmomento, una señal débil y encriptada llega a tu comunicador. "Necesitan ayuda?" LLega una flota \nrebelde de tamaño considerable que obliga al general Vordus a retirarse.""")
-    print(""""Jaja, una pequeña flota de reconocimiento no podra acabar con las fuerzas del general Kaelen Var". \nLogras reparar los daños en el hiperimpulsor y te dan una nueva orden: "Volverán con una fuerza de \nasalto, dirígete a la base secreta en el Planeta Proton-9, nosotros debemos dispersarnos rápidamente" """)
+    print("""De repente, un disparo te alcanza. Sientes cómo el impacto sacude tu nave. El hiperimpulsor está\ndañado. Tu tripulación se desespera. La distancia se reduce. Vordus está a punto de alcanzarte, pero en ese \nmomento, una señal débil y encriptada llega a tu comunicador. "¿Necesitan ayuda?" Llega una flota \nrebelde de tamaño considerable que obliga al general Vordus a retirarse.""")
+    print(""""Jaja, una pequeña flota de reconocimiento no podrá acabar con las fuerzas del general Kaelen Var". \nLogras reparar los daños en el hiperimpulsor y te dan una nueva orden: "Volverán con una fuerza de \nasalto, dirígete a la base secreta en el Planeta Proton-9, nosotros debemos dispersarnos rápidamente" """)
     print()
     input("Presiona Enter para continuar...")
     clear_screen()
@@ -75,7 +75,7 @@ def narrar_tercera_parte():
 def narrar_cuarta_parte():
     """Función para narrar la cuarta parte de la historia"""
     ascii.narrativa()
-    print("Llegas al sistema AXKB-1001 hogar del planeta Proton-9. Sabes que el destructor Venganza Silenciosa \nte sigue de cerca, entrando en el sistema. Te falta poco para llegar, tu tripulacion esta ansiosa. \nDebes llegar rápido a tu destino, antes de que tu sombra, el General Vordus, te encuentre. \nTodo depende de ti.")
+    print("Llegas al sistema AXKB-1001 hogar del planeta Proton-9. Sabes que el destructor Venganza Silenciosa \nte sigue de cerca, entrando en el sistema. Te falta poco para llegar, tu tripulación está ansiosa. \nDebes llegar rápido a tu destino, antes de que tu sombra, el General Vordus, te encuentre. \nTodo depende de ti.")
     print()
     input("Presiona Enter para continuar...")
 

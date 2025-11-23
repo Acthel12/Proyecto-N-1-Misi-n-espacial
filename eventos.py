@@ -21,7 +21,7 @@ def evento_aleatorio():
     while eventos_ocurridos.find(str(eventos)) != -1:
         eventos = random.randint(1,n)
     if eventos == 1:
-        asteriode_metalico()
+        asteroide_metalico()
         añadir_evento(eventos)
     elif eventos == 2:
         tormenta_cosmica_()
@@ -97,7 +97,7 @@ def evento_aleatorio():
 
 
 ## Eventos aleatorios que aumentan los recursos
-def asteriode_metalico():
+def asteroide_metalico():
     """Evento que otorga suministros y moral."""
     print("¡Has encontrado un asteroide metálico rico en recursos!")
     recursos.actualizar_recurso("suministros", 15)
@@ -152,7 +152,7 @@ def tormenta_cosmica_():
             recursos.actualizar_recurso("integridad", -40)
             recursos.actualizar_recurso("energia", -35)
 
-## Eventos de perdida de recursos
+## Eventos de pérdida de recursos
 def tormenta_cosmica_repentina():
     """Evento que reduce integridad y energía."""
     print("¡Una tormenta cósmica ha aparecido repentinamente y ha dañado tu nave!")
@@ -164,7 +164,7 @@ def repartir_suministros():
     """Evento para mejorar la moral a costa de suministros."""
     print("Has decidido visitar los camarotes para ver a la tripulación.")
     if recursos.moral <= 50:
-        print("Observas a la tripulacion desmotivada. Podrías aumentar la ración de suministros de hoy para elevar un poco los ánimos.")
+        print("Observas a la tripulación desmotivada. Podrías aumentar la ración de suministros de hoy para elevar un poco los ánimos.")
         print()
         eleccion = input("¿Deseas aumentar la ración de suministros? (s/n): ").lower()
         while eleccion != 's' and eleccion != 'n':
@@ -199,7 +199,7 @@ def abandonar_tripulacion():
         print("Parte de la tripulación ha abandonado la nave, ahorrando suministros pero reduciendo la moral.")
         recursos.actualizar_recurso("moral", -30)
     else:
-        print("Decides no abandonar a la tripulación, La tripulacion se alegra de tu decisión y confía más en ti.")
+        print("Decides no abandonar a la tripulación, La tripulación se alegra de tu decisión y confía más en ti.")
         print("Sin embargo, los suministros se han vuelto críticos debido a la sobrecarga de la tripulación.")
         recursos.actualizar_recurso("moral", 10)
         recursos.actualizar_recurso("suministros", -40)
@@ -234,7 +234,7 @@ def minar_combustible():
 
 def estacion_de_servicio():
     """Evento que permite restablecer integridad a costa de unos días"""
-    print("Te has encontrado con una estacion de servicio aliada, mientras te dispones a recargar algo de combustible rápidamente")
+    print("Te has encontrado con una estación de servicio aliada, mientras te dispones a recargar algo de combustible rápidamente")
     print("Consciente de tu situación, la estación decide hacer una reparación gratis, lo negativo es que tardarán un par de días en hacerlo.")
     print()
     eleccion = input("¿Aceptas la reparación? (s/n): ").lower()
@@ -243,7 +243,7 @@ def estacion_de_servicio():
         print()
         eleccion = input("¿Aceptas la reparación? (s/n): ").lower()
     if eleccion == "s":
-        print("Has aceptado, además del combustible reparán tu casco.")
+        print("Has aceptado, además del combustible repararán tu casco.")
         recursos.actualizar_recurso("combustible", 50)
         recursos.actualizar_recurso("integridad", 50)
         recursos.actualizar_recurso("dias_restantes", -4)
@@ -341,8 +341,8 @@ def ataque_pirata():
             recursos.actualizar_recurso("integridad", -25)
             recursos.actualizar_recurso("suministros", 15)
         elif suerte > 10:
-            print("Los piratas eran desertores del imperio con tecnología avanzada")
-            print("La batalla estuvo dificil pero lograste hacerte con la victoria")
+            print("Los piratas eran desertores del Imperio con tecnología avanzada")
+            print("La batalla estuvo difícil pero lograste hacerte con la victoria")
             print("Recuperas algunos suministros de los restos flotantes en el campo de batalla")
             recursos.actualizar_recurso("energia", -35)
             recursos.actualizar_recurso("integridad", -50)

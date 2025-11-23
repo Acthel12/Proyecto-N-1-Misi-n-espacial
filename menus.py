@@ -235,7 +235,7 @@ def motores(): #Función para manejar los motores de la nave
         print("Aquí puedes gestionar los motores de tu nave espacial.") #Indicaciones para el jugador
         print("¿Qué cantidad de combustible deseas usar para avanzar?")
         print("la cantidad máxima es 50 %.")
-        print("La cantidad minima es 0 %.")
+        print("La cantidad mínima es 0 %.")
         print(f"Tienes {recursos.combustible}% de combustible disponible.")
         print()
         cantidad = input("Ingresa la cantidad de combustible a usar: ")
@@ -251,7 +251,7 @@ def motores(): #Función para manejar los motores de la nave
         cantidad = float(cantidad)
         print(f"Usando {cantidad}% de combustible para avanzar...")
         print(f"Tu nave avanzará una distancia de {round(math.sqrt(cantidad/100) * (200 / math.sqrt(0.5)), 2)} años luz.") #Fórmula para calcular la distancia avanzada según el combustible usado
-        print("Está seguro?") #Confirmación antes de usar el combustible
+        print("¿Está seguro?") #Confirmación antes de usar el combustible
         print()
         confirmacion = input("Ingrese 's' para confirmar o 'n' para cancelar: ")
         while confirmacion != 's' and confirmacion != 'n':
@@ -272,7 +272,7 @@ def motores(): #Función para manejar los motores de la nave
             break
         
 def narrativa_juego(): #Función para manejar la narrativa del juego de acuerdo a la dificultad seleccionada
-    """Narrativa para las diferents dificultades."""
+    """Narrativa para las diferentes dificultades."""
     global narrativa_ejecutada1, narrativa_ejecutada2 , narrativa_ejecutada3, narrativa_ejecutada4
     if recursos.dificultad == "Fácil":
         if recursos.dias_transcurridos== 0 and not narrativa_ejecutada1:
