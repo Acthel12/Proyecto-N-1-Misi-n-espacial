@@ -9,6 +9,8 @@ suministros = 100
 distancia_a_destino = 0
 distancia_recorrida = 0 
 distancia_evento = 0 #Tenia algunas ideas para esto pero al final no lo implementamos lo dejo para un futuro si sigo con este proyecto por los jajas
+dificultad = "Normal"
+eventos_diarios = 5  # Número de eventos diarios por defecto
 
 def mostrar_recursos():
     """Muestra los recursos actuales del jugador."""
@@ -48,7 +50,7 @@ def validar_recursos():
 
 def actualizar_recurso(recurso, cantidad):
     """Actualiza un recurso específico en una cantidad dada."""
-    global oxigeno, combustible, energia, integridad, dias_restantes, dias_transcurridos, moral, suministros, distancia_a_destino, distancia_recorrida, distancia_evento
+    global oxigeno, combustible, energia, integridad, dias_restantes, dias_transcurridos, moral, suministros, distancia_a_destino, distancia_recorrida, distancia_evento, dificultad
     
     if recurso == "oxigeno":
         oxigeno = max(0, min(100, oxigeno + cantidad))
@@ -135,7 +137,7 @@ def comprobar_causa_de_gameover():
         
 def reiniciar_recursos():
     """Reinicia todos los recursos a sus valores iniciales."""
-    global oxigeno, combustible, energia, integridad, dias_restantes, dias_transcurridos, moral, suministros, distancia_a_destino, distancia_recorrida, distancia_evento
+    global oxigeno, combustible, energia, integridad, dias_restantes, dias_transcurridos, moral, suministros, distancia_a_destino, distancia_recorrida, distancia_evento, dificultad
     oxigeno = 100
     combustible = 100
     energia = 100
@@ -147,4 +149,5 @@ def reiniciar_recursos():
     distancia_a_destino = 0
     distancia_recorrida = 0 
     distancia_evento = 0
+    dificultad = "Normal"
 
